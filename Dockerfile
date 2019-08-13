@@ -13,4 +13,5 @@ RUN echo "install.packages(c('MASS','shiny','shinydashboard'))" > packages_compl
 RUN pip install keras tensorflow  
 RUN pip install scikit-learn torch
 RUN pip install pandas matplotlib 
+RUN apt-get install cmake
 RUN pip install face_recognition 
