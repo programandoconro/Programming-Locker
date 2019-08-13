@@ -10,5 +10,7 @@ RUN echo "install.packages(c('randomForest','e1071','neuralnet','caret'))" > pac
 RUN echo "install.packages(c('reticulate','keras'))" > packagesDL.R && Rscript packagesDL.R
 RUN echo "install.packages(c('MASS','shiny','shinydashboard'))" > packages_compl.R && Rscript packages_compl.R
 
-RUN pip install keras scikit-learn torch pandas  
+RUN pip install keras tensorflow  
+RUN pip install scikit-learn torch
+RUN pip install pandas matplotlib 
 RUN pip install face_recognition 
