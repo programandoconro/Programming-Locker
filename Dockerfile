@@ -11,3 +11,4 @@ RUN echo "install.packages(c('reticulate','keras'))" > packagesDL.R && Rscript p
 RUN echo "install.packages(c('MASS','shiny','shinydashboard'))" > packages_compl.R && Rscript packages_compl.R
 
 RUN pip install keras scikit-learn torch pandas  
+RUN pip install face_recognition 
