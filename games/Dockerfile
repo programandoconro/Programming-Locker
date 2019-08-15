@@ -1,3 +1,3 @@
 FROM ubuntu
-RUN apt-get update && apt-get upgrade 
-RUN apt-get install bastet moon-buggy ninvaders nsnake pacman4console
+RUN apt-get update && apt-get upgrade -y
+RUN apt-get install bastet moon-buggy ninvaders nsnake pacman4console -y
