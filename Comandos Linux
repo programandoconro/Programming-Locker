@@ -1,0 +1,81 @@
+######################################COMANDOS_IMPORTANTES##################################################################
+sudo apt-get update
+sudo apt-get upgrade
+sudo apt-get autoremove
+clear
+reboot
+poweroff
+shutdown -P +60 #apagar en una hora
+shutdown -c #cancelar timer
+
+############################comandos básicos########################
+
+cp example.txt ~ #copiar el archivo a capeta home
+
+mv example.txt ~/Downloads/ # mover archivo a Downloads
+
+rm example.txt #eliminar archivo
+
+touch example.txt #crear archivo
+
+gunzip example.txt.gz #  descomprimir
+
+#para buscar archivos
+
+locate -i 
+
+# ver carpeta 
+
+ls
+
+
+###################################################Data mining###############################################
+#número de filas
+
+wc -l *.txt
+
+#primeros y últimos 10 filas
+
+head -10 *.txt  
+tail -10 *.txt 
+
+#eliminar la primera fila de datos
+
+sed 1d *.txt
+
+#seleccionar quinta columna
+
+awk '{print $5}' *.txt 
+
+# cambiar el orden de columnas
+
+awk '{ print $3, $1 }' *.txt
+
+ps -ef | awk -F " " '{print $2}' 
+
+#separar en columnas dependiendo de caracter, en este caso dos puntos #(:)
+
+cut -d ':' -f1 *.txt > **.txt
+
+#cortar una sección intermedia de filas
+
+sed -n '250, 260p' *.txt > **.txt
+
+#dividir el archivo en 5 partes iguales
+
+split -n l/5 *.txt x
+
+######################################SISTEMA##################################################################
+
+top # ver los procesos activos en vivo
+
+ps -ef #imprimir todos los procesos en un momento determinado
+
+
+# ver lista de fuentes 
+
+sudo nano /etc/apt/sources.list
+
+# Quemar una imagen iso en USB en puerto USB sdb (a la derecha solo)
+
+sudo dd bs=4M if=/home/ro/Downloads/*.iso of=/dev/sdb status=progress
