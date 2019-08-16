@@ -26,7 +26,7 @@ apt install snap snapd -y
 snap install vlc -y
 
 #Latex
-apt-get install texlive-full && texmaker -y
+apt-get install texlive-full texmaker -y
 
 
 
