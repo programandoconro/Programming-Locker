@@ -6,7 +6,7 @@ apt-key adv --keyserver keys.gnupg.net --recv-key 'E19F5F87128899B192B1A2C2AD5F9
 add-apt-repository 'deb https://cloud.r-project.org/bin/linux/debian stretch-cran35/'
 
 apt update -y
-apt install r-base 
+apt install r-base-core r-deb -y
 
 # Docker 
 
