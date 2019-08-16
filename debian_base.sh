@@ -8,13 +8,13 @@ apt install docker-ce -y
 
 #R
 
-add-apt-repository "deb-src https://cloud.r-project.org/bin/linux/debian $(lsb_release -cs)-cran35/"
-apt instal r-base
+add-apt-repository 'deb https://cloud.r-project.org/bin/linux/debian stretch-cran35/'
+apt instal r-base -y
 
 #etcher
 
 echo "deb https://deb.etcher.io stable etcher" | sudo tee /etc/apt/sources.list.d/balena-etcher.list
-apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 379CE192D401AB61
+
 apt-get update
 apt-get install balena-etcher-electron
 
