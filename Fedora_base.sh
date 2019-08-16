@@ -1,6 +1,6 @@
- dnf -y install dnf-plugins-core
 
-   
+#Docker
+dnf -y install dnf-plugins-core
 
      dnf config-manager \
         --add-repo \
@@ -10,4 +10,7 @@ dnf install docker-ce docker-ce-cli containerd.io -y
 
 systemctl start docker
 
-docker run -it hello-world
+# Etcher
+wget https://balena.io/etcher/static/etcher-rpm.repo -O /etc/yum.repos.d/etcher-rpm.repo
+
+yum install -y balena-etcher-electron
