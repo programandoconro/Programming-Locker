@@ -1,0 +1,3 @@
+ssh-keygen
+ssh-copy-id -i ~/.ssh/id_rsa.pub UserName@RemoteServer
+ssh-add
