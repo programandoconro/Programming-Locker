@@ -79,3 +79,11 @@ sudo nano /etc/apt/sources.list
 # Quemar una imagen iso en USB en puerto USB sdb (a la derecha solo)
 
 sudo dd bs=4M if=/home/ro/Downloads/*.iso of=/dev/sdb status=progress
+
+## Temperatura CPU
+
+/opt/vc/bin/vcgencmd measure_temp
+
+## Espacio en disco
+
+df
