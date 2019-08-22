@@ -136,6 +136,13 @@ elinks
 wget
 
 
+### Audio ssh ######
+
+amixer scontrols 
+
+# Busca el dispositivo y cambia el volumen 
+
+amixer sset 'PCM' 50%
 
 
 
