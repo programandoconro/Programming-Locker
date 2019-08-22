@@ -89,6 +89,14 @@ sudo dd bs=4M if=/home/ro/Downloads/*.iso of=/dev/sdb status=progress
 
 df
 
+# Permisos 
+
+sudo chmod a+rwx /path/to/file”
+
+
+######################## Operaciones ###########################################
+
+
 # For loop
 
             #!/bin/bash
