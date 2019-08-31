@@ -37,8 +37,8 @@ tar -xvJf tor-browser-linux64-8.5.4_en-US.tar.xz
 
 cd && mkdir Rstudio && cd Rstudio
 wget https://download1.rstudio.org/desktop/centos7/x86_64/rstudio-1.2.1335-x86_64.rpm 
-dnf install compat-openssl10.x86_6
-sudo dnf localinstall rstudio-1.2.1335-x86_64.rpm 
+dnf install compat-openssl10.x86_6 -y
+dnf localinstall rstudio-1.2.1335-x86_64.rpm -y 
 
 # librerias fundamentales
 
@@ -63,11 +63,14 @@ systemctl start sshd.service
 sudo systemctl enable sshd.service
 
 # Wordpress
-mkdir Wordpress && cd Wordpress
+
+cd && mkdir Wordpress && cd Wordpress
 wget https://public-api.wordpress.com/rest/v1.1/desktop/linux/download
 #ir a la carpeta y clickear wpcom para usar
 
 # Anaconda
+
+cd $ mkdir Ananconda && cd Anaconda
 
 wget https://repo.anaconda.com/archive/Anaconda3-2019.07-Linux-x86_64.sh
 bash Anaconda3-2019.07-Linux-x86_64.sh
