@@ -38,11 +38,11 @@ rpm -i rstudio-1.2.1335-x86_64.rpm -y
 
 /usr/bin/python2.7 -m pip install --upgrade --user virtualenv
 
-echo 'install.packages(c(
-'keras',ggplot2','caret','1071',
-'randomForest','MASS','tensorflow',
-'zoo','stringr','dplyr','lubridate',
-'shiny','shinydasboard','neuralnet')) ; install_keras() ; install_tensorflow() > libs.R && Rscript libs.R
+echo 'install.packages(c('keras','ggplot2',
+'caret','e1071','randomForest','MASS',
+'tensorflow','zoo','stringr','dplyr',
+'lubridate','shiny','shinydasboard','neuralnet')) ; 
+install_keras() ; install_tensorflow()' > libs.R && Rscript libs.R
 
 yum update -y
 yum upgrade -y
