@@ -1,11 +1,28 @@
-FROM debian
 
-RUN apt-get update && apt-get upgrade -y
-RUN apt-get install r-base git -y 
 
-RUN echo "install.packages(c('dplyr'))" > packages_R.R && Rscript packages_R.R
-RUN echo "install.packages(c('zoo'))" > packages2_R.R && Rscript packages2_R.R
-RUN echo "install.packages(c('lubridate'))" > packages3_R.R && Rscript packages3_R.R
-RUN echo "install.packages(c('randomForest','e1071','neuralnet','caret'))" > packagesML.R && Rscript packagesML.R
-RUN echo "install.packages(c('reticulate'))" > packagesDL.R && Rscript packagesDL.R
-RUN echo "install.packages(c('MASS'))" > packages_compl.R && Rscript packages_compl.
+FROM centos
+RUN yum update && upgrade -y
+
+# programas preferidos 
+RUN dnf install git nano htop wget elinks python-pip R nmap vim -y
+
+RUN /usr/bin/python2.7 -m pip install --upgrade --user virtualenv
+
+#rstudio
+RUN wget https://download1.rstudio.org/desktop/centos7/x86_64/rstudio-1.2.1335-x86_64.rpm
+#rpm -i rstudio-1.2.1335-x86_64.rpm 
+
+RUN /usr/bin/python2.7 -m pip install --upgrade --user virtualenv
+
+RUN echo " local({
+  r <- getOption('repos')
+  r['CRAN'] <- 'http://cran.cnr.berkeley.edu/'
+  options(repos = r)
+}) ;
+install.packages(c('keras','ggplot2',
+'caret','e1071','randomForest','MASS',
+'tensorflow','zoo','stringr','dplyr',
+'lubridate','shiny','shinydasboard','neuralnet')) ; 
+library(keras) ; library (tensorflow) 
+install_keras() ; install_tensorflow() " > libs.R && Rscript libs.R
+
