@@ -31,6 +31,7 @@ mkdir tor
 cd tor
 wget https://www.torproject.org/dist/torbrowser/8.5.4/tor-browser-linux64-8.5.4_en-US.tar.xz
 tar -xvJf tor-browser-linux64-8.5.4_en-US.tar.xz
+# ir a la carpeta y clickear para usar tor
 
 #rstudio
 
@@ -64,6 +65,7 @@ sudo systemctl enable sshd.service
 # Wordpress
 mkdir Wordpress && cd Wordpress
 wget https://public-api.wordpress.com/rest/v1.1/desktop/linux/download
+#ir a la carpeta y clickear wpcom para usar
 
 # Anaconda
 
