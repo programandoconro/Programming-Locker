@@ -57,5 +57,12 @@ sudo systemctl enable sshd.service
 mkdir Wordpress && cd Wordpress
 wget https://public-api.wordpress.com/rest/v1.1/desktop/linux/download
 
+# Anaconda
+
+wget https://repo.anaconda.com/archive/Anaconda3-2019.07-Linux-x86_64.sh
+bash Anaconda3-2019.07-Linux-x86_64.sh
+source ~/.bashrc
+
+
 yum update -y
 yum upgrade -y
