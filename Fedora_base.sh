@@ -31,9 +31,10 @@ cd tor
 wget https://www.torproject.org/dist/torbrowser/8.5.4/tor-browser-linux64-8.5.4_en-US.tar.xz
 tar -xvJf tor-browser-linux64-8.5.4_en-US.tar.xz
 
+cd && mkdir Rstudio && cd Rstudio
 #rstudio
 wget https://download1.rstudio.org/desktop/centos7/x86_64/rstudio-1.2.1335-x86_64.rpm
-rpm -i rstudio-1.2.1335-x86_64.rpm 
+#rpm -i rstudio-1.2.1335-x86_64.rpm 
 
 /usr/bin/python2.7 -m pip install --upgrade --user virtualenv
 
