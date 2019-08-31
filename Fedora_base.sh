@@ -79,6 +79,12 @@ unzip etcher-electron-1.4.4-linux-x64.zip
 chmod +x etcher-electron-1.4.4-x86_64.AppImage
 ./Etcher-1.0.0-linux-x64.AppImage
 
+# Latex
+
+dnf install texlive-scheme-basic
+wget xm1math.net/texmaker/texmaker_fedora20-4.3-xm1.x86_64.rpm
+yum localinstall texmaker_fedora20-4.3-xm1.x86_64.rpm
+
 # Actualizar
 
 yum update -y
