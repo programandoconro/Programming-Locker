@@ -73,14 +73,14 @@ wget https://public-api.wordpress.com/rest/v1.1/desktop/linux/download
 cd $ mkdir Ananconda && cd Anaconda
 
 wget https://repo.anaconda.com/archive/Anaconda3-2019.07-Linux-x86_64.sh
-bash Anaconda3-2019.07-Linux-x86_64.sh
-source ~/.bashrc
+bash Anaconda3-2019.07-Linux-x86_64.sh -y
+source ~/.bashrc -y
 
 #etcher
 wget https://github.com/resin-io/etcher/releases/download/v1.4.4/etcher-electron-1.4.4-linux-x64.zip
 unzip etcher-electron-1.4.4-linux-x64.zip
 chmod +x etcher-electron-1.4.4-x86_64.AppImage
-./Etcher-1.0.0-linux-x64.AppImage
+./Etcher-1.0.0-linux-x64.AppImage -y
 
 # Latex
 
