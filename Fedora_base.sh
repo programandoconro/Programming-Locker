@@ -77,16 +77,10 @@ bash Anaconda3-2019.07-Linux-x86_64.sh -y
 source ~/.bashrc -y
 
 #etcher
-wget https://github.com/resin-io/etcher/releases/download/v1.4.4/etcher-electron-1.4.4-linux-x64.zip
-unzip etcher-electron-1.4.4-linux-x64.zip
-chmod +x etcher-electron-1.4.4-x86_64.AppImage
-./Etcher-1.0.0-linux-x64.AppImage -y
-
-# Latex
-
-dnf install texlive-scheme-basic -y
-wget xm1math.net/texmaker/texmaker_fedora20-4.3-xm1.x86_64.rpm
-yum localinstall texmaker_fedora20-4.3-xm1.x86_64.rpm -y
+echo “deb https://deb.etcher.io stable etcher” | sudo tee /etc/apt/sources.list.d/balena-etcher.list
+apt-key adv –keyserver keyserver.ubuntu.com –recv-keys 379CE192D401AB61
+apt-get update
+apt-get install balena-etcher-electron
 
 # Actualizar
 
