@@ -3,7 +3,8 @@
 yum update -y
 yum upgrade -y
 
-dnf install git nano youtube-dl wget elinks wget curl python-pip redshift R macchanger nmap terminator transmission gnome-tweaks gimp okular vim -y
+# programas preferidos 
+dnf install git nano htop youtube-dl wget elinks wget curl python-pip redshift R macchanger nmap terminator transmission gnome-tweaks gimp okular vim -y
 
 /usr/bin/python2.7 -m pip install --upgrade --user virtualenv
 
@@ -49,6 +50,12 @@ install.packages(c('keras','ggplot2',
 'lubridate','shiny','shinydasboard','neuralnet')) ; 
 library(keras) ; library (tensorflow) 
 install_keras() ; install_tensorflow() " > libs.R && Rscript libs.R
+
+
+# SSH
+dnf install -y openssh-server
+systemctl start sshd.service
+sudo systemctl enable sshd.service
 
 yum update -y
 yum upgrade -y
