@@ -84,9 +84,9 @@ chmod +x etcher-electron-1.4.4-x86_64.AppImage
 
 # Latex
 
-dnf install texlive-scheme-basic
+dnf install texlive-scheme-basic -y
 wget xm1math.net/texmaker/texmaker_fedora20-4.3-xm1.x86_64.rpm
-yum localinstall texmaker_fedora20-4.3-xm1.x86_64.rpm
+yum localinstall texmaker_fedora20-4.3-xm1.x86_64.rpm -y
 
 # Actualizar
 
