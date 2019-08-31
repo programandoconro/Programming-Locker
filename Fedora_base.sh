@@ -53,7 +53,7 @@ install.packages(c('keras','ggplot2',
 'caret','e1071','randomForest','MASS',
 'tensorflow','zoo','stringr','dplyr',
 'lubridate','shiny','shinydasboard','neuralnet')) ; 
-library(keras) ; library (tensorflow) 
+library(keras) ; library (tensorflow) ;
 install_keras() ; install_tensorflow() " > libs.R && Rscript libs.R
 
 # SSH
