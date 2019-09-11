@@ -1,0 +1,12 @@
+sudo -i 
+#montamos y navegamos al boot
+
+nano config.txt 
+
+#dtoverlay=dwc2 
+
+nano cmdline.txt 
+
+# modules-load=dwc2,g_ether
+
+touch ssh
