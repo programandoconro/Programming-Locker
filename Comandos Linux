@@ -5,7 +5,7 @@ sudo apt-get upgrade
 sudo apt-get autoremove
 clear
 reboot
-poweroff
+poweroff -f
 shutdown -P +60 #apagar en una hora
 shutdown -c #cancelar timer
 
@@ -68,7 +68,13 @@ split -n l/5 *.txt x
 
 ###################################### SISTEMA ##################################################################
 
+uname -r
+uptime -p
+
+
 top # ver los procesos activos en vivo
+htop
+
 
 ps -ef #imprimir todos los procesos en un momento determinado
 
@@ -134,23 +140,26 @@ sudo chmod a+rwx /path/to/file”
 ################################### Network #####################################################
 
 ss 
+scp
 nmap
 itables
+who
 
 #################################### Web ########################################################
 
 youtube -dl --extract audio --format mp3 
 elinks
 wget
+curl
 
 
-### Audio ssh ######
+### Audio ssh rasp ######
 
 amixer scontrols 
 
 # Busca el dispositivo y cambia el volumen 
 
-amixer sset 'PCM' 50%
+amixer sset 'PCM' 100%
 
 
 
