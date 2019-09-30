@@ -9,7 +9,7 @@ apt install docker-ce -y
 #R
 
 add-apt-repository 'deb https://cloud.r-project.org/bin/linux/debian buster-cran35/'
-apt instal r-base -y
+apt install r-base -y
 
 #etcher
 
