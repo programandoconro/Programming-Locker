@@ -1,1 +1,6 @@
-docker run --rm -p 8787:8787 -e PASSWORD=yourpasswordhere rocker/rstudio
+# una instancia
+sudo docker run --rm -p 8787:8787 -e PASSWORD=yourpasswordhere rocker/rstudio
+
+
+# Servidor
+sudo docker run -d -p 8787:8787  -v $HOME:/home/'whoami' -e PASSWORD=yourpasswordhere rocker/rstudio
