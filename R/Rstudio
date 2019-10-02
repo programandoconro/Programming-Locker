@@ -2,7 +2,8 @@
 sudo docker run --rm -p 8787:8787 -e PASSWORD=yourpasswordhere rocker/rstudio
 
 # Servidor
-sudo docker run -d -p 8787:8787  -v $HOME:/home/'whoami' -e PASSWORD=****** rocker/rstudio
+sudo docker run -d -p 8787:8787  --restart always -v $HOME:/home/'whoami' -e PASSWORD=****** rocker/rstudio
+
 
 # Ve a 0.0.0.0:8787 o localhost:8787
 #nombre: rstudio
