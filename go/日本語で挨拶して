@@ -1,0 +1,22 @@
+package main
+ 
+import (
+        "fmt"
+	"time"  
+
+
+)
+ 
+func main() {
+
+       	y := time.Now()
+        z := y.Hour()
+
+
+        if  z > 17 {
+                fmt.Println("こにちわ")
+        } else {
+                fmt.Println("こんばんわ")
+        }
+}
+
