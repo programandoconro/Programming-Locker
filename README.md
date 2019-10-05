@@ -47,11 +47,11 @@ Comandos escenciales Linux y procedimientos luego de instalar OS. Archivo .conf 
     
     exit
     
- # Dockerfile. Golang example for saying Good morning or good night in Japanese depending on time
+ # Dockerfile. Ejemplo en Golang: Programa para saludar en Japonés dependiendo de la hora del día.
+ 
+ 	nano Dockerfile
      
-     nano Dockerfile
-     
- Add:
+ Añade:
  
     FROM debian
     RUN apt update -y
@@ -64,11 +64,11 @@ Comandos escenciales Linux y procedimientos luego de instalar OS. Archivo .conf 
     COPY 日本語で挨拶して.go /home/
     RUN go run /home/日本語で挨拶して.go
 
- #Create Go program 
+ #Crear el programa Go 
  
     nano 日本語で挨拶して.go
     
- add:
+ Añadimos:
     
     package main
  
@@ -90,15 +90,15 @@ Comandos escenciales Linux y procedimientos luego de instalar OS. Archivo .conf 
         }
     }
 
-# Build Docker image
+# Hacemos build a imagen Docker
 
       docker build . -t konichiwa_konbanwa
       
-# Go inside the container
+# Podemos ir dentro del contenedor
 
     docker run -it konichiwa_konbanwa
     
-# Run the program
+# Ejecutamos el programa para probarlo. 
 
     go run /home/日本語で挨拶して.go
     
