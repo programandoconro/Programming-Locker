@@ -1,1 +1,3 @@
-Browse localhost:8000 after docker-compose up
+    docker-compose up
+
+localhost:8000 on browser.  
