@@ -102,6 +102,7 @@ Comandos escenciales Linux y procedimientos luego de instalar OS. Archivo .conf 
 
     go run /home/日本語で挨拶して.go
     
+    exit
     
 ### Podemos crear un servidor con go
 
@@ -117,8 +118,12 @@ Comandos escenciales Linux y procedimientos luego de instalar OS. Archivo .conf 
 	log.Fatal(http.ListenAndServe(":8080", http.FileServer(http.Dir("/usr/share/doc"))))
      }
     
-    
-Con localhost:8080 accedemos:
+
+Con localhost:8080 accedemos
+
+### Mezclemos ambos archivos .go a ver que sucede
+
+
 
 
 
