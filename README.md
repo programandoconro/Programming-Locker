@@ -39,7 +39,70 @@ Comandos escenciales Linux y procedimientos luego de instalar OS. Archivo .conf 
     sudo systemctl start docker
 
     docker run -it ubuntu 
-
+    
+    
 # En otra pestaña de la terminal
  
     docker run -it centos
+    
+    exit
+    
+ # Dockerfile. Golang example for saying Good morning or good night in Japanese depending on time
+     
+     nano Dockerfile
+     
+ Add:
+ 
+    FROM debian
+    RUN apt update -y
+    RUN apt install golang -y
+    RUN export GOROOT=/usr/local/go
+    RUN export GOPATH=$HOME/Projects/Proj1
+    RUN export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
+    RUN echo "Europe/Spain" > /etc/timezone
+    RUN dpkg-reconfigure -f noninteractive tzdata
+    COPY 日本語で挨拶して.go /home/
+    RUN go run /home/日本語で挨拶して.go
+
+ #Create Go program 
+ 
+    nano 日本語で挨拶して.go
+    
+ add:
+    
+    package main
+ 
+    import (
+        "fmt"
+	    "time"  
+    )
+ 
+    func main() {
+
+       	y := time.Now()
+        z := y.Hour()
+
+        if  z < 19 && z > 6 {
+                fmt.Println("こにちわ")
+        } else {
+	
+                fmt.Println("こんばんわ")
+        }
+    }
+
+# Build Docker image
+
+      docker build . -t konichiwa_konbanwa
+      
+# Go inside the container
+
+    docker run -it konichiwa_konbanwa
+    
+# Run the program
+
+    go run /home/日本語で挨拶して.go
+    
+    
+    
+    
+
