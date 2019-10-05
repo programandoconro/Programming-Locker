@@ -125,34 +125,32 @@ Con localhost:8080 accedemos
 
     package main
 
-
     import (
-    "net/http"
-    "fmt"
-    "time"
+     "net/http"
+      "fmt"
+      "time"
   
     )
 
-    func sayHello(w http.ResponseWriter, r *http.Request) {
- 
+    func main() {
+       http.HandleFunc("/", HelloServer)
+       http.ListenAndServe(":8585", nil)
+    }
+
+    func HelloServer(w http.ResponseWriter, r *http.Request) {
      y := time.Now()
      z := y.Hour()
 
      if  z < 19 && z > 6 {
-           fmt.Println("こにちわ")
+
+           fmt.Fprintf(w, "こにちわ", r.URL.Path[1:])
     } else {
 
-            fmt.Println("こんばんわ")
-    }
-   
+            fmt.Fprintf(w, "こんばんわ", r.URL.Path[1:])
     }
 
-    func main() {
-    http.HandleFunc("/", sayHello)
-    if err := http.ListenAndServe(":9085", nil); err != nil {
-    panic(err)
-     }
     }
+
 
 
 
