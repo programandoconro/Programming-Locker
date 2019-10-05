@@ -1,2 +1,1 @@
-localhost:8000
-http://localhost:8000/wp-admin/
+Browse localhost:8000 after docker-compose up
