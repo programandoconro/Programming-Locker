@@ -121,7 +121,40 @@ Comandos escenciales Linux y procedimientos luego de instalar OS. Archivo .conf 
 
 Con localhost:8080 accedemos
 
-### Mezclemos ambos archivos .go a ver que sucede
+### Intentemos un servidor con el saludo 
+
+    package main
+
+
+    import (
+    "net/http"
+    "fmt"
+    "time"
+  
+    )
+
+    func sayHello(w http.ResponseWriter, r *http.Request) {
+ 
+     y := time.Now()
+     z := y.Hour()
+
+     if  z < 19 && z > 6 {
+           fmt.Println("こにちわ")
+    } else {
+
+            fmt.Println("こんばんわ")
+    }
+   
+    }
+
+    func main() {
+    http.HandleFunc("/", sayHello)
+    if err := http.ListenAndServe(":9085", nil); err != nil {
+    panic(err)
+     }
+    }
+
+
 
 
 
