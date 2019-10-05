@@ -1,6 +1,6 @@
 <div style="text-align:center"><img src="https://programandoconro.files.wordpress.com/2019/07/cropped-net-2.png?w=300" /></div>
 
-# Dockerfiles para data science y proyectos en la Raspberry
+### Dockerfiles para data science y proyectos en la Raspberry
 
 
 Diferentes archivos Dockerfile, bash para proyectos en la Raspberry Pi 3B+ y Data Science en Linux en general.
@@ -9,11 +9,11 @@ Comandos escenciales Linux y procedimientos luego de instalar OS. Archivo .conf 
 <div style="text-align:center"><img src="https://programandoconro.files.wordpress.com/2019/08/dsc8846.jpg" /></div>
 
 
-#Una vez dentro de la Raspberry cambiamos la clave predeterminada por medidas de seguridad.
+### Una vez dentro de la Raspberry cambiamos la clave predeterminada por medidas de seguridad.
 
     passwd
 
-# Actualizamos Raspbian.
+### Actualizamos Raspbian.
 
     sudo apt-get update $$ apt-get upgrade -y 
 
@@ -23,17 +23,17 @@ Comandos escenciales Linux y procedimientos luego de instalar OS. Archivo .conf 
 
     sudo curl -fsSL https://download.docker.com/linux/$(. /etc/os-release; echo "$ID")/gpg | sudo apt-key add -
 
-# Se agregan los repositorios la lista de fuentes 
+### Se agregan los repositorios la lista de fuentes 
 
     sudo echo "deb [arch=armhf] https://download.docker.com/linux/$(. /etc/os-release; echo "$ID") \
      $(lsb_release -cs) stable" | \
     sudo tee /etc/apt/sources.list.d/docker.list
-# Actualizamose instalamos Docker 
+### Actualizamose instalamos Docker 
 
     sudo apt update
     sudo apt install docker-ce
 
-# Habilitamos e iniciamos Docker
+### Habilitamos e iniciamos Docker
 
     sudo systemctl enable docker
     sudo systemctl start docker
@@ -41,13 +41,13 @@ Comandos escenciales Linux y procedimientos luego de instalar OS. Archivo .conf 
     docker run -it ubuntu 
     
     
-# En otra pestaña de la terminal
+### En otra pestaña de la terminal
  
     docker run -it centos
     
     exit
     
- # Dockerfile. Ejemplo en Golang: Programa para saludar en Japonés dependiendo de la hora del día.
+ ### Dockerfile. Ejemplo en Golang: Programa para saludar en Japonés dependiendo de la hora del día.
  
  	nano Dockerfile
      
@@ -64,7 +64,7 @@ Comandos escenciales Linux y procedimientos luego de instalar OS. Archivo .conf 
     COPY 日本語で挨拶して.go /home/
     RUN go run /home/日本語で挨拶して.go
 
- #Crear el programa Go 
+### Crear el programa Go 
  
     nano 日本語で挨拶して.go
     
@@ -90,19 +90,37 @@ Comandos escenciales Linux y procedimientos luego de instalar OS. Archivo .conf 
         }
     }
 
-# Hacemos build a imagen Docker
+### Hacemos build a imagen Docker
 
       docker build . -t konichiwa_konbanwa
       
-# Podemos ir dentro del contenedor
+### Podemos ir dentro del contenedor
 
     docker run -it konichiwa_konbanwa
     
-# Ejecutamos el programa para probarlo. 
+### Ejecutamos el programa para probarlo. 
 
     go run /home/日本語で挨拶して.go
     
     
+### Podemos crear un servidor con go
+
+    package main
+
+    import (
+	"log"
+	"net/http"
+     )
+
+     func main() {
+	// Simple static webserver:
+	log.Fatal(http.ListenAndServe(":8080", http.FileServer(http.Dir("/usr/share/doc"))))
+     }
     
     
+Con localhost:8080 accedemos:
+
+
+
+
 
