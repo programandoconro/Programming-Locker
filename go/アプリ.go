@@ -1,4 +1,4 @@
-    package main
+       package main
 
     import (
      "net/http"
@@ -9,10 +9,16 @@
 
     func main() {
        http.HandleFunc("/", HelloServer)
-       http.ListenAndServe(":8585", nil)
+       http.ListenAndServe(":8590", nil)
     }
 
     func HelloServer(w http.ResponseWriter, r *http.Request) {
+         fmt.Print( "お名前は何: ")
+        var onamae string    
+        fmt.Scanln(&onamae)       
+   
+        fmt.Print("どうぞよろし湖お願いします"+ onamae + "さん")
+
      y := time.Now()
      z := y.Hour()
 
@@ -25,3 +31,5 @@
     }
 
     }
+
+
