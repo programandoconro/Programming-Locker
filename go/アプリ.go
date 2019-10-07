@@ -13,8 +13,7 @@ package main
            fmt.Print( "こにちわ")
 
     } else {
-            fmt.Print( "こんばんわ")
-
+            fmt.Print( "こんばんわ")            
     }    
         fmt.Print( "お名前は何: ")
         var onamae string    
@@ -31,10 +30,13 @@ package main
 
         var q int     
         fmt.Scanln(&q)  
-
         if q == 1 {
 
         fmt.Print( "La opción 1. 漢字 es la correcta: 漢字 (かんじ)" )
+        for {
+        fmt.Print( "漢字, あなたが勝ちます" )
+        time.Sleep(10 * time.Millisecond)
+        }
 
         }else {
 
@@ -42,9 +44,7 @@ package main
         fmt.Print( "La opción 1. 漢字 es la correcta: 漢字 (かんじ)" )
  
         }
-
-
-}       
+}  
        
 
 
