@@ -3,7 +3,6 @@ package main
           "fmt"
           "time"
             )
- 
     func main() {
      y := time.Now()
      z := y.Hour()
@@ -25,10 +24,13 @@ package main
         fmt.Print( "¿ Cúal Kanji significa: Kanji ?")
         fmt.Print( "1. 漢字 2. 魚 3. 仕事 4. 女" )
         var q1 int
-        var q2 int     
+        var q2 int    
         fmt.Scanln(&q1)  
         if q1 == 1 {
-        fmt.Print( "La opción 1. 漢字 es la correcta: 漢字 (かんじ)" )
+        fmt.Print( "La opción 1. 漢字 es la correcta: 漢字 (かんじ). Mira todos los caracteres kanji que tienes que aprender para ganar" )
+        time.Sleep(10000 *time.Millisecond)
+        kanji := "一丁七万丈三上下不与丐丑且丕世丗丘丙丞両並丨个中丱串丶丸丹主丼丿乂乃久之乍乎乏乕乖乗乘乙九乞也乢乱乳乾亀亂亅了予争亊事二于云互五井亘亙些亜亞亟亠亡亢交亥亦亨享京亭亮亰亳亶人亻什$
+        fmt.Print(kanji)
         fmt.Print( "¿ Cúal Kanji significa compañia/empresa ?")
         fmt.Print( "1. 刀 2. 日本 3. 会社 4. 侍" )   
         fmt.Scanln(&q2)  
@@ -43,7 +45,8 @@ package main
         }
         }else {
         fmt.Print("No has acertado, intenta de nuevo (pista, 子 (こ, ko) significa niño, los niños aprenden 漢字 rápido")
-        fmt.Print( "La opción 1. 漢字 era la correcta: 漢字 (かんじ)" )  
+        fmt.Print( "La opción 1. 漢字 era la correcta: 漢字 (かんじ)" )
+
         }
         }  
 
