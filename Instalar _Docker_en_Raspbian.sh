@@ -8,7 +8,7 @@ sudo apt-get update $$ apt-get upgrade -y
 
 sudo apt install apt-transport-https ca-certificates curl gnupg2 software-properties-common
 
-· Descargamos la versión de docker para nuestro OS y agregamos key
+#Descargamos la versión de docker para nuestro OS y agregamos key
 
 sudo curl -fsSL https://download.docker.com/linux/$(. /etc/os-release; echo "$ID")/gpg | sudo apt-key add -
 
