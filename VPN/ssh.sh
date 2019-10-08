@@ -1,3 +1,4 @@
+#!bash
 # Agregar llaves para no usar contrase;as
 ssh-keygen
 ssh-copy-id -i ~/.ssh/id_rsa.pub UserName@RemoteServer
