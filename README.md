@@ -7,7 +7,7 @@ Comandos escenciales Linux y procedimientos luego de instalar OS. Archivo .conf 
 <div style="text-align:center"><img src="https://programandoconro.files.wordpress.com/2019/08/dsc8846.jpg" /></div>
 
 
-### Una vez dentro de la Raspberry cambiamos la clave predeterminada por medidas de seguridad.
+### Ejemplo a seguir luego de instalar Linux en la Raspberry cambiamos la clave predeterminada por medidas de seguridad.
 
     passwd
 
