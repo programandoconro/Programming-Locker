@@ -401,15 +401,17 @@ sudo chmod a+rwx /path/to/file”
 
 ######################## Operaciones ###########################################
 
-
 # For loop
 
-            #!/bin/bash
+          for i in {1..10} ; do 
+              echo "hola $i"; 
+          done
+
+           #!/bin/bash
             for i in $( ls ); do
                 echo item: $i
             done
-            
-
+      
 #for.
 
             #!/bin/bash
@@ -418,7 +420,6 @@ sudo chmod a+rwx /path/to/file”
                     echo $i
             done    
             
-
 # While 
 
              #!/bin/bash 
