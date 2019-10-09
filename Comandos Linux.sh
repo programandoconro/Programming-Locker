@@ -13,25 +13,29 @@ usermod -aG sudo nombreusuario
 passwd
 #Realizados estos pasos básicos,  es momento para actualizar el sistema. Dependiendo de la distribución, o más puntualmente, del gestor de paquetes (apt, yum, pacman), este comando puede variar. En sistemas Debian y derivados, apt es el gestor predeterminado.
 
- sudo apt update
- sudo apt upgrade
- sudo apt autoremove
+  apt update
+  apt upgrade
+  apt autoremove
 #Estos tres comandos pueden ser ejecutados en conjunto, utlizando && entre ellos. Tambien se puede agregar -y para no tener que hacerlo durante el proceso. 
 
 #El comando 8 es mi favorito, nos permite instalar todo tipo de programas en Linux: 
 
- sudo apt install nombreprograma
+sudo apt install nmap openssh-server htop -y
+ 
 #El siguiente comando quizás tendría que haber sido el primero, ya que nos permite crear un USB bootable con cualquier imagen de Linux. Lo que nos permitirá instalar y transportar Linux facilmente. 
 
  sudo dd bs=4M if=***.iso of=/dev/sdb status=progress
+
 #Ojo con el comando anterior, ya que hay que navegar a la carpeta donde se encuentra la imagen a quemar y conocer el sitio donde ha sido montado el USB. 
 
 #Para navegar a las carpetas utilizamos un formato tipo:
 
  cd /carpeta/a/navegar
+
 #Si no sabemos los nombres de las carpetas disponibles, podemos usar la tecla TAB para arrojar las posibilidades. Para regresar a la carpeta anterior utilizamos:
 
  cd ..
+
 #Si queremos saber donde está un dispositivo USB, disco duro y sus particiones:
 
  sudo fdisk -l 
@@ -192,7 +196,7 @@ git push -u origin master
 docker-compose -f docker-compose.yml up
 #Tambien podemos instalar Apache con php en segundos, ver link. 
 
-Tor, para navegar de manera anónima.  Simplemente descárgalo (https://www.torproject.org/dist/torbrowser/8.5.4/tor-browser-linux64-8.5.4_en-US.tar.xz) y
+# Tor, para navegar de manera anónima.  Simplemente descárgalo (https://www.torproject.org/dist/torbrowser/8.5.4/tor-browser-linux64-8.5.4_en-US.tar.xz) y
 
  tar -xvJf tor-browser-linux64-8.5.4_en-US.tar.xz
 #tar nos ha descomprido el archivo, ahora ejecuta en carpeta donde se encuentre Tor:
@@ -200,16 +204,22 @@ Tor, para navegar de manera anónima.  Simplemente descárgalo (https://www.tor
  ./tor-browser_en-US/Browser/start-tor-browser &
 #Sea lo que sea que hayamos hecho en Tor, si el ocio ataca, es momento para juegos en la terminal:
 
- apt-get install bastet moon-buggy ninvaders nsnake pacman4console -y
+ apt-get install bastet moon-buggy ninvaders nsnake pacman4console neofetch figlet -y
 #Con neofetch podemos ver detalles de nuestro sistema de manera divertida. 
 
  neofetch
 
+# Si queremos guardar el resultado de un comando a un archivo, por ejemplo, nmap, utilizamos ">" :
+
+nmap localhost > mylocalnet
+
+# O, por el contrario queremos aplicar un comando a un archivo, por ejemplo, un sript mysql, usamos "<" 
+
+mariadb --user=root --password -s < mariadb.sql
 
  figlet HOLA AMIGO 
 
-
- unzip archivo.zip
+ unzip *.zip
 #El comando de arriba habla por si mismo.
 
  dpkg -i archivo.deb && apt install -f
