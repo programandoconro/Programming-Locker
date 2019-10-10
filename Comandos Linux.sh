@@ -305,8 +305,11 @@ conda activate r_env
 
 #El comando 100 te lo dejo a tu recomendación, ¿Cúal me faltó? 
 
-
-
+# Para ejecutar scripts al iniciar el sistema
+cd ~
+sudo nano .bashrc
+# add the script 
+./script
 ######################################COMANDOS_IMPORTANTES##################################################################
 
 sudo apt-get update
