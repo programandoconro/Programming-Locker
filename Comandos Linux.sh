@@ -295,6 +295,9 @@ conda activate r_env
 
  cmatrix
 
+#listar las aplicaciones desktop
+
+ls /usr/share/applications | awk -F '.desktop' ' { print $1}' -
 
 #Ha sido un viaje interesante tratar de representar los 99 comandos que más me gusta utilizar en Linux. Para terminar, unos sencillos pero fundamentales.
 
