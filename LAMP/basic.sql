@@ -3,14 +3,23 @@
 CREATE DATABASE kanji;
 SHOW DATABASES;
 USE kanji;
-CREATE TABLE hiragana (romanji VARCHAR (31), 
-rom_A VARCHAR(31),
-rom_I VARCHAR(31),
-rom_U VARCHAR(31),
-rom_E VARCHAR(31), 
-rom_O VARCHAR(31),
-rom_N VARCHAR(31)
+CREATE TABLE hiragana ( 
+A TEXT(31),
+I TEXT(31),
+U TEXT(31),
+E TEXT(31), 
+O TEXT(31),
+N TEXT(31)
 );
+
+INSERT INTO hiragana (A,I,U,E,O,N) VALUES ("a","i","u","e","o","n");
+INSERT INTO hiragana (A,I,U,E,O,N) VALUES ("あ","い"	,"う"	,"え","お",	"ん");
+INSERT INTO hiragana (A,I,U,E,O,N) VALUES ("x","ぁ","ぃ","ぇ","ぉ","ぉ");
+INSERT INTO hiragana (romanji,A,I,U,E,O,N) VALUES ("a","i","u","e","o","n");
+INSERT INTO hiragana (romanji,A,I,U,E,O,N) VALUES ("a","i","u","e","o","n");
+INSERT INTO hiragana (romanji,A,I,U,E,O,N) VALUES ("a","i","u","e","o","n");
+INSERT INTO hiragana (romanji,A,I,U,E,O,N) VALUES ("a","i","u","e","o","n");
+
 
 DESCRIBE hiragana;
 
