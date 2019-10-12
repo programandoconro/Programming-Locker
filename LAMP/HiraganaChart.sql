@@ -27,7 +27,29 @@ INSERT INTO hiragana (romanji,A,I,U,E,O,N) VALUES ("Ch","ちゃ","ち","ちゅ",
 INSERT INTO hiragana (romanji,A,I,U,E,O,N) VALUES ("N","な","に","ぬ","ね","の","");
 INSERT INTO hiragana (romanji,A,I,U,E,O,N) VALUES ("Ny","にゃ","","にゅ","","にょ","");
 INSERT INTO hiragana (romanji,A,I,U,E,O,N) VALUES ("h","は","ひ","ふ","へ","ほ","");
-INSERT INTO hiragana (romanji,A,I,U,E,O,N) VALUES ("","あ","い","う","え","お","ん");
+INSERT INTO hiragana (romanji,A,I,U,E,O,N) VALUES ("hy","ひゃ","","ひゅ","","ひょ","");
+INSERT INTO hiragana (romanji,A,I,U,E,O,N) VALUES ("f","","","ふ","","","");
+INSERT INTO hiragana (romanji,A,I,U,E,O,N) VALUES ("","","","","","","");
+INSERT INTO hiragana (romanji,A,I,U,E,O,N) VALUES ("","","","","","","");
+INSERT INTO hiragana (romanji,A,I,U,E,O,N) VALUES ("","","","","","","");
+INSERT INTO hiragana (romanji,A,I,U,E,O,N) VALUES ("","","","","","","");
+INSERT INTO hiragana (romanji,A,I,U,E,O,N) VALUES ("","","","","","","");
+INSERT INTO hiragana (romanji,A,I,U,E,O,N) VALUES ("","","","","","","");
+INSERT INTO hiragana (romanji,A,I,U,E,O,N) VALUES ("","","","","","","");
+INSERT INTO hiragana (romanji,A,I,U,E,O,N) VALUES ("","","","","","","");
+INSERT INTO hiragana (romanji,A,I,U,E,O,N) VALUES ("","","","","","","");
+INSERT INTO hiragana (romanji,A,I,U,E,O,N) VALUES ("","","","","","","");
+INSERT INTO hiragana (romanji,A,I,U,E,O,N) VALUES ("","","","","","","");
+INSERT INTO hiragana (romanji,A,I,U,E,O,N) VALUES ("","","","","","","");
+INSERT INTO hiragana (romanji,A,I,U,E,O,N) VALUES ("","","","","","","");
+INSERT INTO hiragana (romanji,A,I,U,E,O,N) VALUES ("","","","","","","");
+INSERT INTO hiragana (romanji,A,I,U,E,O,N) VALUES ("","","","","","","");
+INSERT INTO hiragana (romanji,A,I,U,E,O,N) VALUES ("","","","","","","");
+INSERT INTO hiragana (romanji,A,I,U,E,O,N) VALUES ("","","","","","","");
+INSERT INTO hiragana (romanji,A,I,U,E,O,N) VALUES ("","","","","","","");
+INSERT INTO hiragana (romanji,A,I,U,E,O,N) VALUES ("","","","","","","");
+INSERT INTO hiragana (romanji,A,I,U,E,O,N) VALUES ("","","","","","","");
+
 
 SELECT * FROM hiragana;
 DESCRIBE hiragana;
