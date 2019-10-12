@@ -48,10 +48,24 @@ INSERT INTO hiragana (romanji,A,I,U,E,O,N) VALUES ("V","","","う゛","","","");
 # Queries de ejemplo:
 
 SELECT * FROM hiragana;
-SELECT A FROM hiragana 
-SELECT CONCAT(A,E) FROM hiragana ;
+SELECT A FROM hiragana;
+SELECT A E FROM hiragana;
+SELECT CONCAT(A,E) FROM hiragana;
 SELECT A FROM hiragana WHERE romanji = "T";
 SELECT * FROM hiragana WHERE romanji = "M";
+SELECT * FROM hiragana WHERE NOT romanji = "M";
+SELECT CONCAT(romanji,E) FROM hiragana WHERE romanji = "F";
+SELECT CONCAT(romanji, A) FROM hiragana WHERE NOT romanji =  "V";
+
+
+
+
+
+
+
+
+
+
 
 
 # Para agregar archivo csv a la base de datos ir a  /var/lib/mysql/kanji y colocarlo. LOAD DATA INFILE 'hiragana.csv' INTO TABLE hiragana;
