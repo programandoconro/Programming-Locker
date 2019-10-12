@@ -3,7 +3,6 @@
 CREATE DATABASE kanji;
 SHOW DATABASES;
 USE kanji
-DROP TABLE hiragana;
 CREATE TABLE hiragana ( romanji TEXT(31),
 A TEXT(31),
 I TEXT(31),
@@ -26,30 +25,25 @@ INSERT INTO hiragana (romanji,A,I,U,E,O,N) VALUES ("Ts","","","つ","","","");
 INSERT INTO hiragana (romanji,A,I,U,E,O,N) VALUES ("Ch","ちゃ","ち","ちゅ","ちぇ","ちょ","");
 INSERT INTO hiragana (romanji,A,I,U,E,O,N) VALUES ("N","な","に","ぬ","ね","の","");
 INSERT INTO hiragana (romanji,A,I,U,E,O,N) VALUES ("Ny","にゃ","","にゅ","","にょ","");
-INSERT INTO hiragana (romanji,A,I,U,E,O,N) VALUES ("h","は","ひ","ふ","へ","ほ","");
-INSERT INTO hiragana (romanji,A,I,U,E,O,N) VALUES ("hy","ひゃ","","ひゅ","","ひょ","");
-INSERT INTO hiragana (romanji,A,I,U,E,O,N) VALUES ("f","","","ふ","","","");
-INSERT INTO hiragana (romanji,A,I,U,E,O,N) VALUES ("","","","","","","");
-INSERT INTO hiragana (romanji,A,I,U,E,O,N) VALUES ("","","","","","","");
-INSERT INTO hiragana (romanji,A,I,U,E,O,N) VALUES ("","","","","","","");
-INSERT INTO hiragana (romanji,A,I,U,E,O,N) VALUES ("","","","","","","");
-INSERT INTO hiragana (romanji,A,I,U,E,O,N) VALUES ("","","","","","","");
-INSERT INTO hiragana (romanji,A,I,U,E,O,N) VALUES ("","","","","","","");
-INSERT INTO hiragana (romanji,A,I,U,E,O,N) VALUES ("","","","","","","");
-INSERT INTO hiragana (romanji,A,I,U,E,O,N) VALUES ("","","","","","","");
-INSERT INTO hiragana (romanji,A,I,U,E,O,N) VALUES ("","","","","","","");
-INSERT INTO hiragana (romanji,A,I,U,E,O,N) VALUES ("","","","","","","");
-INSERT INTO hiragana (romanji,A,I,U,E,O,N) VALUES ("","","","","","","");
-INSERT INTO hiragana (romanji,A,I,U,E,O,N) VALUES ("","","","","","","");
-INSERT INTO hiragana (romanji,A,I,U,E,O,N) VALUES ("","","","","","","");
-INSERT INTO hiragana (romanji,A,I,U,E,O,N) VALUES ("","","","","","","");
-INSERT INTO hiragana (romanji,A,I,U,E,O,N) VALUES ("","","","","","","");
-INSERT INTO hiragana (romanji,A,I,U,E,O,N) VALUES ("","","","","","","");
-INSERT INTO hiragana (romanji,A,I,U,E,O,N) VALUES ("","","","","","","");
-INSERT INTO hiragana (romanji,A,I,U,E,O,N) VALUES ("","","","","","","");
-INSERT INTO hiragana (romanji,A,I,U,E,O,N) VALUES ("","","","","","","");
-INSERT INTO hiragana (romanji,A,I,U,E,O,N) VALUES ("","","","","","","");
-
+INSERT INTO hiragana (romanji,A,I,U,E,O,N) VALUES ("H","は","ひ","ふ","へ","ほ","");
+INSERT INTO hiragana (romanji,A,I,U,E,O,N) VALUES ("Hy","ひゃ","","ひゅ","","ひょ","");
+INSERT INTO hiragana (romanji,A,I,U,E,O,N) VALUES ("F","","","ふ","","","");
+INSERT INTO hiragana (romanji,A,I,U,E,O,N) VALUES ("M","ま","み","む","め","も","");
+INSERT INTO hiragana (romanji,A,I,U,E,O,N) VALUES ("My","みゃ","","みゅ","","みょ","");
+INSERT INTO hiragana (romanji,A,I,U,E,O,N) VALUES ("Y","や","","ゆ","","よ","");
+INSERT INTO hiragana (romanji,A,I,U,E,O,N) VALUES ("R","ら","り","る","れ","ろ","");
+INSERT INTO hiragana (romanji,A,I,U,E,O,N) VALUES ("Ry","りゃ","りい","りゅ","りぇ","りょ","");
+INSERT INTO hiragana (romanji,A,I,U,E,O,N) VALUES ("W","わ","ゐ","","","を","");
+INSERT INTO hiragana (romanji,A,I,U,E,O,N) VALUES ("G","が","ぎ","ぐ","げ","ご","");
+INSERT INTO hiragana (romanji,A,I,U,E,O,N) VALUES ("Gy","ぎゃ","","ぎゅ","","ぎょ","");
+INSERT INTO hiragana (romanji,A,I,U,E,O,N) VALUES ("Z","ざ","","じ","","","");
+INSERT INTO hiragana (romanji,A,I,U,E,O,N) VALUES ("J","じゃ","","じ","じゅ","","");
+INSERT INTO hiragana (romanji,A,I,U,E,O,N) VALUES ("D","だ","","づ","で","ど","");
+INSERT INTO hiragana (romanji,A,I,U,E,O,N) VALUES ("B","ば","び","ぶ","べ","ぼ","");
+INSERT INTO hiragana (romanji,A,I,U,E,O,N) VALUES ("By","びゃ","","びゅ","","びょ","");
+INSERT INTO hiragana (romanji,A,I,U,E,O,N) VALUES ("P","ぱ","ぴ","ぷ","ぺ","ぽ","");
+INSERT INTO hiragana (romanji,A,I,U,E,O,N) VALUES ("Py","ぴゃ","","ぴゅ","","ぴょ","");
+INSERT INTO hiragana (romanji,A,I,U,E,O,N) VALUES ("V","","","う゛","","","");
 
 SELECT * FROM hiragana;
 DESCRIBE hiragana;
