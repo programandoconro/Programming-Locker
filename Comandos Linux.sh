@@ -1,4 +1,3 @@
-
 #Hace más de 4 años me fleché por GNU/Linux, los nombres Fedora y Ubuntu simplemente me cautivaron. La idea de una cantidad innumerable de aplicaciones, gratuítas, era demasiado atractiva. Desde ese día soy usuario diario, de hecho, mi ruta profesional marcó un giro brutal. Ahora comparto la filosofía de software libre, pero dejemos los rodeos y vayamos al punto y coma:
 
 su
@@ -73,31 +72,22 @@ sudo mount -rw /dev/sd* /carpeta
 #Si agregamos asterisco (*) luego de carpeta, moveremos todos archivos pero no la carpeta como tal. 
 
 #Para eliminar archivos y carpetas:
-
  rm nombrearchivo
  rm -r /carpeta
 #Un comando que tendría que haber nombrado antes:
-
  ls
 #Permite ver el contenido de la carpeta donde nos ubicamos. 
-
 #Uno que se le parece, y permite saber que tenemos conectado a los puertos USB:
-
  lsusb
 #Hemos sobrepasado el primer cuarto de la lista, ahora las cosas empezaran a ponerse más interesantes. 
-
  ss 
 #Simple pero hermoso, nos permite ver las conexiones de nuestro equipo, una herramienta defensiva importante a considerar. Puede ser acompañado de -l para listar los sockets que estan escuchando. 
-
  ss -l
 #Ya que nos hemos adentrado al networking, necesitamos nombrar a nmap. Estoy seguro que ya sabes como instalarlo. Este programa nos permite ver los puertos abiertos de una red, información importante para establecer comunicación entre computadoras. Para ver los puertos de la computadora que utilizamos:
-
  nmap localhost
 #Para evaluar la red local entera:
-
 nmap 192.168.1.1/24 
 #Si creemos que puede haber dispositivos que quieran escapar de nuestro mapeo podemos agregar -Pn para una búsqueda más exaustiva, -p para decir el puerto de interes, e incluso -open para listar solamente los puertos abiertos. 
-
  nmap -Pn 192.168.1.1/24 -p22 -open  
 #Si modificamos la IP por nuestra IP pública y nos conectamos desde una red externa, podremos auditar la seguridad de nuestra red. Es lo primero que haría alguien que intente ilegalmente a nuestra red. 
 
@@ -110,7 +100,6 @@ nmap 192.168.1.1/24
  ssh-copy-id -i ~/.ssh/id_rsa.pub usuario@servidor.local
 #En un  tutorial previo comparto mis experiencias al conocer este gran programa. Se puede instalar como un servidor y acceder remotamente, lo que permite programar a distancia. Con la opción -X, incluso podemos usar la interfaz gráfica de usuario. 
 #Las Raspberry Pi  son una manera genial de entender la potencia de un servidor ssh, tendremos acceso entero a una computadora sin usar periféricos. En este otro post explico con más detalle. SSH puede tambien utlizarse con el usuario, dominio y puerto a conectar. Se puede compartir archivos entre computadoras facilmente con:
-
 scp nombrearchivo pi@raspberrypi.local:~
 #Hablemos de algunos comandos que nos permiten hacer minería de datos. Estos comandos son muy útiles cuando la data es muy grande y la memoría RAM impide que los utilicemos en Python, R o Matlab. 
 
@@ -157,12 +146,9 @@ git push -u origin master
  sudo python archivo.py
  sudo Rscript archivo.R
 #Ya cerca de la mitad de este post, volvamos a algunos comando sencillos pero importantes que olvidé nombrar:
-
  clear
 #Seguramente el comando más importante para quienes aman el orden y la pulcritud.
-
 #Los procesos del sistema pueden mostrarse con:
-
  top
  htop
  ps -ef | less
@@ -181,23 +167,16 @@ git push -u origin master
 
  docker run -it ubuntu
 #De esta manera, tenemos un contenedor virtual corriendo Ubuntu en menos de un minuto. 
-
  docker ps -a
  docker images
 #Podemos listar los servicios e imagenes que tenemos. 
-
 #Creando un archivo llamado Dockerfile, podemos generar instrucciones personalizadas. Por ejemplo, este Dockerfile para instalar librerías Machine Learning en R y Python sobre un sistema Debian. Para crear la imagen:
-
  docker build .   
 #Podemos agregar -t seguido de un nombre para guardar nuestra imagen. 
-
 #Con docker-compose, podemos hacer instalaciones más complejas, como de wordpress, en cuestión de minutos también. Ver el archivo docker-compose-yml para tal fin. 
-
 docker-compose -f docker-compose.yml up
 #Tambien podemos instalar Apache con php en segundos, ver link. 
-
 # Tor, para navegar de manera anónima.  Simplemente descárgalo (https://www.torproject.org/dist/torbrowser/8.5.4/tor-browser-linux64-8.5.4_en-US.tar.xz) y
-
  tar -xvJf tor-browser-linux64-8.5.4_en-US.tar.xz
 #tar nos ha descomprido el archivo, ahora ejecuta en carpeta donde se encuentre Tor:
 
@@ -261,16 +240,12 @@ mariadb --user=root --password -s < mariadb.sql
  ampy --port /dev/ttyUSB** run archivo
  ampy --port /dev/ttyUSB** rm archivo
 #Para saber el nombre del host.
-
  hostname
 #Para cambiar el nombre de la computadora:
-
 hostnamectl set-hostname nuevonombre
 #Para listar los archivos que tengan un patrón, por ejemplo, que terminen en .iso. 
-
  ls | grep *.iso
 #Para saber el número de archivos en una carpeta:
-
  ls | wc -l
 #Desde que conocí Docker, ya no utilizo Anaconda. Sin embargo, es una manera práctica de gestionar ambientes de trabajo en R y Python. Para instalar Anaconda te dejo un post previo. Varios comandos son muy útiles:
 
@@ -295,10 +270,7 @@ conda activate r_env
 #El próximo comando te hará sentir en la matrix. 
  cmatrix
 
-
-
 #Ha sido un viaje interesante tratar de representar los 99 comandos que más me gusta utilizar en Linux. Para terminar, unos sencillos pero fundamentales.
-
  reboot
  shutdown -h +30
  poweroff -f
