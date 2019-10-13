@@ -291,13 +291,11 @@ conda activate r_env
 #Algunos módulos requieren de python 3 para funcionar y su instalación se realiza mediante pip3, por ejemplo, el famoso módulo Pyspark.
 
  pip3 install --user pyspark
-#El próximo comando te hará sentir en la matrix. 
 
+#El próximo comando te hará sentir en la matrix. 
  cmatrix
 
-#listar las aplicaciones desktop
 
-ls /usr/share/applications | awk -F '.desktop' ' { print $1}' -
 
 #Ha sido un viaje interesante tratar de representar los 99 comandos que más me gusta utilizar en Linux. Para terminar, unos sencillos pero fundamentales.
 
@@ -308,41 +306,30 @@ ls /usr/share/applications | awk -F '.desktop' ' { print $1}' -
 
 #El comando 100 te lo dejo a tu recomendación, ¿Cúal me faltó? 
 
+############## COMANDOS NIVEL INTERMEDIO ###################
+
 # Para ejecutar scripts al iniciar el sistema
 cd ~
 sudo nano .bashrc
 # add the script 
 ./script
-######################################COMANDOS_IMPORTANTES##################################################################
 
-sudo apt-get update
-sudo apt-get upgrade
-sudo apt-get autoremove
-clear
-reboot
-poweroff -f
-shutdown -P +60 #apagar en una hora
-shutdown -c #cancelar timer
+#listar las aplicaciones desktop
 
-############################comandos básicos########################
+ls /usr/share/applications | awk -F '.desktop' ' { print $1}' -
 
-cp example.txt ~ #copiar el archivo a capeta home
+#instalacion segura de mariadb
+apt install mariadb-server
+/usr/bin/mysql_secure_installation
 
-mv example.txt ~/Downloads/ # mover archivo a Downloads
-
-rm example.txt #eliminar archivo
-
-touch example.txt #crear archivo
+# Ver la historia del terminal
+history
 
 gunzip example.txt.gz #  descomprimir
 
 #para buscar archivos
-
+sudo apt-get install mlocate
 locate -i 
-
-# ver carpeta 
-
-ls
 
 ###################################################Data mining###############################################
 
@@ -385,35 +372,29 @@ split -n l/5 *.txt x
 
 uname -r
 uptime -p
-
-
-top # ver los procesos activos en vivo
-htop
-
-
-ps -ef #imprimir todos los procesos en un momento determinado
-
-
+#imprimir todos los procesos en un momento determinado
+ps -ef
 # ver lista de fuentes 
-
 sudo nano /etc/apt/sources.list
 
-# Quemar una imagen iso en USB en puerto USB sdb (a la derecha solo)
-
-sudo dd bs=4M if=/home/ro/Downloads/*.iso of=/dev/sdb status=progress
-
-## Temperatura CPU
+## Temperatura CPU Raspberry Pi
 
 /opt/vc/bin/vcgencmd measure_temp
+ 
+### Enviar archivo via ncat por tunel ssh
 
-## Espacio en disco
+cat myDocument.pdf | ssh me.myserver.com nc -l -p 20000
+### cliente
+nc me.myserver.com 20000 > myDocument.pdf
 
-df
+# Descargar video de youtube en formato mp3
+youtube -dl --extract audio --format mp3 
 
-# Permisos 
+### Audio ssh rasp ######
 
-sudo chmod a+rwx /path/to/file”
-
+amixer scontrols 
+# Busca el dispositivo y ajustar el volumen 
+amixer sset 'PCM' 100%
 
 ######################## Operaciones ###########################################
 
@@ -437,7 +418,6 @@ sudo chmod a+rwx /path/to/file”
             done    
             
 # While 
-
              #!/bin/bash 
              COUNTER=0
              while [  $COUNTER -lt 10 ]; do
@@ -453,31 +433,5 @@ sudo chmod a+rwx /path/to/file”
                  let COUNTER-=1
              done
              
-################################### Network #####################################################
-
-ss 
-scp
-nmap
-itables
-who
-
-#################################### Web ########################################################
-
-youtube -dl --extract audio --format mp3 
-elinks
-wget
-curl
-
-
-### Audio ssh rasp ######
-
-amixer scontrols 
-
-# Busca el dispositivo y cambia el volumen 
-
-amixer sset 'PCM' 100%
-
-
-
-
+###########################################################################
 
