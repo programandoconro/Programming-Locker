@@ -1,15 +1,14 @@
 <div style="text-align:center"><img src="https://programandoconro.files.wordpress.com/2019/07/cropped-net-2.png?w=300" /></div>
 
-### Docker en la Raspberry Pi 3B+
-
+### Códigos Post-instalación Linux, Instalación de software libre. Servidores y programas. Raspberry Pi. Dockerfiles para Data Science.
 
 Comparto diferentes archivos Dockerfile, bash para proyectos en la Raspberry Pi 3B+ y Data Science en Linux en general.
-Comandos escenciales Linux y procedimientos luego de instalar OS. Archivo .conf para conectarnos por ssh a la Raspberry via WIFI local. 
+Comandos escenciales Linux y procedimientos luego de instalar OS. Archivo .conf para conectarnos por ssh a la Raspberry via WIFI local. LAMP, R, Python, Golang. 
 
 <div style="text-align:center"><img src="https://programandoconro.files.wordpress.com/2019/08/dsc8846.jpg" /></div>
 
 
-### Una vez dentro de la Raspberry cambiamos la clave predeterminada por medidas de seguridad.
+### Ejemplo a seguir luego de instalar Linux en la Raspberry cambiamos la clave predeterminada por medidas de seguridad.
 
     passwd
 

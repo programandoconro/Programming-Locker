@@ -1,4 +1,3 @@
-
 sudo apt-get install python-pip
 
 curl -fsSL get.docker.com -o get-docker.sh
