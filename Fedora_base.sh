@@ -82,6 +82,13 @@ apt-key adv –keyserver keyserver.ubuntu.com –recv-keys 379CE192D401AB61
 apt-get update
 apt-get install balena-etcher-electron
 
+# VisualStudio
+
+vim /etc/yum.repos.d/vscode.repo
+sudo vim /etc/yum.repos.d/vscode.repo
+sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
+sudo dnf install code
+
 # Actualizar
 
 yum update -y
