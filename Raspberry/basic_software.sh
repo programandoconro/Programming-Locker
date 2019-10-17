@@ -13,3 +13,7 @@ EOF
 source ~/.bashrc
 
 echo "install.packages('ggplot2')" > requirements.R && Rscript requirements.R
+
+# Temp CPU
+/opt/vc/bin/vcgencmd measure_temp
+
