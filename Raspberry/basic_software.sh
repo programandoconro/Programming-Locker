@@ -1,6 +1,6 @@
-sudo apt install mariadb-server apache2 php \
-r-base nmap cmatrix bastet moon-buggy ninvaders nsnake \ 
-pacman4console neofetch figlet htop git -y
+sudo -i
+apt install mariadb-server apache2 php -y
+apt install r-base nmap cmatrix htop git -y
 
 # Install Golang on Raspberry Pi Zero
 url=`curl https://golang.org/dl/ | grep armv6l | sort --version-sort | tail -1 | grep -o -E https://dl.google.com/go/go[0-9]+\.[0-9]+((\.[0-9]+)?).linux-armv6l.tar.gz` 
