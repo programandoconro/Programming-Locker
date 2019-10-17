@@ -19,6 +19,9 @@ kubectl cluster-info
 kubectl get services                          # List all services in the namespace
 kubectl get pods --all-namespaces             # List all pods in all namespaces
 
+
+kubectl describe nodes holamundo
+
 #####################################################################################3
 # Si tienes solo Go
 sudo -i
