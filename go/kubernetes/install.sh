@@ -14,8 +14,10 @@ vi .kube/kind-config-kind
 kind create  cluster --name holamundo
 export KUBECONFIG="$(kind get kubeconfig-path --name="holamundo")"
 kubectl cluster-info
-
-
+  
+# Get commands with basic output
+kubectl get services                          # List all services in the namespace
+kubectl get pods --all-namespaces             # List all pods in all namespaces
 
 #####################################################################################3
 # Si tienes solo Go
