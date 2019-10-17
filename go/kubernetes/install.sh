@@ -4,10 +4,12 @@
 GO111MODULE="on" go get sigs.k8s.io/kind@v0.5.1 && kind create cluster
  export PATH=$PATH:$(go env GOPATH)/bin
  
- kind create cluster
+kind create cluster
 export KUBECONFIG="$(kind get kubeconfig-path --name="kind")"
 kubectl cluster-info
 kubectl cluster-info dump
+vi .kube/kind-config-kind
+
 
 #####################################################################################3
 # Si tienes solo Go
