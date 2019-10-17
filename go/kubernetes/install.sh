@@ -2,6 +2,7 @@
 # KIND: Si tienes Docker y Go. Simplemente ejutar:
 
 GO111MODULE="on" go get sigs.k8s.io/kind@v0.5.1 && kind create cluster
+ export PATH=$PATH:$(go env GOPATH)/bin
 
 #####################################################################################3
 # Si tienes solo Go
