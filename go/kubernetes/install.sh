@@ -10,6 +10,12 @@ kubectl cluster-info
 kubectl cluster-info dump
 vi .kube/kind-config-kind
 
+# Crear  un nuevo cluster
+kind create  cluster --name holamundo
+export KUBECONFIG="$(kind get kubeconfig-path --name="holamundo")"
+kubectl cluster-info
+
+
 
 #####################################################################################3
 # Si tienes solo Go
