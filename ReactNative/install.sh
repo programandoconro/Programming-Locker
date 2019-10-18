@@ -1,5 +1,4 @@
 # Ve a la configuración del teléfono Android y activa las opciones de desarrollador (ABOUT DEVICE ---- toca 7 veces la opción de BUILD NUMBER)
-
 # Ahora, en linux, conectamos por USB a Anrdorid.
 
 lsusb
@@ -11,10 +10,11 @@ echo 'SUBSYSTEM=="usb", ATTR{idVendor}=="04e8", MODE="0666", GROUP="plugdev"' | 
 adb devices
 
 #Habilita la conexión en tu teléfono.
-
 #Instala npm 
+
 apt install nmp nodejs -y
 
-# Instala node.js
+# Instala React
 
-sudo npm install -g create-react-app
+npm install -g create-react-app
+
