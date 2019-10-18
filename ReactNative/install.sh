@@ -18,3 +18,7 @@ apt install nmp nodejs -y
 
 npm install -g create-react-app
 
+npm install -g expo-cli
+expo init AwesomeProject
+cd AwesomeProject
+npm start # you can also use: expo start
