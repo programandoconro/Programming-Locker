@@ -18,7 +18,15 @@ apt install nmp nodejs -y
 
 npm install -g create-react-app
 
+# Instala expo y arranca el proyecto
+
 npm install -g expo-cli
 expo init AwesomeProject
 cd AwesomeProject
-npm start # you can also use: expo start
+npm start # o expo start
+
+# Modificamos el archivo App.js
+
+nano App.js
+
+# La app cambiara inmediatemente en nuestro dispositivo.
