@@ -3,7 +3,7 @@
 
 <h2> 今日の漢字は: </h2>
 
-<h1>
+<h1 style=font-size:200px>
 <?php
 /* ejemplo 1 */
 
