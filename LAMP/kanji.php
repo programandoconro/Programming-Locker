@@ -11,7 +11,7 @@ $i=rand(0,100) ;
 echo mb_substr($str,  $i, 1) ;
 
 echo "<script language='javascript' type='text/javascript'>";
-echo "alert('roの漢字へようこそ');";
+echo "alert('roと漢字へようこそ');";
 echo "</script>";
 ?>
 </h1>
