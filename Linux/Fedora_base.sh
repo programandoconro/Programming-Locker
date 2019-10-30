@@ -1,5 +1,7 @@
 #!bash
 
+sudo passwd root
+
 yum update -y
 yum upgrade -y
 
