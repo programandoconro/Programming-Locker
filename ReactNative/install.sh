@@ -12,7 +12,7 @@ adb devices
 #Habilita la conexión en tu teléfono.
 #Instala npm 
 
-apt install nmp nodejs -y
+apt install npm nodejs -y
 
 # Instala React
 
