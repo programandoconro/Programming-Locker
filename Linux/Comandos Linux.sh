@@ -145,6 +145,8 @@ git checkout -b 'robranch'
 
 git push origin robranch
 
+git branch -a
+
 #Scripts de Bash, Python o R, pueden ejecutarse facilmente desde la linea de comandos:
 
  sudo bash archivo.sh
