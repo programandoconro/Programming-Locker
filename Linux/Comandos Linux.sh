@@ -140,6 +140,11 @@ awk '{print $5}' nombrearchivo
 #Los commits y los push también pueden realizarse de esta manera o directamente en GitHub. 
 
 git push -u origin master
+
+git checkout -b 'robranch'
+
+git push origin robranch
+
 #Scripts de Bash, Python o R, pueden ejecutarse facilmente desde la linea de comandos:
 
  sudo bash archivo.sh
