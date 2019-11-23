@@ -31,5 +31,4 @@ async function  asyncCallTerricola() {
   console.log(result);
 };
 
-asyncCallExtraterrestre();
-asyncCallTerricola();
+[asyncCallExtraterrestre(), asyncCallTerricola()];
