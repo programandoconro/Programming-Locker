@@ -1,5 +1,5 @@
 #!bash
-# Agregar llaves para no usar contrase;as
+# Agregar llaves para no usar contraseñas.
 ssh-keygen
 ssh-copy-id -i ~/.ssh/id_rsa.pub UserName@RemoteServer
 ssh-add
@@ -13,13 +13,13 @@ scp -r /dir/ user@remote:~/Destino/
 
 ssh user@remote.local ls
 
-# por flojera podemos escribri un script bash para conectar rapidamente
+# por flojera podemos escribrir un script bash para conectar rapidamente.
 
 #!bash
 ssh user@remote.local
 
-# Para conectar fuera de la red local necesitamos la IP p'ublica del router y haber abierto un tunel para un servidor local
+# Para conectar fuera de la red local necesitamos la IP pública del router y haber abierto un túnel para un servidor local
 
 ssh user@IP 
 
-# Si el tunel esta abierto tendremos acceso a los equipos conectados en la red. 
+# Si el túnel esta abierto tendremos acceso a los equipos conectados en la red. 
