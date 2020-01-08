@@ -147,6 +147,11 @@ git push origin robranch
 
 git branch -a
 
+#Más opciones y comandos: 
+
+git help -a 
+git help -g
+
 #Scripts de Bash, Python o R, pueden ejecutarse facilmente desde la linea de comandos:
 
  sudo bash archivo.sh
