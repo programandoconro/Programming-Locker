@@ -342,6 +342,10 @@ locate -i
 echo "sudo apt update -y" > myUpdate.sh 
 time bash myUpdate.sh
 
+# Programar tareas
+sudo rm -f /var/run/crond.pid #delete pid
+sudo cron 00 00 *** myUpdate.sh #todos los dias a las 12
+
 
 ###################################################Data mining###############################################
 
