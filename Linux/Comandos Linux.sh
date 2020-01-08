@@ -310,6 +310,11 @@ gunzip example.txt.gz #  descomprimir
 sudo apt-get install mlocate
 locate -i 
 
+# tiempo de procesos
+echo "sudo apt update -y" > myUpdate.sh 
+time bash myUpdate.sh
+
+
 ###################################################Data mining###############################################
 
 #número de filas
