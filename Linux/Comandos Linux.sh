@@ -138,19 +138,42 @@ awk '{print $5}' nombrearchivo
 
  git pull origin master
 #Los commits y los push también pueden realizarse de esta manera o directamente en GitHub. 
+git add .
+
+git diff --cached
+
+git commit -m 'comment'
+
+(Alternatively, instead of running git add beforehand, you can use git commit -a)
 
 git push -u origin master
 
-git checkout -b 'robranch'
+git checkout -b 'robranch' #o (git switch robranch)
 
 git push origin robranch
 
 git branch -a
 
 #Más opciones y comandos: 
+git status
+git log
+git log -p
+git log --stat --summary
+
 
 git help -a 
 git help -g
+
+# Tutorial de git
+git help tutorial
+
+git config --global user.name "Your Name Comes Here"
+git config --global user.email you@yourdomain.example.com
+
+tar xzf project.tar.gz
+cd project
+git init
+
 
 #Scripts de Bash, Python o R, pueden ejecutarse facilmente desde la linea de comandos:
 
