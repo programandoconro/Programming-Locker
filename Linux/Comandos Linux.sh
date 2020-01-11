@@ -249,6 +249,7 @@ mariadb --user=root --password -s < mariadb.sql
 
  ifconfig
  ip address
+ iwconfig
 #Sin estos comandos la vida sería más dificil, no se como he tartado tanto en nombrarlos.
 
  kill idproceso
