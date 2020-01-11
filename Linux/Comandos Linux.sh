@@ -347,6 +347,9 @@ time bash myUpdate.sh
 sudo rm -f /var/run/crond.pid #delete pid
 sudo cron 00 00 *** myUpdate.sh #todos los dias a las 12
 
+# Cambiar el tamaño de las fuente en terminal. 
+sudo dpkg-reconfigure console-setup
+
 
 ###################################################Data mining###############################################
 
