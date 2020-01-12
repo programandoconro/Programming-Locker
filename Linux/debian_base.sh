@@ -1,4 +1,4 @@
-## Debian 10
+## Debian 10 (Buster)
 
 # Docker 
 
@@ -8,12 +8,18 @@ add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/debian $(
 apt-get update -y
 apt install docker-ce -y
 
-#R
+# R
 
 add-apt-repository 'deb https://cloud.r-project.org/bin/linux/debian buster-cran35/'
+sudo apt-key adv --keyserver keys.gnupg.net --recv-key 'E19F5F87128899B192B1A2C2AD5F960A256A04AF'
 apt install r-base -y
 
-#etcher
+# RStudio
+
+wget https://download1.rstudio.org/desktop/bionic/amd64/rstudio-1.2.1578-amd64.deb
+sudo dpkg -i rstudio-1.2.1578-amd64.deb
+
+# Etcher
 
 echo "deb https://deb.etcher.io stable etcher" | sudo tee /etc/apt/sources.list.d/balena-etcher.list
 sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 379CE192D401AB61
