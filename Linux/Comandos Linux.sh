@@ -7,9 +7,15 @@ sudo useradd nombreusuario
 #Podemos crear varios usuarios de esta manera. En caso de querer agregar usuarios al grupo de usuarios sudo (administradores), utilizamos el siguiente comando:
 
 usermod -aG sudo nombreusuario
-#Para cambiar la contraseña del usuario utilizamos:
+
+# para ver los grupos a los que pertenece el usuario
+
+group nombreusuario 
+
+#Para cambiar la contraseña utilizamos:
 
 passwd
+
 #Realizados estos pasos básicos,  es momento para actualizar el sistema. Dependiendo de la distribución, o más puntualmente, del gestor de paquetes (apt, yum, pacman), este comando puede variar. En sistemas Debian y derivados, apt es el gestor predeterminado.
 
   apt update
@@ -80,15 +86,15 @@ sudo mount -rw /dev/sd* /carpeta
 #Uno que se le parece, y permite saber que tenemos conectado a los puertos USB:
  lsusb
 #Hemos sobrepasado el primer cuarto de la lista, ahora las cosas empezaran a ponerse más interesantes. 
- ss 
+ss 
 #Simple pero hermoso, nos permite ver las conexiones de nuestro equipo, una herramienta defensiva importante a considerar. Puede ser acompañado de -l para listar los sockets que estan escuchando. 
- ss -l
+ss -l
 #Ya que nos hemos adentrado al networking, necesitamos nombrar a nmap. Estoy seguro que ya sabes como instalarlo. Este programa nos permite ver los puertos abiertos de una red, información importante para establecer comunicación entre computadoras. Para ver los puertos de la computadora que utilizamos:
- nmap localhost
+nmap localhost
 #Para evaluar la red local entera:
 nmap 192.168.1.1/24 
 #Si creemos que puede haber dispositivos que quieran escapar de nuestro mapeo podemos agregar -Pn para una búsqueda más exaustiva, -p para decir el puerto de interes, e incluso -open para listar solamente los puertos abiertos. 
- nmap -Pn 192.168.1.1/24 -p22 -open  
+nmap -Pn 192.168.1.1/24 -p22 -open  
 #Si modificamos la IP por nuestra IP pública y nos conectamos desde una red externa, podremos auditar la seguridad de nuestra red. Es lo primero que haría alguien que intente ilegalmente a nuestra red. 
 
  nmap -Pn **IP**/24 
