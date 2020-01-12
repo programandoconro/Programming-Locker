@@ -48,7 +48,7 @@ install.packages(c('keras','ggplot2',
 'tensorflow','zoo','stringr','dplyr',
 'lubridate','shiny','shinydasboard','neuralnet')) ; 
 library(keras) ; library (tensorflow) ;
-install_keras() ; install_tensorflow() " > libs.R && Rscript libs.R
+install_keras() ; install_tensorflow() " > libs.R && sudo Rscript libs.R
 
 # SSH
 
@@ -79,14 +79,16 @@ apt-get install balena-etcher-electron
 # VisualStudio
 
 vim /etc/yum.repos.d/vscode.repo
-  [vscode]
+ 
+ ###################### add to file ###################
+ [vscode]
 name=Visual Studio Code
 baseurl=https://packages.microsoft.com/yumrepos/vscode
 enabled=1
 gpgcheck=1
 gpgkey=https://packages.microsoft.com/keys/microsoft.asc
+########################################################
 
-sudo vim /etc/yum.repos.d/vscode.repo
 sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
 sudo dnf install code
 
