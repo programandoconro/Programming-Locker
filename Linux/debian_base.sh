@@ -1,3 +1,5 @@
+## Debian 10
+
 # Docker 
 
 apt install apt-transport-https ca-certificates curl gnupg2 software-properties-common -y
@@ -14,9 +16,15 @@ apt install r-base -y
 #etcher
 
 echo "deb https://deb.etcher.io stable etcher" | sudo tee /etc/apt/sources.list.d/balena-etcher.list
-
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 379CE192D401AB61
 apt-get update
 apt-get install balena-etcher-electron
+
+# Skype 
+
+wget https://repo.skype.com/latest/skypeforlinux-64.deb
+sudo dpkg -i skypeforlinux-64.deb
+sudo apt-get install -f
 
 
 
