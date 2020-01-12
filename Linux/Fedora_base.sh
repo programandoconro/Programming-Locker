@@ -8,7 +8,7 @@ yum upgrade -y
 # programas base
 
 dnf install git nano htop youtube-dl wget elinks wget curl \
-python-pip redshift R macchanger nmap terminator transmission \
+python-pip R macchanger nmap terminator transmission \
 gnome-tweaks gimp okular vim -y
 
 /usr/bin/python2.7 -m pip install --upgrade --user virtualenv
@@ -18,14 +18,6 @@ gnome-tweaks gimp okular vim -y
 dnf install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm -y
   dnf install https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E  %fedora).noarch.rpm -y
   dnf install vlc dnf-plugins-core -y 
-
-#Docker 
-
-dnf config-manager --add-repo https://download.docker.com/linux/fedora/docker-ce.repo
-dnf makecache
-dnf install docker-ce -y
-systemctl enable docker.service
-systemctl start docker.service
 
 # tor 
 
