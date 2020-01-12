@@ -4,13 +4,13 @@
 
 apt install apt-transport-https ca-certificates curl gnupg2 software-properties-common -y
 curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
-add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/debian $(lsb_release -cs) stable"
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/debian $(lsb_release -cs) stable"
 apt-get update -y
 apt install docker-ce -y
 
 # R
 
-add-apt-repository 'deb https://cloud.r-project.org/bin/linux/debian buster-cran35/'
+sudo add-apt-repository 'deb https://cloud.r-project.org/bin/linux/debian buster-cran35/'
 sudo apt-key adv --keyserver keys.gnupg.net --recv-key 'E19F5F87128899B192B1A2C2AD5F960A256A04AF'
 apt install r-base -y
 
@@ -29,8 +29,8 @@ apt-get install balena-etcher-electron
 # Skype 
 
 wget https://repo.skype.com/latest/skypeforlinux-64.deb
-sudo dpkg -i skypeforlinux-64.deb
-sudo apt-get install -f
+dpkg -i skypeforlinux-64.deb
+apt-get install -f
 
 
 
