@@ -320,7 +320,9 @@ conda activate r_env
 
 #El comando 100 te lo dejo a tu recomendación, ¿Cúal me faltó? 
 
+###########################################################
 ############## COMANDOS NIVEL INTERMEDIO ###################
+###########################################################
 
 # Para ejecutar scripts al iniciar el sistema
 cd ~
@@ -356,6 +358,9 @@ sudo cron 00 00 *** myUpdate.sh #todos los dias a las 12
 # Cambiar el tamaño de las fuente en terminal. 
 sudo dpkg-reconfigure console-setup
 
+# Provocar sonidos en el computador (apt install beep / yum install beep)
+su
+beep -f 4000 -D 500 -l 100 -r 100
 
 ###################################################Data mining###############################################
 
