@@ -1,6 +1,5 @@
-#Hace más de 4 años me fleché por GNU/Linux, los nombres Fedora y Ubuntu simplemente me cautivaron. La idea de una cantidad innumerable de aplicaciones, gratuítas, era demasiado atractiva. Desde ese día soy usuario diario, de hecho, mi ruta profesional marcó un giro brutal. Ahora comparto la filosofía de software libre, pero dejemos los rodeos y vayamos al punto y coma:
 
-su
+```su```
 #Privilegios absolutos, control total del sistema. Debido a que "un gran superpoder conlleva una gran responsabilidad", el comando 2 es muy práctico.
 
 sudo useradd nombreusuario
@@ -470,4 +469,9 @@ amixer sset 'PCM' 100%
              done
              
 ###########################################################################
+
+# Links a Post Relacionados:
+
+https://programandoconro.wordpress.com/2019/10/02/mis-99-comandos-favoritos-en-gnu-linux/
+https://programandoconro.wordpress.com/2020/01/02/10-trucos-en-linux-para-programadores-principiantes/
 
