@@ -303,20 +303,20 @@ conda activate r_env
 
  conda install face_recognition
  pip install face_recognition
-#Puedes revisar un post previo sobre reconocimiento facial en Linux. 
+# Puedes revisar un post previo sobre reconocimiento facial en Linux. 
 
-#Algunos módulos requieren de python 3 para funcionar y su instalación se realiza mediante pip3, por ejemplo, el famoso módulo Pyspark.
+# Algunos módulos requieren de python 3 para funcionar y su instalación se realiza mediante pip3, por ejemplo, el famoso módulo Pyspark.
 
  pip3 install --user pyspark
 
-#El próximo comando te hará sentir en la matrix. 
+# El próximo comando te hará sentir en la matrix. 
  cmatrix
 
-#Ha sido un viaje interesante tratar de representar los 99 comandos que más me gusta utilizar en Linux. Para terminar, unos sencillos pero fundamentales.
+# Ha sido un viaje interesante tratar de representar los 99 comandos que más me gusta utilizar en Linux. Para terminar, unos sencillos pero fundamentales.
  reboot
  shutdown -h +30
  poweroff -f
-#Corresponden a: reiniciar, apagar en 30 minutos y apagar inmediatamente.
+# Corresponden a: reiniciar, apagar en 30 minutos y apagar inmediatamente.
 
 #El comando 100 te lo dejo a tu recomendación, ¿Cúal me faltó? 
 
@@ -361,6 +361,11 @@ sudo dpkg-reconfigure console-setup
 # Provocar sonidos en el computador (apt install beep / yum install beep)
 su
 beep -f 4000 -D 500 -l 100 -r 100
+
+# Cuando conectado por SSH, elegir en cual servidor mostrar el display. 
+export DISPLAY=:0 # en servidor
+export DISPLAY=:1 # en local
+
 
 ###################################################Data mining###############################################
 
@@ -427,9 +432,9 @@ amixer scontrols
 # Busca el dispositivo y ajustar el volumen 
 amixer sset 'PCM' 100%
 
-######################## Operaciones ###########################################
+######################## Loops ###########################################
 
-# For loop
+# For 
 
           for i in {1..10} ; do 
               echo "hola $i"; 
@@ -440,7 +445,7 @@ amixer sset 'PCM' 100%
                 echo item: $i
             done
       
-#for.
+# Otro For 
 
             #!/bin/bash
             for i in `seq 1 10`;
@@ -448,7 +453,7 @@ amixer sset 'PCM' 100%
                     echo $i
             done    
             
-# While 
+# While
              #!/bin/bash 
              COUNTER=0
              while [  $COUNTER -lt 10 ]; do
@@ -456,7 +461,7 @@ amixer sset 'PCM' 100%
                  let COUNTER=COUNTER+1 
              done
     
-#Until
+# Until
              #!/bin/bash 
              COUNTER=20
              until [  $COUNTER -lt 10 ]; do
