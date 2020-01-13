@@ -1,8 +1,7 @@
-## Privilegios absolutos
+## Privilegios absolutos (root)
 
 ```su```
-
-## Usuario Root
+Si el usuario pertenece al grupo de administradores
 
 ```sudo -i``` 
 
@@ -434,9 +433,7 @@ conda activate r_env
  
  ```cmatrix```
 
-###########################################################
-############## COMANDOS NIVEL INTERMEDIO ###################
-###########################################################
+# COMANDOS NIVEL INTERMEDIO 
 
 ## Para ejecutar scripts al iniciar el sistema
 ```
