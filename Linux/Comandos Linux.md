@@ -1,3 +1,5 @@
+
+
 # Una lista de comandos Linux, por Ro.
 
 Privilegios absolutos (root)
