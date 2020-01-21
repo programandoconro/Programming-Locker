@@ -1,4 +1,10 @@
 #!bash
+
+#Instalar
+apt-get install openssh-server
+systemctl enable ssh 
+systemctl start ssh
+
 # Agregar llaves para no usar contraseñas.
 ssh-keygen
 ssh-copy-id -i ~/.ssh/id_rsa.pub UserName@RemoteServer
