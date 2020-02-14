@@ -8,7 +8,7 @@ yum upgrade -y
 sudo passwd root
 
 # programas base
-dnf install git nano htop youtube-dl wget elinks wget curl \
+dnf install git nano nodejs php npm htop youtube-dl wget elinks wget curl \
 python-pip R macchanger nmap terminator transmission \
 gnome-tweaks gimp okular cmatrix vim -y
 
