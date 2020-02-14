@@ -23,14 +23,16 @@ snap install vlc --classic
 # Tor 
 mkdir tor
 cd tor
-wget https://www.torproject.org/dist/torbrowser/8.5.4/tor-browser-linux64-8.5.4_en-US.tar.xz
-tar -xvJf tor-browser-linux64-8.5.4_en-US.tar.xz
+wget https://www.torproject.org/dist/torbrowser/9.0.5/tor-browser-linux64-9.0.5_en-US.tar.xz
+tar -xvJf tor-browser-linux64-9.0.5_en-US.tar.xz 
+cd tor-browser_en-US/
+./start-tor-browser.desktop 
 # ir a la carpeta y clickear para usar tor
 
 #rstudio
 cd && mkdir Rstudio && cd Rstudio
 wget https://download1.rstudio.org/desktop/centos7/x86_64/rstudio-1.2.1335-x86_64.rpm 
-dnf install compat-openssl10.x86_6 -y
+dnf install compat-openssl10.x86_64 -y
 dnf localinstall rstudio-1.2.1335-x86_64.rpm -y 
 
 # librerias R fundamentales
@@ -42,7 +44,7 @@ echo " local({
 install.packages(c('keras','ggplot2',
 'caret','e1071','randomForest','MASS',
 'tensorflow','zoo','stringr','dplyr',
-'lubridate','shiny','shinydasboard','neuralnet')) ; 
+'lubridate','shiny','shinydasboard','neuralnet'), repos='http://cran.us.r-project.org') ; 
 library(keras) ; library (tensorflow) ;
 install_keras() ; install_tensorflow() " > libs.R && sudo Rscript libs.R
 
