@@ -1,25 +1,26 @@
 #!bash
 
-sudo passwd root
-
+# update
 yum update -y
 yum upgrade -y
 
-# programas base
+# set root password
+sudo passwd root
 
+# programas base
 dnf install git nano htop youtube-dl wget elinks wget curl \
 python-pip R macchanger nmap terminator transmission \
-gnome-tweaks gimp okular vim -y
+gnome-tweaks gimp okular cmatrix vim -y
 
 # Snap
 yum install snapd
-ln -s /var/lib/snapd/snap /snap/
+sudo ln -s /var/lib/snapd/snap /snap
 
 # Visual Studio Code
 snap install code --classic
+snap install vlc --classic
 
 # Tor 
-
 mkdir tor
 cd tor
 wget https://www.torproject.org/dist/torbrowser/8.5.4/tor-browser-linux64-8.5.4_en-US.tar.xz
@@ -27,14 +28,12 @@ tar -xvJf tor-browser-linux64-8.5.4_en-US.tar.xz
 # ir a la carpeta y clickear para usar tor
 
 #rstudio
-
 cd && mkdir Rstudio && cd Rstudio
 wget https://download1.rstudio.org/desktop/centos7/x86_64/rstudio-1.2.1335-x86_64.rpm 
 dnf install compat-openssl10.x86_6 -y
 dnf localinstall rstudio-1.2.1335-x86_64.rpm -y 
 
 # librerias R fundamentales
-
 echo " local({
   r <- getOption('repos')
   r['CRAN'] <- 'http://cran.cnr.berkeley.edu/'
