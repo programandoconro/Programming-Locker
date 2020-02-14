@@ -13,7 +13,7 @@ python-pip R macchanger nmap terminator transmission \
 gnome-tweaks gimp okular cmatrix vim -y
 
 # Snap
-yum install snapd
+yum install snapd -y
 sudo ln -s /var/lib/snapd/snap /snap
 
 # Visual Studio Code
@@ -61,9 +61,11 @@ cd && mkdir Ananconda && cd Anaconda
 wget https://repo.anaconda.com/archive/Anaconda3-2019.07-Linux-x86_64.sh
 bash Anaconda3-2019.07-Linux-x86_64.sh -y
 source ~/.bashrc -y
+yum install conda -y
+conda update --prefix /usr anaconda
 
-systemctl stop cups
-systemctl disable cups
+sudo systemctl stop cups
+sudo systemctl disable cups
 
 # Actualizar y reiniciar
 
