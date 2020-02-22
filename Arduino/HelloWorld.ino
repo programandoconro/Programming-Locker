@@ -7,4 +7,4 @@ void loop() {
  delay(2000);
 }
 
-# go to tools and monitor
+// go to tools and monitor
