@@ -32,6 +32,5 @@ wget https://repo.skype.com/latest/skypeforlinux-64.deb
 dpkg -i skypeforlinux-64.deb
 apt-get install -f
 
-
-
-
+# Japanese Kanji input
+apt install ibus-mozc 
