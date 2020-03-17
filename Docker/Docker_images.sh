@@ -4,7 +4,7 @@ docker run --rm -p 8787:8787 -e PASSWORD=yourpasswordhere rocker/rstudio
 # Server
 docker run -d -p 8787:8787  --restart always -v $HOME:/home/'whoami' -e PASSWORD=****** rocker/rstudio
 # or with podman (Fedora 31)
-podman run -d -p 8787:8787  --restart always -v $HOME:/home/'whoami' -e PASSWORD=****** rocker/rstudio
+podman run -dit --ulimit="nofile=4096" --env PASSWORD=***** -p 8787:8787 docker.io/rocker/rstudio
 # Go to 0.0.0.0:8787 or localhost:8787
 #name: rstudio
 #password: ******
