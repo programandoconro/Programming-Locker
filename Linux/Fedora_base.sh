@@ -67,6 +67,12 @@ conda update --prefix /usr anaconda
 sudo systemctl stop cups
 sudo systemctl disable cups
 
+# install new themes
+yum search shell-theme # o dnf en Fedora
+yum search icon-theme
+
+apt install ... # dnf install ... 
+
 # Actualizar y reiniciar
 
 yum update -y
