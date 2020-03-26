@@ -1,7 +1,7 @@
 import PyPDF2
 import os
 
-# os.system('sh get_data.sh')
+os.system('sh get_data.sh')
 
 files = []
 project_path = "/home/roro/COVID_canarias/"
