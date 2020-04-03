@@ -36,7 +36,9 @@ Deberían aparecer unas instrucciones sencillas:
   ```
 
 Debes cambiar el puerto y copiar/pegar la contraseña que se te proporciona en Colab
-  
+
+** Alternativamente, puedes hacer un Reverse Shell con ```ncat```, escuchando por un puerto abierto en tu Firewall local y enviando la petición desde el servidor Colab. 
+
 Espero que este manual te haya sido útil, gracias por leerlo. Saludos. 
 
 
