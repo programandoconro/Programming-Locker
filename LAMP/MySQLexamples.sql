@@ -1,3 +1,12 @@
+## creacion de tabla dentro de database.
+
+create database test;
+show databases;
+use test
+create table data1 (Id int);
+
+#####################
+
 select round(sum(LAT_N),2), round( sum(LONG_W),2) from STATION
 
 SELECT ROUND (MAX(LAT_N), 4) FROM STATION WHERE LAT_N < 137.2345
