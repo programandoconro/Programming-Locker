@@ -3,7 +3,7 @@
 create database test;
 show databases;
 use test;
-create table data (Id int, Contagiados int, Recuperados int, Muertos int, Fecha );
+create table data (Id int, Contagiados int, Recuperados int, Muertos int);
 insert into data values (0,0,0,0);
 alter table data add (Fecha date);
 select * from data; 
