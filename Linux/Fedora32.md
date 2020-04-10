@@ -88,9 +88,7 @@ Rstudio ``podman run -dit --ulimit="nofile=4096" --env PASSWORD=***** -p 8787:87
 MariaDB https://github.com/progamandoconro/My-Linux-Locker-/blob/master/Docker/MariaDB/maria_db.sh
 Jupyter Spark Notebook ``podman run --rm -p 8888:8888 -p 4040:4040 -e JUPYTER_ENABLE_LAB=yes -v ~:/home/ro/jupyter jupyter/all-spark-notebook``
 
-Apache server
-
-podman run -dit --name my-running-app -p 8080:80 my-apache2
+Apache server: https://github.com/progamandoconro/My-Linux-Locker-/tree/master/Docker/Apache
 
 Colab
 
