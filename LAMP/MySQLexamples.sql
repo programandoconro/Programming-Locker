@@ -7,6 +7,8 @@ create table data (Id int, Contagiados int, Recuperados int, Muertos int);
 insert into data values (0,0,0,0);
 alter table data add (Fecha date);
 select * from data; 
+insert into data values (1,7,0,0,'2020/03/04');
+delete from data where Id = 0;
 
 #### Examples #####################
 
