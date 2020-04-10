@@ -12,9 +12,10 @@ Esta edicion de ``Fedora`` es bastante impresionante. Estas en la punta de la la
 En este tutorial, explicare paso a paso como preparo un entorno de trabajo para programacion, ciencia de datos y desarrollo web, a partir de una instalacion fresca de Fedora 32.
 
 1. Actualizar.
-sudo yum update -y
+```
+yum update -y
 reboot
-
+```
 2. Configurar Tweaks (opcional)
 
 Dale al boton de windows (Super) en tu teclado y dirigete settings:
@@ -26,8 +27,6 @@ Dale al boton de windows (Super) en tu teclado y dirigete settings:
 ``Super ->``: ajusta la ventana activa a la mitad de la pantalla en derecha.
 
 ``Super <-``: Lo mismo que lo anterior, pero a la izquierda.
-
-
 
 Nuevamente, dando a Super, escrbimos ``gnome tweaks`` e instalamos esa aplicacion con el manager de software. Desactivamos ``suspend when lid is closed`` y vamos a las apariencias y escojemos el tema oscuro ``Adwaita-dark``
 
@@ -47,21 +46,20 @@ Visual Studio: Repetir el proceso anterior pero descargando el archivo ``.rpm`` 
 Abrir Terminal y:
 
 ```
-sudo yum install nmap
+sudo -i
+yum install nmap
 
 ```
 
 React y expo (react-native)
 ```
-sudo yum install nodejs npm -y
-sudo npm install -g create-react-app expo-cli
+yum install nodejs npm -y
+npm install -g create-react-app expo-cli
 ```
 
-
 ```
-sudo npm install -g firebase
+npm install -g firebase
 ```
-
 Android Studio para emular react-native apps.
 
 Descarga el ``.tar`` de Android studio, descomprimelo simplemente dandole doble click al icono. Navega a la carpeta /bin y abre un terminal es directorio, ejecuta:
@@ -104,8 +102,8 @@ Accede a Firebase.
 7. Programas accesorios:
 
 ```
-sudo dnf install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
-sudo dnf install vlc 
+dnf install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
+dnf install vlc 
 ```
 
-``sudo yum install youtube-dl nmap openssh-server``
+``yum install youtube-dl nmap openssh-server pavucontrol gimp transmission -y``
