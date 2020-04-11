@@ -106,4 +106,4 @@ dnf install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$
 dnf install vlc 
 ```
 
-``yum install youtube-dl nmap openssh-server pavucontrol gimp transmission -y``
+``yum install youtube-dl nmap openssh-server pavucontrol gimp transmission filezilla -y``
