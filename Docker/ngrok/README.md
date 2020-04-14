@@ -2,7 +2,10 @@
 
 Build and run the Container with ```Docker``` or ```Podman```
 
-```podman build . -t apachengrok```
+```
+podman build . -t apachengrok
+podman run -dit apachengrok
+```
 
 Then, run ngrok using the ID or Name  obtained with ```podman ps```
 
