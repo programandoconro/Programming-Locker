@@ -107,3 +107,20 @@ dnf install vlc
 ```
 
 ``yum install youtube-dl nmap openssh-server pavucontrol gimp transmission filezilla -y``
+
+8. Plugins de Chrome:
+
+```
+dark github
+youtube adblock
+react tools
+```
+9. Agregar ssh-keys para acceder sin contraseña a mis servidores y máquinas locales.
+
+```
+ssh-keygen
+ssh-copy-id -i ~/.ssh/id_rsa.pub pi@192.168.1.48
+```
+<div>
+  <button> Go Linux </button>
+</div>
