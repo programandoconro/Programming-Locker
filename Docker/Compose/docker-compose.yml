@@ -1,0 +1,29 @@
+version: '3.8'
+services:
+
+  db:
+    image: hypriot/rpi-mysql:latest
+    environment:
+     MYSQL_ROOT_PASSWORD: 1235813213455
+    restart: always
+    ports:
+     - 3333:3306
+
+  python:
+    image: python:3.8
+    restart: always
+    links:
+     - db
+    ports:
+     - 4444:4444
+
+  web:
+    image: httpd:2.4
+    volumes:
+     - ./app:/usr/local/apache2/htdocs/
+    ports:
+     - 8088:80
+    restart: always
+    links:
+     - python
+
