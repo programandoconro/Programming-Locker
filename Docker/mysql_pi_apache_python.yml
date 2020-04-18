@@ -4,7 +4,7 @@ services:
   db:
     image: hypriot/rpi-mysql
     environment:
-     MYSQL_ROOT_PASSWORD: example123
+     MYSQL_ROOT_PASSWORD: example1235813213
     restart: always
     ports:
      - 3333:3306
@@ -12,8 +12,9 @@ services:
   python:
     image: python
     restart: always
-    depends_on:
+    links:
      - db
+     - web
     tty: true
     ports:
      - 4444:4444
@@ -23,5 +24,3 @@ services:
     ports:
      - 8088:80
     restart: always
-    depends_on:
-     - python
