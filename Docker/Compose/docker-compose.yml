@@ -1,6 +1,6 @@
 version: '3.8'
-services:
 
+services:
   db:
     image: hypriot/rpi-mysql
     environment:
@@ -8,11 +8,13 @@ services:
     restart: always
     ports:
      - 3306:3306
-
+     
   worker:
     build: ./server
     tty: true
     depends_on:
+     - db
+    links:
      - db
     restart: always
     ports:
@@ -26,6 +28,8 @@ services:
      - 8088:80
     restart: always
     depends_on:
+     - worker
+    links:
      - worker
 
   admin:
