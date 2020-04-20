@@ -1,4 +1,4 @@
-# Containerizeded micro-services with ``docker-compose``
+# Containerization of micro-services with ``docker-compose``
 
 Install docker and pip3
 ``apt install docker.io python3-pip``
