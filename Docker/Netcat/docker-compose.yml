@@ -1,0 +1,26 @@
+version: '3.8'
+services:
+
+ m1:
+  build: ./m1
+  networks:
+   - netcat
+  ports:
+   - 4001:4444
+
+ m2:
+  build: ./m2
+  networks:
+   - netcat
+  links:
+   - m1
+  depends_on:
+   - m1
+  ports:
+   - 4002:4444
+
+networks:
+  netcat:
+   ipam:
+    config:
+     - subnet: 172.16.238.0/24
