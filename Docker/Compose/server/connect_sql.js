@@ -14,5 +14,8 @@ con.connect(function(err) {
     if (err) throw err;
     console.log(result);
   });
+  con.end();
 });
+
+// #!bash: node connect_sql.js > data
 
