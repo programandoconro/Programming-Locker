@@ -2,4 +2,20 @@
 <h1>Hola Docker-Compose</h1>
 <h5> Mostrar items desde sql container: </h5>
 <script> console.log('Hola desde compose') </script>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+  <script>
+    $.getJSON('https://api.github.com/users/programandoconro', function(data) {
+
+        console.log(data);
+    });
+    </script>
+
+ <script>
+    $.getJSON('172.19.0.2', function(data) {
+
+        console.log(data);
+    });
+    </script>
+
 </html>
