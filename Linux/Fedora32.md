@@ -41,7 +41,7 @@ Para agregar programas a los favoritos, damos a ``Super`` y navegamos al program
 3. Instalar programas complementarios.
 
 Chrome: En el navegador, descarga ``Chrome``, verificando que la extension que escojiste es ``.rpm`` (red hat). Escojer la opcion de Abrir con software manager y dar click a install.
-Visual Studio: Repetir el proceso anterior pero descargando el archivo ``.rpm`` de Visual Studio Code.
+Visual Studio: Repetir el proceso anterior pero descargando el archivo ``.rpm`` de ``Visual Studio Code`` y de ``Skype``.
 
 Abrir Terminal y:
 
@@ -71,7 +71,7 @@ Elige custom installation, agrega el emulador para Android y sigue los pasos de 
 
 Español: Sencillamente dale a ``Super`` y escribe languages, donde podras agregar el input nuevo. Previamente ajustamos ``Ctrl Space`` para cambiar entre inputs. 
 
-Japones (Kanji): ``yum install ibus-mozc``
+Japones (Kanji): ``yum install ibus-mozc -y``
 
 Para cambiar entre lenguajes del teclado:
 
@@ -103,8 +103,8 @@ Accede a Firebase.
 7. Programas accesorios:
 
 ```
-dnf install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
-dnf install vlc 
+dnf install https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm -y
+dnf install vlc -y
 ```
 
 ``yum install youtube-dl nmap openssh-server pavucontrol gimp transmission filezilla -y``
