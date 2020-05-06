@@ -88,9 +88,10 @@ Jupyter Spark Notebook ``podman run --rm -p 8888:8888 -p 4040:4040 -e JUPYTER_EN
 
 Apache server: https://github.com/progamandoconro/My-Linux-Locker-/tree/master/Docker/Apache
 
+Java apps, React apps, servidores shiny 
+
 Colab
 
-Create an account and use, you can access this virtual container with ssh:
 https://github.com/progamandoconro/My-Linux-Locker-/blob/master/Colab/ssh_Colab.md
 
 6. Login a tus cuentas:
@@ -119,8 +120,46 @@ react tools
 
 ```
 ssh-keygen
-ssh-copy-id -i ~/.ssh/id_rsa.pub pi@192.168.1.48
+ssh-copy-id -i ~/.ssh/id_rsa.pub user@ip
 ```
+10. Deployar Apps con docker-compose:
+Instalamos con: ``pip install docker-compose`` y creamos archivo ``docker-compose.yml``
+
+Por ejemplo, wordpress:
+```
+version: '3'
+
+services:
+  db:
+    image: mysql:5.7
+    volumes:
+      - db_data:/var/lib/mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: somewordpress
+      MYSQL_DATABASE: wordpress
+      MYSQL_USER: wordpress
+      MYSQL_PASSWORD: wordpress
+
+  wordpress:
+    depends_on:
+      - db
+    image: wordpress:5.1.1-php7.3-apache
+    ports:
+      - "8000:80"
+    restart: always
+    environment:
+      WORDPRESS_DB_HOST: db:3306
+      WORDPRESS_DB_USER: wordpress
+      WORDPRESS_DB_PASSWORD: wordpress
+    working_dir: /var/www/html
+    volumes:
+      - ./wp-content:/var/www/html/wp-content
+      - ./uploads.ini:/usr/local/etc/php/conf.d/uploads.ini
+volumes:
+  db_data:
+```
+``docker-compose up``
 <div>
-  <button> Go Linux </button>
+  <h1> Go Linux </h1>
 </div>
