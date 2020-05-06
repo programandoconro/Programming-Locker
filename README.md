@@ -14,7 +14,7 @@ Comandos escenciales Linux y procedimientos luego de instalar OS. Archivo .conf 
 
 ### Actualizamos Raspbian.
 
-    sudo apt-get update $$ apt-get upgrade -y 
+    sudo apt-get update && apt-get upgrade -y 
 
     sudo apt install apt-transport-https ca-certificates curl gnupg2 software-properties-common
 
