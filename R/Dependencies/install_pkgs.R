@@ -19,12 +19,13 @@ requirements <- c('tidyverse','randomForest','ipred','tm',
 'dplyr','ggthemes','wordcloud','data.table','SnowballC' )
 
 pack <- requirements[!requirements %in% installed.packages()[,"Package"]]
-if(length(pack)) {install.packages(pack)} else {
-    print('Todas las dependencias han sido instaladas')
+
+if( length(pack)>0 ) { install.packages(pack) } else {
+    print('Todas las dependencias están instaladas')
 }
 
 for (i in requirements){ 
   library(i, character.only = TRUE)
-  print(c(i,"LOADED"))
+  print(c(i,"OK"))
  
 }
