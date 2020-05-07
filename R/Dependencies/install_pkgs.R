@@ -16,7 +16,8 @@ if(FALSE) {
 
 requirements <- c('tidyverse','randomForest','ipred','tm',
 'rpart', 'xgboost', 'dplyr', 'twitteR','stringr','lubridate',
-'dplyr','ggthemes','wordcloud','data.table','SnowballC' )
+'dplyr','ggthemes','wordcloud','data.table','SnowballC','shiny',
+'neuralnet', 'e1071','caret','MASS','reticulate')
 
 pack <- requirements[!requirements %in% installed.packages()[,"Package"]]
 
