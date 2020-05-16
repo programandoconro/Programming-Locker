@@ -8,3 +8,9 @@ EOF
 apt-get update -y
 apt-get install -y kubelet kubeadm kubectl
 apt-mark hold kubelet kubeadm kubectl
+
+curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.8.1/kind-$(uname)-amd64
+chmod +x ./kind
+
+~/kind create cluster
+kubectl cluster-info --context kind-kind
