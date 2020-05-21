@@ -10,3 +10,5 @@ kubectl get deployments
 kubectl get services
 
 kubectl delete node <name>
+
+kubectl exec -it <name> -- /bin/bash
