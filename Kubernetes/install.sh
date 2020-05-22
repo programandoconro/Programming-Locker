@@ -1,3 +1,13 @@
+# Raspberry Pi (3 & 4)
+
+curl -sfL https://get.k3s.io | sh -
+
+# Centos 8
+
+yum install -y container-selinux selinux-policy-base
+rpm -i https://rpm.rancher.io/k3s-selinux-0.1.1-rc1.el7.noarch.rpm
+curl -sfL https://get.k3s.io | sh -
+
 # Debian 10
 
 apt-get update && sudo apt-get install -y apt-transport-https curl
