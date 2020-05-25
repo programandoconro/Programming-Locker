@@ -25,6 +25,10 @@ docker run -d --restart=always -e DOMAIN=cluster --name nginx-app -p 808:80 ngin
 kubectl run --image=nginx nginx-app --port=808 --env="DOMAIN=cluster"
 kubectl expose pod nginx-app --port=808 --name=nginx-http
 
+# Deployment:
+kubectl apply -f https://k8s.io/examples/application/deployment.yaml
+kubectl describe deployment nginx-deployment
+
 # shell access:
 kubectl run my-shell --rm -i --tty --image ubuntu -- bash
 kubectl exec -it <name> -- /bin/bash
