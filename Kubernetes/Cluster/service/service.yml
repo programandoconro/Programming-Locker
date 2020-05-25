@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+    name: service-test
+
+spec:
+    type: NodePort
+    ports:
+       - targetPort: 80
+         port: 80
+         nodePort: 30011
+    selector:
+         app: myapp
+         type: front-end
+
