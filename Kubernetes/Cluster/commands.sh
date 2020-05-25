@@ -39,7 +39,6 @@ kubectl describe deployment nginx-deployment
 kubectl run my-shell --rm -i --tty --image ubuntu -- bash
 kubectl exec -it <name> -- /bin/bash
 
-# run a pod and a service to access from localhost:
 kubectl apply -f  <pod.yml>
 kubectl create -f <service.yml>
 
