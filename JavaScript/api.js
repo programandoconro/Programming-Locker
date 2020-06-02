@@ -6,6 +6,8 @@ const callAPI = async () => {
   const res = await fetch(" https://api.github.com/users/programandoconro");
   const data = await res.json();
   console.log(data);
+  const json = JSON.stringify(data);
+  document.write(json.bold());
 };
 
 // Example 2
