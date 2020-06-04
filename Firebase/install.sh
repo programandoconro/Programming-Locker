@@ -1,5 +1,6 @@
-sudo apt install npm nodejs -y
+# Install Firebase client
 
-sudo npm install -g firebase-tools
+yum install npm -y
+npm install -g firebase-tools
 npm firebase login
-npm firebase init
+
