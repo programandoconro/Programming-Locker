@@ -1,6 +1,4 @@
 # Deploy a React App in Firebase Cloud service.
-
- npm i -g firebase-tools
  
  git clone https://github.com/programandoconro/KanjiTrainer
  cd KanjiTrainer/
