@@ -1,10 +1,11 @@
-ESC -> menu
+ESC , Crtl + c, Crtl + { -> Command mode
+i -> insertar (insert mode)
 
 :w -> guardar
 :wq -> guardar y salir
 :qa! -> salir sin guardar
+:!ls -> mostrar archivos en path
 
-i -> insertar
 o -> insertar + linea adicional
 u -> undo, deshacer
 
@@ -12,7 +13,8 @@ d -> borrar
 k -> subir
 j -> bajar
 
-w -> final de palabra
+e -> final de palabra
+w -> comienzo y final de cada palabra
 v -> seleccionar (usar cursor o letras para mover)
 
 0 -> principio de linea
@@ -20,6 +22,5 @@ v -> seleccionar (usar cursor o letras para mover)
 Ctrl x + Ctrl o -> autocomplete
 
 shift + arrows -> move faster
-
 
 Comentar <- Seleccionar texto a comentar y luego :norm i// (o :norm i#)
