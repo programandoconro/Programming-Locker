@@ -1,0 +1,25 @@
+ESC -> menu
+
+:w -> guardar
+:wq -> guardar y salir
+:qa! -> salir sin guardar
+
+i -> insertar
+o -> insertar + linea adicional
+u -> undo, deshacer
+
+d -> borrar
+k -> subir
+j -> bajar
+
+w -> final de palabra
+v -> seleccionar (usar cursor o letras para mover)
+
+0 -> principio de linea
+
+Ctrl x + Ctrl o -> autocomplete
+
+shift + arrows -> move faster
+
+
+Comentar <- Seleccionar texto a comentar y luego :norm i// (o :norm i#)
