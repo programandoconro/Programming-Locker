@@ -1,0 +1,20 @@
+# apt install terminator / yum install terminator
+
+Ctrl + a -> Ir a inicio de línea
+Ctrl + e -> Ir a fin de línea 
+
+Ctrl + Shift + O -> Dividir pestaña horizontalmente
+Ctrl + b -> Dividir pestaña verticalmente (editado en settings porque Ctrl + Shift + e no funciona en Linux)
+
+Ctrl + w -> Cerrar pestaña
+Ctrl + Shift + w -> Cerrar ventana entera
+
+Ctrl + Shift + n -> Nueva ventana
+
+Alt + a -> Broadcast todas las ventanas
+Alt + o -> Apagar broadcast
+Alt + g -> Broadcast grupo
+
+Alt + arrows -> cambiar de pestaña
+
+Ctrl + Shift + x -> Cambiar el modo de visualización general, con varias pestañas abiertas, a modo de pestaña individual. Repetir para volver.
