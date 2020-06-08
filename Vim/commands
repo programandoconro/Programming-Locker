@@ -1,12 +1,12 @@
-ESC , Crtl + c, Crtl + { -> Command mode
-i -> insertar (insert mode)
+ESC , Crtl + c, Crtl + { -> Modo de Comandos
 
 :w -> guardar
 :wq -> guardar y salir
 :qa! -> salir sin guardar
 :!ls -> mostrar archivos en path
 
-o -> insertar + linea adicional
+i -> insertar
+o -> insertar + línea adicional
 u -> undo, deshacer
 
 d -> borrar
@@ -17,10 +17,14 @@ e -> final de palabra
 w -> comienzo y final de cada palabra
 v -> seleccionar (usar cursor o letras para mover)
 
-0 -> principio de linea
+0 -> principio de línea
 
 Ctrl x + Ctrl o -> autocomplete
 
-shift + arrows -> move faster
+shift + arrows -> desplazar rapidamente por el documento
 
 Comentar <- Seleccionar texto a comentar y luego :norm i// (o :norm i#)
+
+Sustituir patrón de texto <- :%s 'texto a sustituir':put 'nuevo texto'
+
+
