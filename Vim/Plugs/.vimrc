@@ -2,7 +2,7 @@
 call plug#begin('~/.vim/plugged')
 
 " plugin section
-
+Plug 'morhetz/gruvbox'
 Plug 'pangloss/vim-javascript'
 Plug 'leafgarland/typescript-vim'
 Plug 'maxmellon/vim-jsx-pretty'
@@ -19,3 +19,6 @@ Plug 'ternjs/tern_for_vim', { 'do' : 'npm install' }
 
 " end vim-plug
 call plug#end()
+
+colorscheme gruvbox                                                             
+set background=dark
