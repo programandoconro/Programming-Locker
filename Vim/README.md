@@ -20,6 +20,10 @@
 
 ``j`` -> bajar.
 
+``h`` -> izquierda.
+
+``l`` -> derecha.
+
 ``o`` -> insertar + línea adicional.
 
 ``u`` -> undo, deshacer.
@@ -42,15 +46,17 @@
 
 ``Shift + arrows`` -> desplazar rapidamente por el documento.
 
-``[[`` <- Ir al primer bloque.
+``[[`` -> Ir al primer bloque.
 
-``]]`` <- Ir al último bloque.
+``]]`` -> Ir al último bloque.
 
-``}`` <- Bloque siguiente.
+``}`` -> Bloque siguiente.
 
-``{`` <- Bloque anterior.
+``{`` -> Bloque anterior.
 
-``:55`` <- Ir a línea 55
+``:55`` -> Ir a línea 55
+
+``Ctrl + i + Ctrl o`` -> Regresar a la línea donde se estaba previamente.
 
 ## Selección:
 
@@ -72,7 +78,7 @@ Sustituir patrón de texto <- ``:%s 'texto a sustituir''nuevo texto'``.
 
 Comentar <- Seleccionar texto a comentar y luego ``:norm i// (o :norm i#)``.
 
-Autocompletar <- ``Ctrl x + Ctrl o`` .
+Autocompletar <- ``Ctrl x + Ctrl o``, luego seleccionar con ``Ctrl + n`` .
 
 
 
