@@ -14,8 +14,11 @@
 
 ``:V G d`` -> borrar todo el documento
 
-
 ## Básicos:
+
+``k`` -> subir.
+
+``j`` -> bajar.
 
 ``o`` -> insertar + línea adicional.
 
@@ -23,12 +26,9 @@
 
 ``Ctrl + r`` -> rehacer.
 
-``d`` -> borrar.
+``d`` -> borrar (cortar)
 
-``k`` -> subir.
-
-``j`` -> bajar.
-
+``p`` -> pegar
 
 ## Desplazamiento:
 
@@ -50,6 +50,7 @@
 
 ``{`` <- Bloque anterior.
 
+``:55`` <- Ir a línea 55
 
 ## Selección:
 
@@ -60,8 +61,6 @@ Seleccionar una función <- ``V + }``.
 Seleccionar bloques hacia abajo <- ``v + }``.
 
 Seleccionar bloques hacia arriba <- ``v + {``.
-
-
 
 ## Funcionalidades:
 
