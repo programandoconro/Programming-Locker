@@ -1,30 +1,41 @@
-ESC , Crtl + c, Crtl + { -> Modo de Comandos
 
+# Sobrevivencia:
+i -> insertar texto (Modo editor)
+ESC , Crtl + c, Crtl + { -> Modo Comando
 :w -> guardar
 :wq -> guardar y salir
 :qa! -> salir sin guardar
-:!ls -> mostrar archivos en path
+:V G d -> borrar todo el documento
 
-i -> insertar
+# Básicos:
 o -> insertar + línea adicional
 u -> undo, deshacer
-
+Ctrl + r -> rehacer
 d -> borrar
 k -> subir
 j -> bajar
 
+# Desplazamiento:
 e -> final de palabra
 w -> comienzo y final de cada palabra
-v -> seleccionar (usar cursor o letras para mover)
-
+v -> seleccionar (usar cursor o letras para mover, sirve combiando con Shift)
 0 -> principio de línea
+Shift + arrows -> desplazar rapidamente por el documento
+[[ <- Ir al primer bloque
+]] <- Ir al último bloque 
+} <- Bloque siguiente
+{ <- Bloque anterior
 
-Ctrl x + Ctrl o -> autocomplete
+# Selección:
+:V G -> selecciona todo el texto abajo del cursor
+Seleccionar una función <- V + }
+Seleccionar bloques hacia abajo <- v + }
+Seleccionar bloques hacia arriba <- v + {
 
-shift + arrows -> desplazar rapidamente por el documento
-
+# Funcionalidades:
+Mostrar archivos en path <- :!ls
+Borrar una función <-  V + } + d
+Sustituir patrón de texto <- :%s 'texto a sustituir''nuevo texto'
 Comentar <- Seleccionar texto a comentar y luego :norm i// (o :norm i#)
-
-Sustituir patrón de texto <- :%s 'texto a sustituir':put 'nuevo texto'
-
+Autocompletar <- Ctrl x + Ctrl o 
 
