@@ -90,5 +90,5 @@ Comentar <- Seleccionar texto a comentar y luego ``:norm i// (o :norm i#)``.
 
 Autocompletar <- ``Ctrl x + Ctrl o``, luego seleccionar con ``Ctrl + n`` .
 
-
+Cambiar entre ventanas <- ``Ctrl + w + k`` o ``Ctrl + w + j``
 
