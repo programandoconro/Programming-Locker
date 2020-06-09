@@ -1,0 +1,42 @@
+<div class="main">
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="index.css">
+    <h1>Let's call GitHub api with my data</h1>
+    <p class="api"> Data: </p>
+
+</div>
+<script>
+
+    const github = {}; 
+    const api = " https://api.github.com/users/programandoconro"
+    
+    const callAPI = async () =>{
+    const res = await fetch(api);
+    const data = await res.json();
+    const json = JSON.stringify(data);
+    github.json = json;
+   
+    }
+    
+    const getData = async() => {  
+        await callAPI();
+
+        const info = github.json;
+        let results = '';
+        for(let i = 0; i<info.length; i++){
+           
+           results += info[i]; 
+           
+            if(info[i] === ','){
+                results += '\n'
+            }       
+           
+        }
+        console.log(results);
+        document.body.append(results);
+        
+    }
+    getData();
+   
+</script>
