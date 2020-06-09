@@ -12,30 +12,25 @@
     const api = " https://api.github.com/users/programandoconro"
     
     const callAPI = async () =>{
-    const res = await fetch(api);
-    const data = await res.json();
-    const json = JSON.stringify(data);
-    github.json = json;
+        const res = await fetch(api);
+        const data = await res.json();
+        const json = JSON.stringify(data);
+        github.json = json;
    
     }
     
     const getData = async() => {  
         await callAPI();
-
         const info = github.json;
         let results = '';
+
         for(let i = 0; i<info.length; i++){
-           
            results += info[i]; 
-           
             if(info[i] === ','){
                 results += '\n'
-            }       
-           
+            }
         }
-        console.log(results);
         document.body.append(results);
-        
     }
     getData();
    
