@@ -30,17 +30,17 @@
 
 ``Ctrl + r`` -> rehacer.
 
-``d`` -> borrar (cortar)
+``y`` -> copiar.
 
-``p`` -> pegar
+``d`` -> borrar (cortar).
+
+``p`` -> pegar.
 
 ## Desplazamiento:
 
 ``e`` -> final de palabra.
 
 ``w ``-> comienzo y final de cada palabra.
-
-``v`` -> seleccionar (usar cursor o letras para mover, sirve combiando con Shift).
 
 ``0`` -> principio de línea.
 
@@ -54,11 +54,21 @@
 
 ``{`` -> Bloque anterior.
 
-``:55`` -> Ir a línea 55
+``(`` -> Principio de línea.
 
-``Ctrl + i + Ctrl o`` -> Regresar a la línea donde se estaba previamente.
+``)`` -> Fin de línea.
+
+``:55`` -> Ir a línea 55.
+
+``Ctrl o`` -> Regresar a la línea donde se estaba previamente.
+
+``f + {`` -> Va directamente al siguiente ``{``. Funciona para otros caracteres, por ejemplo: ``[ , ( , [a-z], [0-9] ,``, etc.
 
 ## Selección:
+
+``v`` -> seleccionar (usar cursor o letras para mover, sirve combiando con Shift).
+
+``V`` -> seleccionar línea entera.
 
 ``:V G`` -> selecciona todo el texto abajo del cursor.
 
