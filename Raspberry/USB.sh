@@ -1,5 +1,5 @@
 
-# Conectar Raspberry Pi Zero (sin WIFI) a otra Raspberry mediante USB serial
+# Conectar Raspberry Pi Zero (sin WIFI) a otra Raspberry mediante USB 
 
 # Instalamos Raspbian Buster y agregamos archivo ssh a carpeta boot
 touch ssh
@@ -17,11 +17,11 @@ ssh pi@raspberrypi.local
 
 # Cambiamos password y hostname en raspi-config
 
-sudo raspiconfig
+sudo raspi-config
 # Siendo root, modificamos en archivo ip_forward y permitimos el routing por 
 sudo -i 
 echo 1 > /proc/sys/net/ipv4/ip_forward
-iptables -t nat -A POSTROUTING -o wlan0 -j MASQUERADE
+iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
 
 # Accedemos a la Raspberry mediante USB serial.
 ssh pi@raspberrypi.local
