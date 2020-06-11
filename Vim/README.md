@@ -84,6 +84,8 @@ Mostrar archivos en path <- ``:!ls``.
 
 Borrar una función <-  ``V + } + d``.
 
+Borrar todo dentro de comillas <- ``d + i + "``
+
 Sustituir patrón de texto <- ``:%s 'texto a sustituir''nuevo texto'``.
 
 Comentar <- Seleccionar texto a comentar y luego ``:norm i// (o :norm i#)``.
@@ -91,4 +93,8 @@ Comentar <- Seleccionar texto a comentar y luego ``:norm i// (o :norm i#)``.
 Autocompletar <- ``Ctrl x + Ctrl o``, luego seleccionar con ``Ctrl + n`` .
 
 Cambiar entre ventanas <- ``Ctrl + w + k`` o ``Ctrl + w + j``
+
+Borrar 10 líneas abajos <- ``10 + dd ``
+
+Ir al inicio <- ``gg``. Ir al final ``G``. Mostrar status ``Ctrl + g``.
 
