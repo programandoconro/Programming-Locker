@@ -2,9 +2,11 @@
 
 ## Sobrevivencia:
 
-``i`` -> insertar texto (Modo editor).
+``i`` -> Modo insertar (insertar texto).
 
-``ESC`` , ``Crtl + c``, ``Crtl + {`` -> Modo Comando.
+``ESC`` -> Modo Normal.
+
+``v`` -> Modo visual.
 
 ``:w`` -> guardar.
 
@@ -12,7 +14,6 @@
 
 ``:qa!`` -> salir sin guardar.
 
-``:V G d`` -> borrar todo el documento
 
 ## Básicos:
 
@@ -28,13 +29,17 @@
 
 ``u`` -> undo, deshacer.
 
-``Ctrl + r`` -> rehacer.
+``Ctrl r`` -> rehacer.
 
 ``y`` -> copiar.
 
 ``d`` -> borrar (cortar).
 
 ``p`` -> pegar.
+
+``a`` -> insertar a la derecha del cursor ``A`` -> inserta al final de la línea.
+
+``I`` -> insertar al principio de la línea.
 
 ## Desplazamiento:
 
@@ -44,7 +49,7 @@
 
 ``0`` -> principio de línea.
 
-``Shift + arrows`` -> desplazar rapidamente por el documento.
+``Shift arrows`` -> desplazar rapidamente por el documento.
 
 ``[[`` -> Ir al primer bloque.
 
@@ -72,29 +77,44 @@
 
 ``:V G`` -> selecciona todo el texto abajo del cursor.
 
-Seleccionar una función <- ``V + }``.
+Seleccionar una función <- ``V }``.
 
-Seleccionar bloques hacia abajo <- ``v + }``.
+Seleccionar bloques hacia abajo <- ``v }``.
 
-Seleccionar bloques hacia arriba <- ``v + {``.
+Seleccionar bloques hacia arriba <- ``v {``.
 
 ## Funcionalidades:
 
 Mostrar archivos en path <- ``:!ls``.
 
-Borrar una función <-  ``V + } + d``.
+Borrar una función <-  ``V } d``.
 
-Borrar todo dentro de comillas <- ``d + i + "``
+Borrar todo dentro de comillas <- ``d i "``
 
 Sustituir patrón de texto <- ``:%s 'texto a sustituir''nuevo texto'``.
 
 Comentar <- Seleccionar texto a comentar y luego ``:norm i// (o :norm i#)``.
 
-Autocompletar <- ``Ctrl x + Ctrl o``, luego seleccionar con ``Ctrl + n`` .
+Autocompletar <- ``Ctrl x Ctrl o``, luego seleccionar con ``Ctrl n`` .
 
 Cambiar entre ventanas <- ``Ctrl + w + k`` o ``Ctrl + w + j``
 
-Borrar 10 líneas abajos <- ``10 + dd ``
+Borrar 10 líneas abajos <- ``10  dd ``
 
 Ir al inicio <- ``gg``. Ir al final ``G``. Mostrar status ``Ctrl + g``.
 
+## Ergonómicos:
+
+Salir <- ``Z Q``
+
+``Ctrl c``-> Modo Normal.
+
+``:V G d`` -> borrar todo el documento
+
+Borrar y editar directamente dentro de una función <- ``c i {`` 
+
+``/`` -> buscar, ``n`` siguiente y ``N`` anterior
+
+``Ctrl v`` -> Bloques visuales
+
+``.`` -> Rehace el último comando en un sito nuevo.
