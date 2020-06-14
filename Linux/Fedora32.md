@@ -1,4 +1,4 @@
-# 10 cosas que hacer luego de instalar  Fedora-Python-Classroom-Live 32_Beta para desarrollo Web y programacion
+# 10 cosas que hacer luego de instalar  Fedora 32  desarrollo Web y programacion
 
 ```
 Fedora 32 
@@ -122,44 +122,16 @@ react tools
 ssh-keygen
 ssh-copy-id -i ~/.ssh/id_rsa.pub user@ip
 ```
-10. Deployar Apps con docker-compose:
-Instalamos con: ``pip install docker-compose`` y creamos archivo ``docker-compose.yml``
+10. Instalar temas de escritorio
 
-Por ejemplo, wordpress:
 ```
-version: '3'
+  dnf install gnome-shell-theme-flat-remix.noarch \
+  gnome-shell-theme-selene.noarch \ 
+  gnome-shell-theme-yaru.noarch
 
-services:
-  db:
-    image: mysql:5.7
-    volumes:
-      - db_data:/var/lib/mysql
-    restart: always
-    environment:
-      MYSQL_ROOT_PASSWORD: somewordpress
-      MYSQL_DATABASE: wordpress
-      MYSQL_USER: wordpress
-      MYSQL_PASSWORD: wordpress
-
-  wordpress:
-    depends_on:
-      - db
-    image: wordpress:5.1.1-php7.3-apache
-    ports:
-      - "8000:80"
-    restart: always
-    environment:
-      WORDPRESS_DB_HOST: db:3306
-      WORDPRESS_DB_USER: wordpress
-      WORDPRESS_DB_PASSWORD: wordpress
-    working_dir: /var/www/html
-    volumes:
-      - ./wp-content:/var/www/html/wp-content
-      - ./uploads.ini:/usr/local/etc/php/conf.d/uploads.ini
-volumes:
-  db_data:
 ```
-``docker-compose up``
+
+
 <div>
   <h1> Go Linux </h1>
 </div>
