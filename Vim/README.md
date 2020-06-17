@@ -87,6 +87,8 @@ Seleccionar bloques hacia arriba <- ``v {``.
 
 Mostrar archivos en path <- ``:!ls``.
 
+Buscar y abrir archivos en path <- ``Ctrl p``.
+
 Borrar una función <-  ``V } d``.
 
 Borrar todo dentro de comillas <- ``d i "``
@@ -94,8 +96,6 @@ Borrar todo dentro de comillas <- ``d i "``
 Sustituir patrón de texto <- ``:%s 'texto a sustituir''nuevo texto'``.
 
 Comentar <- Seleccionar texto a comentar y luego ``:norm i// (o :norm i#)``.
-
-Autocompletar <- ``Ctrl x Ctrl o``, luego seleccionar con ``Ctrl n`` .
 
 Cambiar entre ventanas <- ``Ctrl + w + k`` o ``Ctrl + w + j``
 
@@ -118,3 +118,9 @@ Borrar y editar directamente dentro de una función <- ``c i {``
 ``Ctrl v`` -> Bloques visuales
 
 ``.`` -> Rehace el último comando en un sito nuevo.
+
+## Basado en el ``.vimrc`` que comparto. Colocar el archivo en ``/home/`` y utilizar ``:PlugInstall`` 
+
+Autocompletar <- ``Ctrl x Ctrl o``, luego seleccionar con ``Ctrl n`` .
+
+Prettier para js, html, css <- ``Ctrl shift l``. 
