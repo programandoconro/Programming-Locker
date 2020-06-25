@@ -3,7 +3,7 @@
 echo "Manjaro Post-Installation Script"
 
 if [[ $EUID -ne 0 ]]; then
-	echo "Necesitas ser root (sudo -i o su)" 
+	echo "Necesitas ser root (sudo -i o su)"
 	exit 1
 fi
 sleep 1
@@ -31,17 +31,19 @@ echo "Instalando programas favoritos para trabajar" && sleep 1
 pacman -Sy nmap npm r python-pip podman vim
 
 echo "Instando programas para entretenimiento"
-pacman -Sy cmatrix youtube-dl
+pacman -Sy cmatrix youtube-dl feh
 
-#echo "Clonando mis repositorios favoritos" && sleep 1
-#cd /home/
 
-#git clone https://github.com/programandoconro/wallpapers 
+
+echo "Clonando mis repositorios favoritos" && sleep 1
+cd /home/
+
+git clone https://github.com/programandoconro/wallpapers
 #git clone https://github.com/programandoconro/My-Linux-Locker-
 #git clone https://github.com/programandoconro/Mis-Comandos-Linux
 #git clone https://github.com/programandoconro/Image-Classification-ML-App
 #git clone https://github.com/programandoconro/KanjiTrainer
 #git clone https://github.com/programandoconro/vimrc
-
-
+chmod 777 /home/wallpapers/*
+echo "feh --randomize /home/wallpapers/*" >> ~/.config/bspwm/autostart
 
