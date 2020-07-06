@@ -1,25 +1,29 @@
 # Ve a la configuración del teléfono Android y activa las opciones de desarrollador (ABOUT DEVICE ---- toca 7 veces la opción de BUILD NUMBER)
-# Ahora, en linux, conectamos por USB a Anrdorid.
+# Ahora, en linux, conectamos por USB a Android.
 
 lsusb
 
-# Encuerta el dispositivo y copia los primeros 4 valores del ID, por ejemplo, 04e8. 
+# Encuentra el dispositivo y copia los primeros 4 valores del ID, por ejemplo, 04e8. 
 
 echo 'SUBSYSTEM=="usb", ATTR{idVendor}=="04e8", MODE="0666", GROUP="plugdev"' | sudo tee /etc/udev/rules.d/51-android-usb.rules
 
-apt install adb -y
+# Instala adb
+
+apt install adb -y # Debian
+pacman -S adb # Manjaro
 
 adb devices
 
 #Habilita la conexión en tu teléfono.
 #Instala npm 
 
-apt install npm nodejs -y
+apt install npm -y
 
 # Instala React
 
 npm install -g create-react-app
 
+# EXPO:
 # Instala expo y arranca el proyecto
 
 npm install -g expo-cli
@@ -29,7 +33,7 @@ npm start # o expo start
 
 # Modificamos el archivo App.js
 
-nano App.js
+vim src/App.js
 
 # La app cambiara inmediatemente en nuestro dispositivo.
 
