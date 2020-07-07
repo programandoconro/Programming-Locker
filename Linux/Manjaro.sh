@@ -26,14 +26,27 @@ sleep 1
 
 echo "Actualizamos" && sleep 1
 pacman -Syy
+pacman -Su
 
 echo "Instalando programas favoritos para trabajar" && sleep 1
-pacman -Sy nmap npm r python-pip podman vim
+pacman -Sy nmap npm r python-pip podman vim openjdk11-src \
+termite terminator 
 
-echo "Instando programas para entretenimiento"
-pacman -Sy cmatrix youtube-dl feh
+echo "Instalando programas para entretenimiento"
+pacman -Sy cmatrix youtube-dl audacy cool-retro-term vlc
+yay -S zoom
 
+echo "Instalando programas de configuración"
+pacman -S feh xcompmgr ibus-mozc otf-ipafont 
+pacman -S adobe-source-han-sans-jp-fonts 
+pacman -S adobe-source-han-serif-jp-fonts
 
+echo "Instalando Browsers"
+pacman -S min brave chromium firefox midori
+
+echo "Instalando Programas para programar en Android"
+yay -S android-studio 
+pacman -S adb
 
 echo "Clonando mis repositorios favoritos" && sleep 1
 cd /home/
