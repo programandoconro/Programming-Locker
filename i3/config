@@ -24,27 +24,26 @@ bindsym $mod+n border normal
 # is used in the bar {} block below.
 font xft:URWGothic-Book 11
 
-
 # Use Mouse+$mod to drag floating windows
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec terminal
+bindsym $mod+Return exec terminator
 
 # kill focused window
 bindsym $mod+Shift+q kill
 
 # start program launcher
-bindsym $mod+d exec --no-startup-id dmenu_recency
+#bindsym $mod+d exec --no-startup-id dmenu_recency
 
 # launch categorized menu
-bindsym $mod+z exec --no-startup-id morc_menu
+#bindsym $mod+z exec --no-startup-id morc_menu
 
 ################################################################################################
 ## sound-section - DO NOT EDIT if you wish to automatically upgrade Alsa -> Pulseaudio later! ##
 ################################################################################################
 
-exec --no-startup-id volumeicon
+#exec --no-startup-id volumeicon
 bindsym $mod+Ctrl+m exec terminal -e 'alsamixer'
 #exec --no-startup-id pulseaudio
 #exec --no-startup-id pa-applet
@@ -281,7 +280,7 @@ exec --no-startup-id clipit
 # exec --no-startup-id blueman-applet
 # exec_always --no-startup-id sbxkb
 #exec --no-startup-id start_conky_maia
-exec --no-startup-id start_conky_green
+#exec --no-startup-id start_conky_green
 exec --no-startup-id xautolock -time 300 -locker blurlock
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
@@ -364,7 +363,7 @@ bindsym $mod+m bar mode toggle
 #############################
 
 # Set inner/outer gaps
-gaps inner 10
+gaps inner 20
 gaps outer -2
 
 
@@ -449,22 +448,22 @@ bindsym $var+i exec brave
 bindsym $var+m exec min
 
 # VLC
-bindsym $mod+Shift+m exec vlc --random /home/roro/Music/*
+bindsym $mod+Shift+m exec vlc --random /home/ro/Music/*
 bindsym $mod+Shift+v exec vlc
 
 #ZOOM
-bindsym $mod+Shift+z exec zoom-client
-bindsym $var+z exec zoom-client
+bindsym $mod+Shift+z exec zoom
+bindsym $var+z exec zoom
 
 #Japanese
-exec --no-startup-id fcitx -d
+exec --no-startup-id ibus-daemon -d
 
 # Wallpapers
-exec_always feh --bg-scale --randomize /home/roro/Pictures/wallpapers/*
+exec_always feh --bg-scale --randomize /home/ro/Pictures/wallpapers/*
 
 # Sound
 bindsym $mod+Ctrl+s exec pavucontrol
-bindsym $var+s exec  terminal -e alsamixer
+bindsym $var+x exec  terminal -e alsamixer
 
 # Terminals
 bindsym $mod+Shift+t exec terminator
@@ -474,7 +473,7 @@ bindsym $var+l exec tilsa
 bindsym $var+Return exec termite
 
 # Recorder
-bindsym $var+r exec  audacity
+bindsym $var+r exec audacity
 
 # pdf reader
 bindsym $var+o exec okular
@@ -484,10 +483,16 @@ bindsym $var+a exec android-studio
 bindsym $var+c exec code
 
 # Files
-bindsym $var+f exec ranger
+bindsym $var+f exec termite -e ranger
 
 # Photo Editor
 bindsym $var+g exec gimp
+
+# Balena-etcher
+bindsym $var+b exec balena-etcher
+
+bindsym $var+h exec termite -e htop
+bindsym $var+s exec slack
 
 
 

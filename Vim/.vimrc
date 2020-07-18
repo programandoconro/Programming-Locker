@@ -67,7 +67,6 @@ set tabstop=4
 set shiftwidth=4
 set expandtab
 set smartindent
-set nu
 set noswapfile
 set nobackup
 set undodir=~/.vim/undodir
@@ -163,11 +162,11 @@ augroup NeoformatAutoFormat
 augroup END
 let g:vim_jsx_pretty_colorful_config = 1
 nnoremap = ==
-map <F2> iimport React from 'react'; <ESC>
-map <F3> iimport React, {useState} from 'react'; <ESC>
-map <F4> iimport React, {useState,useEffect} from 'react'; <ESC>
-map <F5> iexport default function myFuction(props){ return(  ); } <ESC>
-map <F6> iconst [state, handleState] = useState(); <ESC>
+map <F2> iimport React from 'react'; <CR><CR>export default function myFunction(props){ <CR><CR>  return( <CR><CR> ); }
+map <F3> iimport React,{useState} from 'react'; <CR><CR>export default function myFunction(props){ <CR>const [state, setState] = useState(); <CR><CR>  return( <CR><CR> ); }
+map <F4> iimport React, {useState,useEffect} from 'react'; <ESC> o <CR>
+map <F5> iexport default function myFunction(props){ return(  ); } <ESC>
+map <F6> iconst [state, handleState] = useState(); <ESC> 0
 map <leader>s :w <CR>i
 " filenames like *.xml, *.html, *.xhtml, ...
 " These are the file extensions where this plugin is enabled.
