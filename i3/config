@@ -28,7 +28,7 @@ font xft:URWGothic-Book 11
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec terminator
+bindsym $mod+Return exec termite
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -317,10 +317,14 @@ set_from_resource $term_color14    color14
 set_from_resource $term_color15    color15
 
 # Start i3bar to display a workspace bar (plus the system information i3status if available)
+
+#Polybar:
+#exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+
 bar {
 	i3bar_command i3bar
 	status_command i3status
-	position top
+	position bottom
 
 ## please set your primary output first. Example: 'xrandr --output eDP1 --primary'
 #	tray_output primary
@@ -363,7 +367,7 @@ bindsym $mod+m bar mode toggle
 #############################
 
 # Set inner/outer gaps
-gaps inner 20
+gaps inner 10
 gaps outer -2
 
 
@@ -373,7 +377,7 @@ gaps outer -2
 # gaps outer all plus 5
 
 # Smart gaps (gaps used if only more than one container on the workspace)
-smart_gaps on
+#smart_gaps on
 
 # Smart borders (draw borders around container only if it is not the only container on this workspace) 
 # on|no_gaps (on=always activate and no_gaps=only activate if the gap size to the edge of the screen is 0)
@@ -440,12 +444,18 @@ bindsym $mod+9 exec --no-startup-id blurlock
 
 # Redshift
 bindsym $mod+Shift+o exec redshift-gtk -O 5000
+bindsym $var+Shift+o exec redshift-gtk -x 
 
 # Browser
 bindsym $mod+Shift+i exec chromium
 bindsym $mod+i exec brave
-bindsym $var+i exec brave
-bindsym $var+m exec min
+bindsym $var+Shift+l exec brave lichess.org
+bindsym $var+Shift+y exec brave youtube.com
+bindsym $var+Shift+g exec brave github.com
+bindsym $var+Shift+b exec min gitlab.com
+bindsym $var+Shift+f exec brave facebook.com
+bindsym $var+m exec min 
+bindsym $var+Shift+t exec chromium roro.world
 
 # VLC
 bindsym $mod+Shift+m exec vlc --random /home/ro/Music/*
@@ -467,10 +477,10 @@ bindsym $var+x exec  terminal -e alsamixer
 
 # Terminals
 bindsym $mod+Shift+t exec terminator
-bindsym $var+t exec terminator
+bindsym $var+t exec terminal
 bindsym $var+e exec cool-retro-term
 bindsym $var+l exec tilsa
-bindsym $var+Return exec termite
+bindsym $var+Return exec terminator
 
 # Recorder
 bindsym $var+r exec audacity
@@ -493,11 +503,3 @@ bindsym $var+b exec balena-etcher
 
 bindsym $var+h exec termite -e htop
 bindsym $var+s exec slack
-
-
-
-
-
-
-
-
