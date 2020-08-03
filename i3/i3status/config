@@ -1,0 +1,47 @@
+order += "wireless wlp13s0"
+order += "tztime japan"
+order += "cpu_temperature 0"
+order += "disk /"
+order += "memory"
+order += "tztime local"
+order += "read_file uptime"
+order += "ethernet eth0"
+
+read_file uptime {
+        path = "/proc/uptime"
+}
+
+memory {
+        format = "%used RAM"
+        threshold_degraded = "10%"
+        format_degraded = "MEMORY: %free"
+}
+
+cpu_temperature 0 {
+        format = "CPU: %degrees °C"
+        path = "/sys/devices/platform/coretemp.0/hwmon/hwmon2/temp1_input"
+}
+
+disk "/" {
+    format = "%avail"
+}
+
+tztime local {
+        format = "%Y-%m-%d %H:%M:%S"
+        timezone = "Europe/Lisbon"
+}
+
+tztime japan {
+        format = "%H:%M:%S %Z"
+        timezone = "Japan"
+}
+
+wireless wlp13s0 {
+        format_up = "Wi-Fi: (%quality at %essid, %bitrate) %ip"
+        format_down = "Wi-Fi: down"
+}
+
+ethernet eth0 {
+        format_up = "Eth: %ip (%speed)"
+        format_down = "E: down"
+}
