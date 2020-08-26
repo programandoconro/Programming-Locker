@@ -33,8 +33,8 @@ pacman -Sy nmap npm r python-pip podman vim openjdk11-src \
 termite terminator 
 
 echo "Instalando programas para entretenimiento"
-pacman -Sy cmatrix youtube-dl audacy cool-retro-term vlc
-yay -S zoom
+pacman -Sy cmatrix youtube-dl cool-retro-term vlc
+yay -S zoom audacity
 
 echo "Instalando programas de configuración"
 pacman -S feh xcompmgr ibus-mozc otf-ipafont 
