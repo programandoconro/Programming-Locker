@@ -1,7 +1,7 @@
 #Japanese input and fonts in Linux
 
-sudo pacman -Sy ibus-daemon ibus-mozc \ 
-adobe-source-han-sans-jp-fonts \
+yay -Sy ibus-daemon ibus-mozc  
+sudo pacman -Sy adobe-source-han-sans-jp-fonts \
 adobe-source-han-serif-jp-fonts \
 otf-ipafont noto-fonts-emoji
 
