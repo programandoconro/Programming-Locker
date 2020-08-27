@@ -1,7 +1,9 @@
 #Japanese input and fonts in Linux
 
-yay -Sy fcitx-mozc ibus-daemon ibus-mozc
-pacman -Sy adobe-source-han-sans-jp-fonts adobe-source-han-serif-jp-fontsotf-ipafont noto-fonts-emoji
+sudo pacman -Sy ibus-daemon ibus-mozc \ 
+adobe-source-han-sans-jp-fonts \
+adobe-source-han-serif-jp-fonts \
+otf-ipafont noto-fonts-emoji
 
 sudo echo 'ja_JP.UTF-8 UTF-8' >> /etc/locale.gen
 
