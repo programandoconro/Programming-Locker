@@ -1,4 +1,4 @@
-#Japanese input and fonts in Manjaro and i3 window-manager.
+#Japanese input and fonts in Linux
 
 yay -Sy fcitx-mozc ibus-daemon ibus-mozc
 pacman -Sy adobe-source-han-sans-jp-fonts adobe-source-han-serif-jp-fontsotf-ipafont noto-fonts-emoji
@@ -12,4 +12,4 @@ export QT_IM_MODULE=ibus
 
 ibus-daemon -d
 
-echo 'exec --no-startup-id ibus-daemon -d' >> .i3/config
+# echo 'exec --no-startup-id ibus-daemon -d' >> .i3/config #i3 window-manager.
