@@ -1,7 +1,8 @@
-order += "wireless wlp13s0"
 order += "tztime date"
-order += "tztime local"
 order += "tztime japan"
+order += "tztime canarias"
+order += "tztime venezuela"
+order += "wireless wlp13s0"
 order += "cpu_temperature 0"
 order += "disk /"
 order += "memory"
@@ -39,18 +40,22 @@ disk "/" {
     format = "💾 %avail free"
 }
 
-tztime local {
-        format = "🏝️%H:%M:%S"
+tztime canarias {
+        format = "🏝️ %H:%M"
         timezone = "Europe/Lisbon"
 }
 
 tztime date {
-        format = "🗓️%Y-%m-%d"
+        format = "🗓️ %A %D"
 }
 
 tztime japan {
-        format = "🇯🇵%H:%M:%S"
+        format = "🇯🇵 %H:%M:%S"
         timezone = "Japan"
+}
+tztime venezuela {
+        format = "🇻🇪 %H:%M"
+        timezone = "Venezuela"
 }
 
 wireless wlp13s0 {
