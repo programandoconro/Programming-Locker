@@ -3,6 +3,8 @@
 
 # Set mod key (Mod1=<Alt>, Mod4=<Super>)
 set $mod Mod4
+set $var Mod1
+
 # set default desktop layout (default is tiling)
 #workspace_layout tabbed
 
@@ -425,8 +427,6 @@ mode "$mode_gaps_outer" {
 
 # darker my backlight
 
-set $var Mod1
-
 bindsym $var+1 exec echo 1 > /sys/class/backlight/intel_backlight/brightness
 bindsym $var+2 exec echo 2 > /sys/class/backlight/intel_backlight/brightness
 bindsym $var+3 exec echo 3 > /sys/class/backlight/intel_backlight/brightness
@@ -447,7 +447,7 @@ bindsym $mod+Shift+o exec redshift-gtk -O 5000
 bindsym $var+Shift+o exec redshift-gtk -x 
 
 # Browser
-bindsym $mod+Shift+i exec chromium
+bindsym $mod+Shift+i exec brave
 bindsym $mod+i exec brave
 bindsym $var+Shift+l exec brave lichess.org
 bindsym $var+Shift+y exec brave youtube.com
@@ -455,7 +455,7 @@ bindsym $var+Shift+g exec brave github.com
 bindsym $var+Shift+b exec min gitlab.com
 bindsym $var+Shift+f exec brave facebook.com
 bindsym $var+m exec min 
-bindsym $var+Shift+t exec chromium roro.world
+bindsym $var+Shift+t exec brave roro.world
 
 # VLC
 bindsym $mod+Shift+m exec vlc --random /home/ro/Music/*
@@ -465,7 +465,7 @@ bindsym $mod+Shift+v exec vlc
 bindsym $mod+Shift+z exec zoom
 bindsym $var+z exec zoom
 
-#Japanese
+# Keyboard input (Japanese, English, Spanish)
 exec --no-startup-id ibus-daemon -d
 
 # Wallpapers
@@ -501,5 +501,12 @@ bindsym $var+g exec gimp
 # Balena-etcher
 bindsym $var+b exec balena-etcher
 
+# htop
 bindsym $var+h exec termite -e htop
+
+# Slack
 bindsym $var+s exec slack
+
+# Volume-control
+bindsym XF86AudioRaiseVolume exec pactl -- set-sink-volume 0 +5% #increase sound volume
+bindsym XF86AudioLowerVolume exec pactl -- set-sink-volume 0 -5% #decrease sound volume
