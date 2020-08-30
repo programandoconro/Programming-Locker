@@ -97,8 +97,6 @@ Borrar todo dentro de comillas <- ``d i "``
 
 Sustituir patrón de texto <- ``:%s 'texto a sustituir''nuevo texto'``.
 
-Comentar <- Seleccionar texto a comentar y luego ``:norm i// (o :norm i#)``.
-
 Cambiar entre ventanas <- ``Ctrl + w + k`` o ``Ctrl + w + j``
 
 Borrar 10 líneas abajos <- ``10  dd ``
@@ -125,13 +123,13 @@ Borrar y editar directamente dentro de una función <- ``c i {``
 
 Escribe ``:mark a`` en la línea que desea marcar, navega a ella con ``'a``. También puedes navegar entre marcas con ``['`` y ``]'``.
 
-# Editar múltiples líneas:
+## Editar múltiples líneas:
 
 ``Ctrl V`` seguido de las teclas de desplazamiento (j, k, l, h, etc...).
 
-# Comentar múltiples líneas:
+## Comentar múltiples líneas:
 
-``:s/^/# /`` 
+Comentar <- Seleccionar texto a comentar y luego ``:norm i// (o :norm i#)``. O, puedes utilizar ``:s/^/# /`` .
 
 ## Basado en el ``.vimrc`` que comparto. Colocar el archivo en ``/home/`` y utilizar ``:PlugInstall`` 
 
