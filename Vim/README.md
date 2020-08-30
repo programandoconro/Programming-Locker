@@ -89,6 +89,8 @@ Mostrar archivos en path <- ``:!ls``.
 
 Buscar y abrir archivos en path <- ``Ctrl p``.
 
+Encontrar patrón en texto <- ``/patron``.
+
 Borrar una función <-  ``V } d``.
 
 Borrar todo dentro de comillas <- ``d i "``
@@ -118,6 +120,18 @@ Borrar y editar directamente dentro de una función <- ``c i {``
 ``Ctrl v`` -> Bloques visuales
 
 ``.`` -> Rehace el último comando en un sito nuevo.
+
+## Marcas:
+
+Escribe ``:mark a`` en la línea que desea marcar, navega a ella con ``'a``. También puedes navegar entre marcas con ``['`` y ``]'``.
+
+# Editar múltiples líneas:
+
+``Ctrl V`` seguido de las teclas de desplazamiento (j, k, l, h, etc...).
+
+# Comentar múltiples líneas:
+
+``:s/^/# /`` 
 
 ## Basado en el ``.vimrc`` que comparto. Colocar el archivo en ``/home/`` y utilizar ``:PlugInstall`` 
 
