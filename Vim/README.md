@@ -135,4 +135,4 @@ Comentar <- Seleccionar texto a comentar y luego ``:norm i// (o :norm i#)``. O, 
 
 Autocompletar <- ``Ctrl x Ctrl o``, luego seleccionar con ``Ctrl n`` .
 
-Prettier para js, html, css <- ``Ctrl shift l``. 
+Prettier para js, html, css <- ``Ctrl l``. 
