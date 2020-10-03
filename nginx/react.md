@@ -1,8 +1,8 @@
 # Agrega la carpeta build de react a la root en:
-sudo nano /etc/nginx/sites-enabled/default 
+``sudo nano /etc/nginx/sites-enabled/default`` 
 
 # Para que quede asi 
-
+```
 server {
         listen 80 default_server;
         listen [::]:80 default_server;
@@ -17,4 +17,6 @@ server {
                
                 try_files $uri $uri/ =404;
         }
+```
+
 
