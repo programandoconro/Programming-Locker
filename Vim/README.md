@@ -136,3 +136,7 @@ Comentar <- Seleccionar texto a comentar y luego ``:norm i// (o :norm i#)``. O, 
 Autocompletar <- ``Ctrl x Ctrl o``, luego seleccionar con ``Ctrl n`` .
 
 Prettier para js, html, css <- ``Ctrl l``. 
+
+Encerrar texto seleccionado en un tab <- selecciona con v o V, luego ``S`` y finalmente el tag, por ejemplo, ```<div>```.
+
+
