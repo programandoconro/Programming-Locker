@@ -131,6 +131,10 @@ Escribe ``:mark a`` en la línea que desea marcar, navega a ella con ``'a``. Tam
 
 Comentar <- Seleccionar texto a comentar y luego ``:norm i// (o :norm i#)``. O, puedes utilizar ``:s/^/# /`` .
 
+## Autoindent múltiples líneas (Ideal para programar en Python):
+
+Seleccionar líneas con ``V`` y luego ``>>``.
+
 ## Basado en el ``.vimrc`` que comparto. Colocar el archivo en ``/home/`` y utilizar ``:PlugInstall`` 
 
 Autocompletar <- ``Ctrl x Ctrl o``, luego seleccionar con ``Ctrl n`` .
