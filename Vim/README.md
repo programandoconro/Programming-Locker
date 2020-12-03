@@ -135,8 +135,6 @@ Comentar <- Seleccionar texto a comentar y luego ``:norm i// (o :norm i#)``. O, 
 
 Seleccionar líneas con ``V`` y luego ``>>``.
 
-## Basado en el ``.vimrc`` que comparto. Colocar el archivo en ``/home/`` y utilizar ``:PlugInstall`` 
-
 Autocompletar <- ``Ctrl x Ctrl o``, luego seleccionar con ``Ctrl n`` .
 
 Prettier para js, html, css <- ``Ctrl l``. 
@@ -152,5 +150,9 @@ Navegar entre pantallas: ``Ctrl w + jklh``
 Con ``:hide`` podemos esconder la ventana, o simplemente ``:q``, ``:qa!`` o ``:wq`` para cerrarla.
 
 Editar un nuevo archivo: ``:e nombre_archivo``
+
+Abrir la terminal sin salir de Vim:
+
+Podemos usar ``:term`` o ``:vert term`` para que se divida la pantalla verticalmente. Adicionalmente, podemos usar ``Ctrl z`` para suspender Vim y luego ``fg`` en la terminal para regresar a vim. 
 
 
