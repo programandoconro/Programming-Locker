@@ -95,8 +95,6 @@ Borrar una función <-  ``V } d``.
 
 Borrar todo dentro de comillas <- ``d i "``
 
-Sustituir patrón de texto <- ``:%s 'texto a sustituir''nuevo texto'``.
-
 Cambiar entre ventanas <- ``Ctrl + w + k`` o ``Ctrl + w + j``
 
 Borrar 10 líneas abajos <- ``10  dd ``
@@ -125,7 +123,9 @@ Escribe ``:mark a`` en la línea que desea marcar, navega a ella con ``'a``. Tam
 
 ## Editar múltiples líneas:
 
-``Ctrl V`` seguido de las teclas de desplazamiento (j, k, l, h, etc...).
+Seleccinamos con ``V`` y luego usamos ``Ctrl V`` seguido de las teclas de desplazamiento (j, k, l, h, etc...) y el texto a agregar.
+
+Sustituir patrón de texto <- ``:%s 'texto a sustituir''nuevo texto'``.
 
 ## Comentar múltiples líneas:
 
@@ -139,7 +139,12 @@ Autocompletar <- ``Ctrl x Ctrl o``, luego seleccionar con ``Ctrl n`` .
 
 Prettier para js, html, css <- ``Ctrl l``. 
 
+## Editar varias líneas al mismo tiempo
 Encerrar texto seleccionado en un tab <- selecciona con v o V, luego ``S`` y finalmente el tag, por ejemplo, ```<div>```.
+
+## Editar varios archivos en la misma pantalla
+
+Editar un nuevo archivo: ``:e nombre_archivo``
 
 Dividir la pantalla verticalmente y abrir un nuevo archivo para editar: ``:vsplit nombre_archivo`` 
 
@@ -149,10 +154,10 @@ Navegar entre pantallas: ``Ctrl w + jklh``
 
 Con ``:hide`` podemos esconder la ventana, o simplemente ``:q``, ``:qa!`` o ``:wq`` para cerrarla.
 
-Editar un nuevo archivo: ``:e nombre_archivo``
+## Abrir la terminal sin salir de Vim:
 
-Abrir la terminal sin salir de Vim:
+Podemos usar ``:term`` o ``:vert term`` para que se divida la pantalla verticalmente. 
 
-Podemos usar ``:term`` o ``:vert term`` para que se divida la pantalla verticalmente. Adicionalmente, podemos usar ``Ctrl z`` para suspender Vim y luego ``fg`` en la terminal para regresar a vim. 
+Adicionalmente, podemos usar ``Ctrl z`` para suspender Vim y luego ``fg`` en la terminal para regresar a vim. 
 
 
