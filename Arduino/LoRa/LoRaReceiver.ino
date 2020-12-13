@@ -1,4 +1,4 @@
-//Lora Reciever using TTGO ESP32 with oled board
+//Lora Receiver using TTGO ESP32 with oled board
 //Programandoconro 2020
 
 //Modified from:
