@@ -58,6 +58,9 @@ void setup() {
   digitalWrite(OLED_RST, LOW);
   delay(20);
   digitalWrite(OLED_RST, HIGH);
+  
+  //blue light, send package 
+  pinMode(2, OUTPUT);
 
   //initialize OLED
   Wire.begin(OLED_SDA, OLED_SCL);
@@ -129,6 +132,8 @@ void loop() {
   display.display();
 
   counter++;
+  digitalWrite(2, LOW);    
+  delay(1000);
+  digitalWrite(2, HIGH);    
 
-  delay(10000);
 }
