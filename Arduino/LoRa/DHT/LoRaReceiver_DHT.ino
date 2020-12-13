@@ -1,3 +1,6 @@
+/*********
+Programandoconro 2020
+*********/
 
 //Libraries for LoRa
 #include <SPI.h>
@@ -24,7 +27,7 @@
 
 //OLED pins
 #define OLED_SDA 4
-#define OLED_SCL 15 
+#define OLED_SCL 15
 #define OLED_RST 16
 #define SCREEN_WIDTH 128 // OLED display width, in pixels
 #define SCREEN_HEIGHT 64 // OLED display height, in pixels
@@ -33,33 +36,34 @@ Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RST);
 
 String LoRaData;
 
-void setup() { 
-  
+void setup() {
+
   //reset OLED display via software
   pinMode(OLED_RST, OUTPUT);
+  pinMode(2, OUTPUT);
   digitalWrite(OLED_RST, LOW);
   delay(20);
   digitalWrite(OLED_RST, HIGH);
-  
+
   //initialize OLED
   Wire.begin(OLED_SDA, OLED_SCL);
-  if(!display.begin(SSD1306_SWITCHCAPVCC, 0x3c, false, false)) { // Address 0x3C for 128x32
+  if (!display.begin(SSD1306_SWITCHCAPVCC, 0x3c, false, false)) { // Address 0x3C for 128x32
     Serial.println(F("SSD1306 allocation failed"));
-    for(;;); // Don't proceed, loop forever
+    for (;;); // Don't proceed, loop forever
   }
 
   display.clearDisplay();
   display.setTextColor(WHITE);
   display.setTextSize(1);
-  display.setCursor(0,0);
+  display.setCursor(0, 0);
   display.print("LORA RECEIVER ");
   display.display();
-  
+
   //initialize Serial Monitor
   Serial.begin(115200);
 
   Serial.println("LoRa Receiver Test");
-  
+
   //SPI LoRa pins
   SPI.begin(SCK, MISO, MOSI, SS);
   //setup LoRa transceiver module
@@ -70,9 +74,9 @@ void setup() {
     while (1);
   }
   Serial.println("LoRa Initializing OK!");
-  display.setCursor(0,10);
+  display.setCursor(0, 10);
   display.println("LoRa Initializing OK!");
-  display.display();  
+  display.display();
 }
 
 void loop() {
@@ -82,6 +86,7 @@ void loop() {
   if (packetSize) {
     //received a packet
     Serial.print("Received packet ");
+    digitalWrite(2, HIGH);
 
     //read packet
     while (LoRa.available()) {
@@ -91,21 +96,24 @@ void loop() {
 
     //print RSSI of packet
     int rssi = LoRa.packetRssi();
-    Serial.print(" with RSSI ");    
+    Serial.print(" with RSSI ");
     Serial.println(rssi);
 
-   // Dsiplay information
-   display.clearDisplay();
-   display.setCursor(0,0);
-   display.print("LORA RECEIVER");
-   display.setCursor(0,20);
-   display.print("Received packet:");
-   display.setCursor(0,30);
-   display.print(LoRaData);
-   display.setCursor(0,40);
-   display.print("RSSI:");
-   display.setCursor(30,40);
-   display.print(rssi);
-   display.display();   
+    // Dsiplay information
+    display.clearDisplay();
+    display.setCursor(0, 0);
+    display.print("LORA RECEIVER");
+    display.setCursor(0, 20);
+    display.print("Received packet:");
+    display.setCursor(0, 30);
+    display.print(LoRaData);
+    display.setCursor(0, 40);
+    display.print("RSSI:");
+    display.setCursor(30, 40);
+    display.print(rssi);
+    display.display();
+  }
+  else {
+    digitalWrite(2, LOW);
   }
 }
