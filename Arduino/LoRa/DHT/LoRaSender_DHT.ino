@@ -1,3 +1,8 @@
+/*********
+Programandoconro 2020
+TTGO ESP32 LoRa with DHT11 sensor
+
+*********/
 
 //Libraries for LoRa
 #include <SPI.h>
@@ -8,12 +13,16 @@
 #include <Adafruit_GFX.h>
 #include <Adafruit_SSD1306.h>
 
+//Library for DHT11 sensor
 #include "DHT.h"
 
+//define the pins used by the LDHT11 sensor
 #define DHTPIN 25
-//our sensor is DHT11 type
+
+//sensor type
 #define DHTTYPE DHT11
-//create an instance of DHT sensor
+
+//create an instance the sensor
 DHT dht(DHTPIN, DHTTYPE);
 
 //define the pins used by the LoRa transceiver module
@@ -95,8 +104,12 @@ void loop() {
 
   //Send LoRa packet to receiver
   LoRa.beginPacket();
-  LoRa.print("hello ");
-  LoRa.print(counter);
+  LoRa.print("H=");
+  LoRa.print(h);
+  LoRa.print(" T=");
+  LoRa.print(t);
+  LoRa.print(" P=");
+  LoRa.println(counter);
   LoRa.endPacket();
 
   display.clearDisplay();
