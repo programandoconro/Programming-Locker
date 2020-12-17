@@ -13,4 +13,4 @@ def getData():
 	else:
 		print("No changes")
 while True:
-	getData(
+	getData()
