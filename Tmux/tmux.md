@@ -30,6 +30,10 @@ Resize panes:
 
 ```
 
+Detach from session: ``Ctrl b`` + d
+
+Switch sessions: ``Ctrl b`` + s
+
 Big clock: ``Ctrl b`` + ``t``
 
 Shortcuts: ``Ctrl b`` + ``?``
