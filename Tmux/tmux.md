@@ -31,5 +31,6 @@ Resize panes:
 ```
 
 Big clock: ``Ctrl b`` + ``t``
+
 Shortcuts: ``Ctrl b`` + ``?``
 
