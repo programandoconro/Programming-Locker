@@ -34,7 +34,17 @@ Detach from session: ``Ctrl b`` + d
 
 Switch sessions: ``Ctrl b`` + s
 
+To check session: ``tmux ls``
+
+To attach to a session: ``tmux attach -t mysession``
+
+To kill a session, simply use: ``exit``
+
+Extra ones:
+
 Big clock: ``Ctrl b`` + ``t``
 
 Shortcuts: ``Ctrl b`` + ``?``
+
+
 
