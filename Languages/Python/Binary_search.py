@@ -15,7 +15,7 @@ def binary_search(l, value):
             
             if value > l[index]:
                 
-                cl = cl[floor((len(cl) / 2) - 1): len(cl)]
+                cl = cl[floor((len(cl) / 2) - 1): len(cl) - 1]
                 print("Value higher than")
 
             if value < l[index]:
