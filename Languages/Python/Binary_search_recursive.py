@@ -1,13 +1,12 @@
 #!/usr/bin/python3
 
-import random
-
-my_long_list = random.sample(range(1000000), 1000000)
+my_long_list = range(1000000)
 
 def binary_search(l, value):
-    l.sort()
+    
 
     def recursive(rl):
+        
         index =  rl[len(rl) // 2]
         if value == l[index]:
             print("Found: ", index)
@@ -23,7 +22,7 @@ def binary_search(l, value):
     if value > l[len(l) - 1] or value < l[0]:
         print("Value not in the list")
     else:
-        recursive(l)
+        recursive(my_long_list)
 
 binary_search(my_long_list, 33333)
 binary_search(my_long_list, 555555)
