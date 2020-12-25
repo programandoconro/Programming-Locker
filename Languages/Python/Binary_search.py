@@ -1,39 +1,34 @@
 import random
 from math import floor
 
+my_long_list = random.sample(range(1000000), 1000000)
+
 def binary_search(l, value):
     l.sort()
     cl = l
 
-    if value > l[len(l) - 1] or value < l[0]:
-        print("value not in the list")
-
-    else:
-
-        while True:
-            index =  floor((len(cl) / 2) - 1)
+    while True:
+        
+        index =  cl[floor(len(cl) / 2)]
+        if value > l[index]:
             
-            if value > l[index]:
-                
-                cl = cl[floor((len(cl) / 2) - 1): len(cl) - 1]
-                print("Value higher than")
+            cl = cl[floor(len(cl) /2): len(cl)]
+            print("Value higher than")
 
-            if value < l[index]:
-                
-                cl = cl[0:floor((len(cl) / 2) - 1)]
-                print("Value lower than")
+        if value < l[index]:
+            
+            cl = cl[0:floor(len(cl) / 2)]
+            print("Value lower than")
 
-            if value == l[index]:
-                answer = l[index]
-                print("Founded: ", answer)
-                break
+        if value == l[index]:
+            answer = l[index]
+            print("Founded: ", answer)
+            break
+        if value > l[len(l) - 1] or value < l[0]:
+            print("value not in the list")
+            break
 
-list_n = int(input("Please input the size of the array to search in: "))
-user_value = int(input("Please input a number to search: "))
+    
 
-my_long_list = random.sample(range(list_n), list_n)
-
-binary_search(my_long_list, user_value)
-
-
-
+binary_search(my_long_list, 55555)
+binary_search(my_long_list, 33333)
