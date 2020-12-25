@@ -1,11 +1,8 @@
 #!/usr/bin/python3
 
-import random
-
-my_long_list = random.sample(range(1000000), 1000000)
+my_long_list = range(1000000)
 
 def binary_search(l, value):
-    l.sort()
     cl = l
 
     if value > l[len(l) - 1] or value < l[0]:
@@ -35,3 +32,5 @@ binary_search(my_long_list, 555555)
 binary_search(my_long_list, 1)
 binary_search(my_long_list, 999999)
 binary_search(my_long_list, 500000)
+
+
