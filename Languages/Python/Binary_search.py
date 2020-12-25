@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 
 import random
-from math import floor
 
 my_long_list = random.sample(range(1000000), 1000000)
 
@@ -13,7 +12,7 @@ def binary_search(l, value):
         print("Value not in the list")
     else:
         while True:
-            index =  cl[floor(len(cl) / 2)]
+            index =  cl[len(cl) // 2]
 
             if value == l[index]:
                 answer = l[index]
@@ -22,12 +21,12 @@ def binary_search(l, value):
             
             elif value > l[index]:
                 
-                cl = cl[floor(len(cl) /2): len(cl)]
+                cl = cl[len(cl) // 2: len(cl)]
                 print("Value higher than")
 
             elif value < l[index]:
                 
-                cl = cl[0:floor(len(cl) / 2)]
+                cl = cl[0:len(cl) // 2]
                 print("Value lower than")
 
 
