@@ -8,22 +8,16 @@ def binary_search(l, value):
     l.sort()
 
     def recursive(rl):
-        
         index =  rl[len(rl) // 2]
         if value == l[index]:
-            answer = l[index]
-            print("Found: ", answer)
+            print("Found: ", index)
 
         elif value > l[index]:
-            
-            rl = rl[len(rl) // 2 : ]
-            recursive(rl)
+            recursive(rl[len(rl) // 2 : ])
             print("Value higher than")
 
         elif value < l[index]:
-            
-            rl = rl[ :len(rl) // 2]
-            recursive(rl)
+            recursive(rl[ :len(rl) // 2])
             print("Value lower than")
 
     if value > l[len(l) - 1] or value < l[0]:
