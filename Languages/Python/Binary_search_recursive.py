@@ -8,28 +8,27 @@ my_long_list = random.sample(range(1000000), 1000000)
 def binary_search(l, value):
     l.sort()
 
-    def recursive(cl):
+    def recursive(rl):
         
-        index =  cl[floor(len(cl) / 2)]
+        index =  rl[floor(len(rl) / 2)]
         if value == l[index]:
             answer = l[index]
-            print("Founded: ", answer)
+            print("Found: ", answer)
 
         elif value > l[index]:
             
-            cl = cl[floor(len(cl) /2): len(cl)]
-            recursive(cl)
+            rl = rl[floor(len(rl) /2): len(rl)]
+            recursive(rl)
             print("Value higher than")
 
         elif value < l[index]:
             
-            cl = cl[0:floor(len(cl) / 2)]
-            recursive(cl)
+            rl = rl[0:floor(len(rl) / 2)]
+            recursive(rl)
             print("Value lower than")
 
-    
     if value > l[len(l) - 1] or value < l[0]:
-        print("value not in the list")
+        print("Value not in the list")
     else:
         recursive(l)
 
