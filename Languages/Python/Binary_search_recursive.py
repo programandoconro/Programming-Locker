@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 
 import random
-from math import floor
 
 my_long_list = random.sample(range(1000000), 1000000)
 
@@ -10,20 +9,20 @@ def binary_search(l, value):
 
     def recursive(rl):
         
-        index =  rl[floor(len(rl) / 2)]
+        index =  rl[len(rl) // 2]
         if value == l[index]:
             answer = l[index]
             print("Found: ", answer)
 
         elif value > l[index]:
             
-            rl = rl[floor(len(rl) /2): len(rl)]
+            rl = rl[len(rl) // 2 : ]
             recursive(rl)
             print("Value higher than")
 
         elif value < l[index]:
             
-            rl = rl[0:floor(len(rl) / 2)]
+            rl = rl[ :len(rl) // 2]
             recursive(rl)
             print("Value lower than")
 
