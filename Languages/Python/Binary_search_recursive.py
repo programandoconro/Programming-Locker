@@ -1,9 +1,8 @@
 #!/usr/bin/python3
 
-my_long_list = range(1000000)
+my_long_list = range(2000000)
 
 def binary_search(l, value):
-    
 
     def recursive(rl):
         
@@ -22,10 +21,13 @@ def binary_search(l, value):
     if value > l[len(l) - 1] or value < l[0]:
         print("Value not in the list")
     else:
-        recursive(my_long_list)
+        recursive(l)
 
 binary_search(my_long_list, 33333)
-binary_search(my_long_list, 555555)
+binary_search(my_long_list, 1555555)
 binary_search(my_long_list, 1)
 binary_search(my_long_list, 999999)
 binary_search(my_long_list, 500000)
+
+
+
