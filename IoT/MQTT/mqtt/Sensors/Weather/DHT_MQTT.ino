@@ -1,5 +1,3 @@
-//TTGO OLED with DHT sensor sends Data to Broker in the cloud and shows it on the OLED screen.
-// Aditionally, Using Node-red, the data from the Broker is stored in a cloud SQL database.
 
 //Internet
 #include "WiFi.h"
@@ -12,7 +10,6 @@
 #include <Adafruit_GFX.h>
 #include <Adafruit_SSD1306.h>
 
-//DHT sensor
 #include "DHT.h"
 
 #define DHTPIN 25
@@ -20,6 +17,7 @@
 #define DHTTYPE DHT11
 //create an instance of DHT sensor
 DHT dht(DHTPIN, DHTTYPE);
+
 
 //OLED pins
 #define OLED_SDA 4
@@ -31,9 +29,9 @@ DHT dht(DHTPIN, DHTTYPE);
 Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RST);
 
 const char* ssid = "Mi-Ro-Sa-Network";
-const char* password =  "**************";
-// Brokers IP
+const char* password =  "***************";
 const char* aws_mqtt_server = "54.199.28.175";
+const char* local_mqtt_server = "192.168.1.166";
 
 WiFiClient espClient;
 void callback(char* topic, byte* payload, unsigned int length) {
@@ -45,6 +43,7 @@ long lastMsg = 0;
 char msg[50];
 int value = 0;
 
+int Timestamp = 0;
 
 void setup() {
   pinMode(OLED_RST, OUTPUT);
@@ -68,28 +67,17 @@ void setup() {
   Serial.begin(115200);
   WiFi.begin(ssid, password);
 
-  //Connect to WIFI
   while (WiFi.status() != WL_CONNECTED) {
     delay(500);
     Serial.println("Connecting to WiFi..");
   }
-  display.print("Connected to Wifi ");
-  delay(3000);
   display.display();
 
   Serial.println("Connected to the WiFi network");
-  
-  //Connect to MQTT Broker
-  client.setServer(aws_mqtt_server, 1883);
-  
-  if (client.connect("espClient", "user00001", "*********")) {
-    Serial.println("Connected to the Broker");
 
-  }
-  
-  //Start the DHT sensor
   dht.begin();
 }
+
 
 void loop() {
   float h = dht.readHumidity();
@@ -114,26 +102,43 @@ void loop() {
   strcat(buf, CO2);
   strcat(buf, second);
 
-  client.publish("sensors/weather", buf);
-  delay(10000);
+
+  if (Timestamp == 3000) {
+    Timestamp = 0;
+
+    if (client.connect("espClient", "user00001", "*************")) {
+      client.publish("sensors/weather", buf);
+
+    }
+  }
 
   display.clearDisplay();
   display.setCursor(0, 0);
-  display.setTextSize(1);
+  display.setTextSize(2);
+
 
   if (WiFi.status() == WL_CONNECTED) {
-    display.println("Connected");
+    display.print("WiFi");
+   
+    if (client.connect("espClient", "user00001", "***********")) {
+      display.println("-MQTT");
+    }
+
+    display.println("");
+
   }
   else {
-    display.println("Not Connected");
+    display.println("No WiFi");
   }
 
+  display.setTextSize(2);
   display.print("H:");
   display.println(h);
   display.print("T:");
   display.println(t);
-  display.print("CO2:");
-  display.println("NA");
   display.display();
+
+  Timestamp = Timestamp + 1;
+  delay(200);
 
 }
