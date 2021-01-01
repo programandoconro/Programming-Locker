@@ -18,11 +18,11 @@ void WifiText() {
 }
 
 const char* ssid = "Mi-Ro-Sa-Network";
-const char* password =  "****************";
+const char* password =  "***************";
 
 void setup() {
 
-timeClient.setTimeOffset(32400); //JAPAN +9 = 32400
+  timeClient.setTimeOffset(32400); //JAPAN +9 = 32400
 
   Serial.begin(115200);
 
@@ -46,12 +46,12 @@ timeClient.setTimeOffset(32400); //JAPAN +9 = 32400
 void loop() {
   timeClient.update();
   Heltec.display->clear();
-      Serial.println(timeClient.getFormattedTime());
-      delay(1000);
-  
+  Serial.println(timeClient.getFormattedTime());
+  delay(1000);
+
   Heltec.display->setFont(ArialMT_Plain_24);
   Heltec.display->setTextAlignment(TEXT_ALIGN_LEFT);
-  Heltec.display->drawStringMaxWidth(0, 0, 228,timeClient.getFormattedTime() );
+  Heltec.display->drawStringMaxWidth(20, 20, 228, timeClient.getFormattedTime() );
   Heltec.display->display();
 
 
