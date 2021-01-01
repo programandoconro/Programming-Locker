@@ -4,11 +4,6 @@
 
 WiFiUDP ntpUDP;
 NTPClient timeClient(ntpUDP);
-void drawText() {
-  Heltec.display->setFont(ArialMT_Plain_10);
-  Heltec.display->setTextAlignment(TEXT_ALIGN_LEFT);
-  Heltec.display->drawStringMaxWidth(0, 0, 128, "Hello world" );
-}
 
 void WifiText() {
   Heltec.display->setFont(ArialMT_Plain_16);
