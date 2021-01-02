@@ -1,6 +1,19 @@
-// Arduino program on the ESP32 chip (TTGO OLED) to publish Temperature and Humidity Data to a MQTT Broker (that sends data to MySQL DB) and display it on the OLED screen. 
-// Author: Rodrigo Diaz (programandoconro@gmail.com).
-// This program is open source and free to use.
+/* 
+Description:
+Arduino program using the ESP32 chip (TTGO OLED) to publish weather data to a MQTT Broker on the cloud.
+The program also displays the data on the OLED screen.
+For the integration with MySQL database check /Programming-Locker/IoT/NODE-RED/AWS_MQTT_SQL_flow.json 
+
+Author: Rodrigo Diaz (programandoconro@gmail.com).
+
+Credits: 
+This program was possible mainly thanks to randomnerdtutorials.com, please check them out:
+https://randomnerdtutorials.com/esp32-dht11-dht22-temperature-humidity-sensor-arduino-ide/
+https://randomnerdtutorials.com/ttgo-lora32-sx1276-arduino-ide/
+https://randomnerdtutorials.com/esp32-mqtt-publish-subscribe-arduino-ide/
+
+This program is open source and free to use, share and modify.
+*/
 
 //Internet
 #include "WiFi.h"
