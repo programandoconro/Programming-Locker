@@ -93,6 +93,7 @@ void setup() {
   //Initialize Sensor
   dht.begin();
 
+  // Publish a start Message to the Broker
    if (client.connect("espClient", "user00001", "***********")) {
       client.publish("sensors/weather", "INSERT INTO Weather VALUES(0,0,0);");
 
@@ -122,7 +123,6 @@ void loop() {
   const char *first = "INSERT INTO Weather VALUES(";
   const char *comma = ",";
   const char *second = ");";
-  const char *CO2 = "0";
 
   strcpy(buf, first);
   strcat(buf, tempString);
@@ -158,14 +158,19 @@ void loop() {
   if (WiFi.status() == WL_CONNECTED) {
     display.print("WiFi");
 
-    if (client.connect("espClient", "user00001", "***********)) {
+    if (client.connect("espClient", "user00001", "***********")) {
       display.println("-MQTT");
     }
+    else {
+      display.println("-No MQTT");
+   }
 
   }
   else {
     display.println("No WiFi");
   }
+  
+  //Clear the OLED
   display.display();
   
   //Add 1 to timestamp and wait 0.2 seconds
