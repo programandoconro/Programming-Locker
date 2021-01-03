@@ -1,0 +1,493 @@
+[
+    {
+        "id": "3b15587a.6efad",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "d883181e.2a53f8",
+        "type": "tab",
+        "label": "Weather",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "6edfc85a.255be",
+        "type": "tab",
+        "label": "Timestamp",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "1cafb10e.0038c7",
+        "type": "tab",
+        "label": "Local database",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "c0dd159a.26a938",
+        "type": "MySQLdatabase",
+        "name": "DB",
+        "host": "54.199.28.175",
+        "port": "3306",
+        "db": "Sensors",
+        "tz": "",
+        "charset": "UTF8"
+    },
+    {
+        "id": "1b7de363.8afe2d",
+        "type": "mqtt-broker",
+        "name": "sensors/weather",
+        "broker": "54.199.28.175",
+        "port": "1883",
+        "clientid": "",
+        "usetls": false,
+        "compatmode": false,
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": ""
+    },
+    {
+        "id": "423acf04.a9f308",
+        "type": "MySQLdatabase",
+        "name": "DB LOCAL BACKUP",
+        "host": "192.168.1.166",
+        "port": "3306",
+        "db": "Sensors",
+        "tz": "",
+        "charset": "UTF8"
+    },
+    {
+        "id": "56f96f47.ee81d8",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "192.168.1.166",
+        "port": "1883",
+        "tls": "",
+        "clientid": "",
+        "usetls": false,
+        "compatmode": false,
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": ""
+    },
+    {
+        "id": "7b60a978.6b9458",
+        "type": "e-mail",
+        "z": "3b15587a.6efad",
+        "server": "smtp.gmail.com",
+        "port": "465",
+        "secure": true,
+        "tls": true,
+        "name": "programandoconro@gmail.com",
+        "dname": "",
+        "x": 440,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "da04bcf0.b61e88",
+        "type": "inject",
+        "z": "3b15587a.6efad",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 110,
+        "y": 180,
+        "wires": [
+            [
+                "7b60a978.6b9458"
+            ]
+        ]
+    },
+    {
+        "id": "5448eeaf.92263",
+        "type": "mysql",
+        "z": "d883181e.2a53f8",
+        "mydb": "c0dd159a.26a938",
+        "name": "DB/Sensors/Weather",
+        "x": 480,
+        "y": 260,
+        "wires": [
+            [
+                "dbdea9e5.80d508"
+            ]
+        ]
+    },
+    {
+        "id": "dbdea9e5.80d508",
+        "type": "debug",
+        "z": "d883181e.2a53f8",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": true,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 760,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "f0396fb4.3cc11",
+        "type": "mqtt in",
+        "z": "d883181e.2a53f8",
+        "name": "BROKER/Sensors/Weather",
+        "topic": "sensors/weather",
+        "qos": "0",
+        "datatype": "utf8",
+        "broker": "1b7de363.8afe2d",
+        "x": 160,
+        "y": 40,
+        "wires": [
+            [
+                "4a6dbcfc.e4a8b4"
+            ]
+        ]
+    },
+    {
+        "id": "4a6dbcfc.e4a8b4",
+        "type": "change",
+        "z": "d883181e.2a53f8",
+        "name": "",
+        "rules": [
+            {
+                "t": "move",
+                "p": "payload",
+                "pt": "msg",
+                "to": "topic",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 190,
+        "y": 180,
+        "wires": [
+            [
+                "5448eeaf.92263"
+            ]
+        ]
+    },
+    {
+        "id": "8f2a9d1b.e8e158",
+        "type": "mqtt in",
+        "z": "d883181e.2a53f8",
+        "name": "BROKER/Sensors/Weather",
+        "topic": "sensors/weather",
+        "qos": "0",
+        "datatype": "utf8",
+        "broker": "1b7de363.8afe2d",
+        "x": 140,
+        "y": 480,
+        "wires": [
+            [
+                "2d9d9d25.758562"
+            ]
+        ]
+    },
+    {
+        "id": "2d9d9d25.758562",
+        "type": "change",
+        "z": "d883181e.2a53f8",
+        "name": "",
+        "rules": [
+            {
+                "t": "move",
+                "p": "payload",
+                "pt": "msg",
+                "to": "topic",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 430,
+        "y": 480,
+        "wires": [
+            [
+                "f02798f8.681048"
+            ]
+        ]
+    },
+    {
+        "id": "f02798f8.681048",
+        "type": "mysql",
+        "z": "d883181e.2a53f8",
+        "mydb": "423acf04.a9f308",
+        "name": "",
+        "x": 720,
+        "y": 480,
+        "wires": [
+            [
+                "55cd7de7.28886c"
+            ]
+        ]
+    },
+    {
+        "id": "55cd7de7.28886c",
+        "type": "debug",
+        "z": "d883181e.2a53f8",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": true,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 900,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "f3392de3.4b6108",
+        "type": "inject",
+        "z": "6edfc85a.255be",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 120,
+        "y": 260,
+        "wires": [
+            [
+                "430b82d9.db056c"
+            ]
+        ]
+    },
+    {
+        "id": "4d1e38c8.f17dc8",
+        "type": "mysql",
+        "z": "6edfc85a.255be",
+        "mydb": "423acf04.a9f308",
+        "name": "",
+        "x": 670,
+        "y": 200,
+        "wires": [
+            [
+                "44ff8c0a.994294"
+            ]
+        ]
+    },
+    {
+        "id": "44ff8c0a.994294",
+        "type": "debug",
+        "z": "6edfc85a.255be",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "topic",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 870,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "430b82d9.db056c",
+        "type": "function",
+        "z": "6edfc85a.255be",
+        "name": "",
+        "func": "\nconst time = new Date();\n\nmsg.topic = \"INSERT INTO Time VALUES('\" + time + \"');\" \nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 360,
+        "y": 160,
+        "wires": [
+            [
+                "4d1e38c8.f17dc8"
+            ]
+        ]
+    },
+    {
+        "id": "f3fb4794.ebc408",
+        "type": "mqtt in",
+        "z": "1cafb10e.0038c7",
+        "name": "MQTT LOCAL",
+        "topic": "sensors/weather",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "56f96f47.ee81d8",
+        "x": 160,
+        "y": 300,
+        "wires": [
+            [
+                "2ee22c17.1fc7bc"
+            ]
+        ]
+    },
+    {
+        "id": "6962390.9f3ca48",
+        "type": "mysql",
+        "z": "1cafb10e.0038c7",
+        "mydb": "423acf04.a9f308",
+        "name": "DB LOCAL",
+        "x": 550,
+        "y": 300,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "2ee22c17.1fc7bc",
+        "type": "function",
+        "z": "1cafb10e.0038c7",
+        "name": "",
+        "func": "\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 340,
+        "y": 300,
+        "wires": [
+            [
+                "6962390.9f3ca48"
+            ]
+        ]
+    },
+    {
+        "id": "16441eed.47f041",
+        "type": "function",
+        "z": "d883181e.2a53f8",
+        "name": "",
+        "func": "\nconst time = new Date()\n\nmsg.topic = \"INSERT INTO Time VALUES('\" + time + \"');\" \nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 460,
+        "y": 660,
+        "wires": [
+            [
+                "f02798f8.681048"
+            ]
+        ]
+    },
+    {
+        "id": "bd727f8c.1c064",
+        "type": "inject",
+        "z": "d883181e.2a53f8",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "3600",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 350,
+        "y": 580,
+        "wires": [
+            [
+                "16441eed.47f041"
+            ]
+        ]
+    },
+    {
+        "id": "f64f3f12.954748",
+        "type": "inject",
+        "z": "d883181e.2a53f8",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "3600",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 90,
+        "y": 360,
+        "wires": [
+            [
+                "1d5f452f.a5488b"
+            ]
+        ]
+    },
+    {
+        "id": "1d5f452f.a5488b",
+        "type": "function",
+        "z": "d883181e.2a53f8",
+        "name": "",
+        "func": "\nconst time = new Date()\n\nmsg.topic = \"INSERT INTO Time VALUES('\" + time + \"');\" \nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "x": 280,
+        "y": 360,
+        "wires": [
+            [
+                "5448eeaf.92263"
+            ]
+        ]
+    }
+]
