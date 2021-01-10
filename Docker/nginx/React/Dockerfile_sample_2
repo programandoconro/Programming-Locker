@@ -1,0 +1,7 @@
+FROM nginx
+RUN apt update -y && apt upgrade -y
+RUN apt install git npm -y 
+RUN git clone https://github.com/programandoconro/MyReactTODOApp
+WORKDIR MyReactTODOApp
+RUN npm install && npm run build
+RUN cp -r build/* /usr/share/nginx/html/
