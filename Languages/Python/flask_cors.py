@@ -11,7 +11,7 @@ app.config[ 'DEBUG' ] = True
 def home():
         return '''<h1> Test </h1> '''
 
-@app.route( '/api/v1/data', methods= ['GET'] )
+@app.route( '/api/v1/data', methods = ['GET'] )
 
 def api_all():
         
@@ -22,5 +22,5 @@ def api_all():
         
         return response
 
-app.run( host='0.0.0.0', port=8888 )
+app.run( host = '0.0.0.0', port = 8888 )
 
