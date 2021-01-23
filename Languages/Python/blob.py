@@ -37,11 +37,11 @@ class Blob:
         lastx = {key:dx[key][-1] for key in dx}
 
         def equal_values():
-            val = -1
+            prev = -1
             for k in lastx:
-                if val == lastx[k]:
+                if prev == lastx[k]:
                     return True
-                val = lastx[k]
+                prev = lastx[k]
             
         if equal_values() is not True:
             rx = {key:abs(x - lastx[key]) for key in lastx}
@@ -55,23 +55,20 @@ class Blob:
             miny = min(ry, key=ry.get)
             
             return dx[miny].append(x)
+    
+    def counter(dx,count): 
+        blobs = {key:np.mean(np.diff(np.array(dx[key]))) for key in dx}
+
+        for key in blobs:
+            if blobs[key] > 0:
+                count += 1
+            if blobs[key] < 0:
+                count -= 1
+        
+        return count
 
 
 
-
-class Counter:
-
-    def __init__(self,x,y,box,d):
-        self.x = x
-        self.y = y
-        self.box = box
-        self.d =d
-
-    def tracker():
-        x = self.x
-        y = self.y
-        box = self.box
-        d = self.d
 
 
         
