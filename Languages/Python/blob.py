@@ -57,13 +57,23 @@ class Blob:
             return dx[miny].append(x)
     
     def counter(dx,count): 
-        blobs = {key:np.mean(np.diff(np.array(dx[key]))) for key in dx}
 
-        for key in blobs:
-            if blobs[key] > 0:
+        direction = {key:np.mean(np.diff(np.array(dx[key]))) for key in dx}
+
+        for key in direction:
+
+            if direction[key] > 0:
                 count += 1
-            if blobs[key] < 0:
+                print(" ======= IN ======= ")
+
+            elif direction[key] < 0:
                 count -= 1
+                print(" ======= OUT ====== " )
+            
+            else:
+                pass
+        
+        print("Count: " + str(count))
         
         return count
 
