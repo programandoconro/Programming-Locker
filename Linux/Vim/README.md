@@ -141,6 +141,7 @@ Prettier para js, html, css <- ``Ctrl l``.
 
 ## Editar varias líneas al mismo tiempo
 Encerrar texto seleccionado en un tab <- selecciona con v o V, luego ``S`` y finalmente el tag, por ejemplo, ```<div>```.
+Para agregar espacios a multiples líneas seleccionamos con ``V`` y agregamos ``I``, luego con espacios movemos las líneas.  
 
 ## Editar varios archivos en la misma pantalla
 
