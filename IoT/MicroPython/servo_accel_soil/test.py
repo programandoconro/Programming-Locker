@@ -1,5 +1,5 @@
 import mpu6050
-from machine import SoftI2C, Pin, PWM
+from machine import SoftI2C, Pin, PWM, ADC
 from time import sleep
 
 # mpu sensor
@@ -15,3 +15,8 @@ servo = PWM(p,freq = 50)
 servo.duty(20)
 sleep(2)
 servo.duty(130)
+
+# water sensor
+
+adc = ADC(Pin(34))
+print(adc.read())
