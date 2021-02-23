@@ -12,15 +12,17 @@ p = Pin(19)
 servo = PWM(p,freq = 50)
 
 while True:
+    
     values = a.get_values()
     z = values["AcZ"]
+    
     if int(z) < 0:
         print("up")
         servo.duty(20)
         sleep(0.2)
-      
         
     if int(z) > 0:
         print("down")
         servo.duty(130)
         sleep(0.2)
+        
