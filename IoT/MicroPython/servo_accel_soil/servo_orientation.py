@@ -17,8 +17,10 @@ while True:
     if int(z) < 0:
         print("up")
         servo.duty(20)
+        sleep(0.2)
       
         
     if int(z) > 0:
         print("down")
         servo.duty(130)
+        sleep(0.2)
