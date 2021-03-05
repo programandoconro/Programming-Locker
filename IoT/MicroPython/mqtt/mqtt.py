@@ -57,7 +57,7 @@ except OSError as e:
 
 while True:
   try:
-  
+    client.check_msg()
     msg = b'Hello #%d'
     client.publish(topic_pub, msg)
     time.sleep(1)
