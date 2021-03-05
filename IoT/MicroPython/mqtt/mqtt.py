@@ -1,7 +1,6 @@
 import network
 import machine
 import time
-import upip
 
 import simple
 
