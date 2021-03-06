@@ -2,14 +2,14 @@ import network
 import machine
 import time
 
-import simple
+from umqtt import simple
 
 ssid = "Mi-Ro-Sa-Network"
 password = "*******"
 
 mqtt_server = "192.168.1.166"
 
-client_id = "user00001"
+client_id = "user"
 
 
 station = network.WLAN(network.STA_IF)
