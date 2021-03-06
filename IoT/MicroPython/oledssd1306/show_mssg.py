@@ -1,29 +1,35 @@
 import network
 import machine
 import time
-import upip
 from machine import Pin, I2C
 
-import simple
+from umqtt import simple
 import ssd1306
 
 
 # ESP32 Pin assignment 
 i2c = I2C(-1, scl=Pin(22), sda=Pin(21))
+p = Pin(2, Pin.OUT)
+p.value(1)
 
 # ESP8266 Pin assignment
 #i2c = I2C(-1, scl=Pin(5), sda=Pin(4))
 
 oled_width = 128
 oled_height = 32
-oled = ssd1306.SSD1306_I2C(oled_width, oled_height, i2c)
 
-oled.init_display()
 
-oled.text('Initialized', 0, 0)
-oled.text('Waiting a mssg.', 0, 10)
-oled.text('Send me a mqtt', 0, 20)        
-oled.show()
+try:
+    oled = ssd1306.SSD1306_I2C(oled_width, oled_height, i2c)
+    oled.init_display()
+
+    oled.text('Initialized', 0, 0)
+    oled.text('Waiting a mssg.', 0, 10)
+    oled.text('Send me a mqtt', 0, 20)        
+    oled.show()
+except Exception as e:
+    print(e)
+    
 
 ssid = "Mi-Ro-Sa-Network"
 password = "***************"
@@ -42,8 +48,8 @@ while station.isconnected() == False:
 
 print(station.ifconfig())
 
-topic_sub = b'test'
-topic_pub = b'test2'
+topic_sub = b'testo'
+topic_pub = b'test'
 
 last_message = 0
 message_interval = 5
@@ -51,11 +57,14 @@ counter = 0
 
 def sub_cb(topic, msg):
   print((topic, msg))
-  #clear 
-  oled.fill(0)
-  oled.show()
-  oled.text(msg,0,0)
-  oled.show()
+  #clear
+  try:
+      oled.fill(0)
+      oled.show()
+      oled.text(msg,0,0)
+      oled.show()
+  except Exception as e:
+      print(e)
   if topic == b'test':
     print('ESP received hello message')
 
@@ -78,15 +87,18 @@ try:
 except OSError as e:
   restart_and_reconnect()
 
-
 while True:
   try:
       
     client.check_msg()
+    p.value(1)
     msg = 'Hello esp mqtt'
     client.publish(topic_pub, msg)
     
     time.sleep(1)
+    p.value(0)
+    time.sleep(1)
+
     print('sending')
       
   except OSError as e:
