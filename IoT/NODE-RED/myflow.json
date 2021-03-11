@@ -1,12 +1,5 @@
 [
     {
-        "id": "3b15587a.6efad",
-        "type": "tab",
-        "label": "Flow 1",
-        "disabled": false,
-        "info": ""
-    },
-    {
         "id": "d883181e.2a53f8",
         "type": "tab",
         "label": "Weather",
@@ -24,6 +17,27 @@
         "id": "1cafb10e.0038c7",
         "type": "tab",
         "label": "Local database",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "3b15587a.6efad",
+        "type": "tab",
+        "label": "Mail",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "c8c1a0d3.f995",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "5a71da9a.2a6844",
+        "type": "tab",
+        "label": "AWS",
         "disabled": false,
         "info": ""
     },
@@ -71,8 +85,8 @@
     {
         "id": "56f96f47.ee81d8",
         "type": "mqtt-broker",
-        "name": "",
-        "broker": "192.168.1.166",
+        "name": "AWS Broker",
+        "broker": "ws://54.199.28.175:9001",
         "port": "1883",
         "tls": "",
         "clientid": "",
@@ -482,12 +496,237 @@
         "noerr": 0,
         "initialize": "",
         "finalize": "",
-        "x": 280,
-        "y": 360,
+        "x": 360,
+        "y": 320,
         "wires": [
             [
                 "5448eeaf.92263"
             ]
         ]
+    },
+    {
+        "id": "3f2438f3.c12968",
+        "type": "mqtt out",
+        "z": "1cafb10e.0038c7",
+        "name": "",
+        "topic": "esp32",
+        "qos": "",
+        "retain": "",
+        "broker": "1b7de363.8afe2d",
+        "x": 690,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "edf331c6.3af6e",
+        "type": "inject",
+        "z": "1cafb10e.0038c7",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "Hola",
+        "payloadType": "str",
+        "x": 630,
+        "y": 60,
+        "wires": [
+            [
+                "3f2438f3.c12968"
+            ]
+        ]
+    },
+    {
+        "id": "9e73cb43.b493f8",
+        "type": "mqtt in",
+        "z": "c8c1a0d3.f995",
+        "name": "",
+        "topic": "test",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "56f96f47.ee81d8",
+        "x": 140,
+        "y": 180,
+        "wires": [
+            [
+                "4812d043.ad9d9"
+            ]
+        ]
+    },
+    {
+        "id": "4812d043.ad9d9",
+        "type": "debug",
+        "z": "c8c1a0d3.f995",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 420,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "7c747601.db1718",
+        "type": "mqtt in",
+        "z": "c8c1a0d3.f995",
+        "name": "",
+        "topic": "test",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "1b7de363.8afe2d",
+        "x": 170,
+        "y": 300,
+        "wires": [
+            [
+                "bf4e78d6.1bd858"
+            ]
+        ]
+    },
+    {
+        "id": "bf4e78d6.1bd858",
+        "type": "debug",
+        "z": "c8c1a0d3.f995",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 410,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "98ae297f.f65c68",
+        "type": "mqtt out",
+        "z": "1cafb10e.0038c7",
+        "name": "",
+        "topic": "sensors/weather",
+        "qos": "",
+        "retain": "",
+        "broker": "56f96f47.ee81d8",
+        "x": 580,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "f6165eff.4a7b1",
+        "type": "inject",
+        "z": "1cafb10e.0038c7",
+        "name": "esp32.2",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "testo",
+        "payload": "konnichiwa",
+        "payloadType": "str",
+        "x": 490,
+        "y": 440,
+        "wires": [
+            [
+                "98ae297f.f65c68"
+            ]
+        ]
+    },
+    {
+        "id": "ac3c6dac.b3699",
+        "type": "mqtt in",
+        "z": "5a71da9a.2a6844",
+        "name": "",
+        "topic": "test",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "56f96f47.ee81d8",
+        "x": 160,
+        "y": 220,
+        "wires": [
+            [
+                "d01bc811.ff6178"
+            ]
+        ]
+    },
+    {
+        "id": "6c496006.6e14c",
+        "type": "mqtt out",
+        "z": "5a71da9a.2a6844",
+        "name": "",
+        "topic": "test",
+        "qos": "",
+        "retain": "",
+        "broker": "56f96f47.ee81d8",
+        "x": 410,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "d26b4569.9827d8",
+        "type": "inject",
+        "z": "5a71da9a.2a6844",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 170,
+        "y": 380,
+        "wires": [
+            [
+                "6c496006.6e14c"
+            ]
+        ]
+    },
+    {
+        "id": "d01bc811.ff6178",
+        "type": "debug",
+        "z": "5a71da9a.2a6844",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 420,
+        "y": 220,
+        "wires": []
     }
 ]
