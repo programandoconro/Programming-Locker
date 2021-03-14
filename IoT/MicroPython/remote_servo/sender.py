@@ -7,17 +7,15 @@ import mpu6050
 from machine import SoftI2C, Pin, PWM, ADC, reset
 from time import sleep
 import network
-import mqtt
 import math
-
-
 from umqtt import simple
 
-mqtt.wifi_connect()
+import wifi
+
 try:
-    mqtt.wifi_connect()
+    wifi.wifi_connect()
 except:
-    mqtt.hotspot_connect()
+    wifi.hotspot_connect()
 
 mqtt_server = "192.168.1.166"
 mqtt_aws = "roro.world"
@@ -39,6 +37,7 @@ def connect_and_subscribe():
   client.set_callback(sub_cb)
   client.connect()
   client.subscribe(topic_sub)
+
   return client
 
 def connect_and_subscribe_aws():
@@ -109,11 +108,3 @@ while True:
     
         
         
-
-
-
-
-
-
-
-
