@@ -1,3 +1,8 @@
+"""
+Receive mpu6050 sensor data from another ESP32 device and move the servo depending on orientation.
+
+"""
+
 import network
 import machine
 import time
@@ -9,13 +14,13 @@ import ssd1306
 
 import wifi
 
-wifi.wifi_connect()
+try:
+    wifi.wifi_connect()
+except:
+    wifi.hotspot_connect()
 
 pe = Pin(23)
 servo = PWM(pe,freq = 50)
-
-z = 1
-
 
 # ESP32 Pin assignment 
 i2c = I2C(-1, scl=Pin(22), sda=Pin(21))
@@ -27,7 +32,6 @@ p.value(1)
 
 oled_width = 128
 oled_height = 32
-
 
 try:
     oled = ssd1306.SSD1306_I2C(oled_width, oled_height, i2c)
@@ -41,10 +45,7 @@ except Exception as e:
     print(e)
     
 mqtt_server = "192.168.1.166"
-
 client_id = "user"
-
-
 topic_sub = b'temp_orientation'
 topic_pub = b'test'
 
@@ -52,6 +53,7 @@ last_message = 0
 message_interval = 5
 counter = 0
 mess = ""
+
 def sub_cb(topic, msg):
   global mess
   print((topic, msg))
@@ -65,7 +67,6 @@ def sub_cb(topic, msg):
   except Exception as e:
       print(e)
  
-
 def connect_and_subscribe():
   global client_id, mqtt_server, topic_sub
   client = simple.MQTTClient(client_id, mqtt_server,user='user00001', password='**********')
@@ -98,13 +99,13 @@ while True:
         
         servo.duty(20)
         p.value(1)
-        z = 1
       
     if mess == "WN":
        
         servo.duty(130)
         p.value(0)
-    
-      
+          
   except OSError as e:
     restart_and_reconnect()
+
+    
