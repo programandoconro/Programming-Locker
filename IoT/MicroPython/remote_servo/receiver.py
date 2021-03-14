@@ -7,6 +7,9 @@ from machine import Pin, I2C, PWM, ADC
 from umqtt import simple
 import ssd1306
 
+import wifi
+
+wifi.wifi_connect()
 
 pe = Pin(23)
 servo = PWM(pe,freq = 50)
@@ -37,23 +40,10 @@ try:
 except Exception as e:
     print(e)
     
-
-ssid = "Mi-Ro-Sa-Network"
-password = "**************"
-
 mqtt_server = "192.168.1.166"
 
 client_id = "user"
 
-station = network.WLAN(network.STA_IF)
-station.active(True)
-
-station.connect(ssid,password)
-
-while station.isconnected() == False:
-  pass
-
-print(station.ifconfig())
 
 topic_sub = b'temp_orientation'
 topic_pub = b'test'
