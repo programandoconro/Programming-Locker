@@ -161,4 +161,7 @@ Podemos usar ``:term`` o ``:vert term`` para que se divida la pantalla verticalm
 
 Adicionalmente, podemos usar ``Ctrl z`` para suspender Vim y luego ``fg`` en la terminal para regresar a vim. 
 
+## Encapsular un ``tag``  con otro ``tag`` facilmente. Útil para react, react-native, etc...
+*Requiere el plugin ``surround``.
 
+Selecciona el tag a encapsular con ``v``, luego utiliza ``S`` y escribe el tag que va a encapsular al anterior, por ejemplo ``View`` o ``div``.  
