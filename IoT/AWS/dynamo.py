@@ -17,3 +17,22 @@ items = table.scan()['Items']
 for item in items:
     print (item)
 
+# Put item:
+
+table.put_item(
+   Item={
+        'documents': 'python is the best programming language'
+    }
+)
+
+# Delete item:
+
+table.delete_item(
+   Key={
+        'documents': 'python is the best programming language'
+    }
+)
+
+
+
+
