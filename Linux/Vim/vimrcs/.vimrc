@@ -67,7 +67,7 @@ highlight Comment cterm=italic
 if (has("termguicolors"))
   set termguicolors
 endif
-
+set relativenumber
 set guifont=Ubuntu\ Mono\ 11
 set noswapfile
 set tabstop=4 
@@ -114,7 +114,6 @@ let g:ctrlp_working_path_mode = 'r'
 let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 
 " --------------------------------------------------
-set number               
 set encoding=UTF-8
 set expandtab
 set shiftwidth=2
@@ -178,12 +177,12 @@ map <leader>s :w <CR>i
 " filenames like *.xml, *.html, *.xhtml, ...
 " These are the file extensions where this plugin is enabled.
 "
-let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.js,*.jsx'
+let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.js,*.jsx,*.tsx'
 
 " filenames like *.xml, *.xhtml, ...
 " This will make the list of non-closing tags self-closing in the specified files.
 "
-let g:closetag_xhtml_filenames = '*.xhtml,*.jsx'
+let g:closetag_xhtml_filenames = '*.xhtml,*.jsx,*.tsx'
 
 " filetypes like xml, html, xhtml, ...
 " These are the file types where this plugin is enabled.
@@ -193,7 +192,7 @@ let g:closetag_filetypes = 'html,xhtml,phtml'
 " filetypes like xml, xhtml, ...
 " This will make the list of non-closing tags self-closing in the specified files.
 "
-let g:closetag_xhtml_filetypes = 'xhtml,jsx'
+let g:closetag_xhtml_filetypes = 'xhtml,jsx,tsx'
 
 " integer value [0|1]
 " This will make the list of non-closing tags case-sensitive (e.g. `<Link>` will be closed while `<link>` won't.)
