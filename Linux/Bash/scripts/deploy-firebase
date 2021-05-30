@@ -3,7 +3,7 @@
 read -p "Build? y/n " -n 1 -r build
 
 if [[ $build == "y" ]];
-    then yarn;
+    then yarn build;
 else
     echo "No build"
 fi
