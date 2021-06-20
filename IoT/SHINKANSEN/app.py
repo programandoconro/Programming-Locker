@@ -1,3 +1,7 @@
+# API to get time until the 3 next available Shinkansen trains.
+# programandoconro 2021
+# TODO: add more routes
+
 import os
 from datetime import datetime, date
 from flask import Flask, jsonify
@@ -6,26 +10,27 @@ app = Flask(__name__)
 FM = "%H:%M"
 
 @app.route('/')
+def home():
+    return "Next Shinkansen train"
+
+
+@app.route('/hakataminami-hakata')
 def shinkansen():
+    results = []
+    counter = 0
     now = datetime.now()
     current_time = now.strftime(FM)
-    print(current_time)
-    def nearest(items, pivot):
-        return min([i for i in items if i <= pivot], key=lambda x: abs(x - pivot))
+    curl = os.popen("sh hakataminami.sh").read()
 
-    os.system("sh hakataminami.sh")
-   
-    results = []
-    var = -1
-    with open('schedule.txt') as f:
-        lines = f.readlines()
-        for i in lines:
-            times = datetime.strptime(i[:-1],FM).time()
-            min_time = datetime.combine(date.min,times) -datetime.combine(date.min,now.time())
-            if var == -1:
-                var = min_time
-            else:
-                if min_time < var:
-                    var = min_time
-        results.append(str(var))
+    for i in curl.split('\n')[:-1]:
+        times = datetime.strptime(i,FM).time()
+        min_time = datetime.combine(date.min,times) - datetime.combine(date.min,now.time())
+
+        if str(min_time).startswith('-1') == False and counter < 3:
+            results.append(str(min_time)[:-7])
+            counter += 1
+
     return jsonify(results)
+
+
+
