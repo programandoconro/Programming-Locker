@@ -37,12 +37,11 @@ void setup() {
 }
 
 void loop() {
-  delay(1000);
-
 
   if ((WiFi.status() == WL_CONNECTED)) { 
     HTTPClient http;
- 
+   
+    //heroku: https://next-shinkansen.herokuapp.com/hakataminami-hakata
     http.begin("http://192.168.1.228:9999/hakataminami-hakata"); 
     delay(10000);
     int httpCode = http.GET(); 
