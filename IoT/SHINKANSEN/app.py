@@ -1,6 +1,7 @@
-# API to get time until the 3 next available Shinkansen trains.
+# API to get time until the next available Shinkansen trains of the day.
+# Routes: From Hakata-Minami to Hakata and vice versa. TODO: Add more routes.
+# www.nextshinkansen.com
 # programandoconro 2021
-# TODO: add more routes
 
 import os
 from datetime import datetime, date
@@ -29,23 +30,28 @@ def calc_time(command):
         results.append(schedule[0])
         results.append('***')
 
-    return jsonify(results)
+    return results
 
 # Routes: 
 @app.route('/')
 def home():
-    return "Next Shinkansen train"
+
+    hakata = calc_time("sh get_schedule.sh from_hakata_to_hakataminami")
+    hakataminami = calc_time("sh get_schedule.sh from_hakataminami_to_hakata")
+    
+    return '<div><h1>博多 / 博多南: {}</h1><h1>博多南 / 博多: {}</h1></div>'.format(hakata,hakataminami)
 
 @app.route('/hakataminami-hakata')
-def hakataminami():
-    return calc_time("sh get_schedule.sh from_hakataminami_to_hakata")
+def hakataminami_hakata():
+    return jsonify(calc_time("sh get_schedule.sh from_hakataminami_to_hakata"))
 
 @app.route('/hakata-hakataminami')
-def hakata():
-    return calc_time("sh get_schedule.sh from_hakata_to_hakataminami")
+def hakata_hakataminami():
+    return jsonify(calc_time("sh get_schedule.sh from_hakata_to_hakataminami"))
 
 if __name__ == '__main__':
     app.run(threaded=True, port=5000)
+
 
 
 
