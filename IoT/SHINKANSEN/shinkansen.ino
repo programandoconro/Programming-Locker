@@ -42,7 +42,7 @@ void loop() {
     HTTPClient http;
    
     //heroku: https://next-shinkansen.herokuapp.com/hakataminami-hakata
-    http.begin("http://192.168.1.228:9999/hakataminami-hakata"); 
+    http.begin("http://nextshinkansen.com/hakataminami-hakata"); 
     delay(10000);
     int httpCode = http.GET(); 
     delay(10000);
