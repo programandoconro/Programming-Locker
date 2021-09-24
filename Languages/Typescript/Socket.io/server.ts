@@ -14,15 +14,15 @@ const io = new Server(httpServer, {
     methods: ["GET", "POST"],
   },
 });
-
-let nu: number = 0;
+let messages: string[] = [""];
 App.get("/", (_, res) => {
-  res.json({ ping: nu });
+  res.json({ messages: messages });
 });
 io.on("connect", (socket) => {
   console.log(`connect ${socket.id}`);
   socket.on("message", (data) => {
     console.log("ping", data);
+    messages.push(data.user + "says: " + data.message);
     socket.broadcast.emit("message", {
       user: data.user,
       message: data.message,
