@@ -1,17 +1,20 @@
 {
-  "name": "socket.io-example",
+  "name": "typescript-example",
   "version": "1.0.0",
-  "description": "Playing around with socker.io",
+  "description": "",
   "scripts": {
     "build": "tsc",
     "start:server": "ts-node server.ts",
     "start:client": "ts-node client.ts",
     "dev": "nodemon ./server.ts"
   },
-  "author": "ro",
+  "author": "",
   "license": "ISC",
   "dependencies": {
+    "@types/helmet": "^4.0.0",
+    "cors": "^2.8.5",
     "express": "^4.17.1",
+    "helmet": "^4.6.0",
     "http": "^0.0.1-security",
     "socket.io": "^4.0.0",
     "socket.io-client": "^4.0.0",
