@@ -14,8 +14,12 @@
   color: white;
 }
 
+.Input-message {
+  min-width: 50%
+}
+
 .Messages {
-  min-height: 50%;
+  min-height: 200px;
   min-width: 50%;
   background-color: lightgrey;
   color: black;

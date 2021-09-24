@@ -21,8 +21,7 @@ App.get("/", (_, res) => {
 io.on("connect", (socket) => {
   console.log(`connect ${socket.id}`);
   socket.on("message", (data) => {
-    console.log("ping", data);
-    messages.push(data.user + "says: " + data.message);
+    messages.push(`${data.user} says:  + ${data.message}`);
     socket.broadcast.emit("message", {
       user: data.user,
       message: data.message,

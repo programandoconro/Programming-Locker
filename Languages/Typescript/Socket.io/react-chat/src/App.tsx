@@ -14,11 +14,11 @@ function App() {
     });
     socket.on("message", (data) => {
       data &&
-        setInMessage((msg) => [...msg, data.user + " says: " + data.message]);
+        setInMessage((msg) => [...msg, `${data.user} says: ${data.message}`]);
     });
   }, []);
   const handleSendMessage = () => {
-    socket.emit("message", { user: user.substring(0,5), message: outMessage });
+    socket.emit("message", { user: user.substring(0, 5), message: outMessage });
     setOutMessage("");
   };
   const ShowInMessages = () => {
@@ -34,12 +34,16 @@ function App() {
       </div>
     );
   };
+  const handleClear = () => {
+    setInMessage([""]);
+  };
   return (
     <div className="App">
       <header className="App-header">
-        <h1>User: {user}</h1>
+        <h1>User: {user.substring(0, 5)}</h1>
         <br />
         <input
+          className="Input-message"
           placeholder="Please write a mssg."
           value={outMessage}
           onChange={(e) => setOutMessage(e.target.value)}
@@ -47,10 +51,12 @@ function App() {
         <br />
         <button onClick={handleSendMessage}>send</button>
         <br />
-        <h1>Chat messages:</h1>
+        <h1>Chat:</h1>
         <div className="Messages">
           <ShowInMessages />
         </div>
+        <br />
+        <button onClick={handleClear}>clear</button>
       </header>
     </div>
   );
