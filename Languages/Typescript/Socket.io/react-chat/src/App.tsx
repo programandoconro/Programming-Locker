@@ -1,24 +1,39 @@
 import { useEffect, useState } from "react";
 import "./App.css";
-import { io } from "socket.io-client";
+import { generateToken } from "./token";
+import { createSocket } from "./socket";
 
+const user = generateToken(5);
 function App() {
-  const socket = io("ws://localhost:3000/", {});
-  const [user, setUser] = useState<string>("");
+  const socket = new createSocket();
   const [inMessage, setInMessage] = useState<string[]>([""]);
   const [outMessage, setOutMessage] = useState<string>("");
+
   useEffect(() => {
-    socket.on("connect", () => {
-      setUser(socket.id);
-      console.log(`connect ${socket.id}`);
-    });
-    socket.on("message", (data) => {
-      data &&
-        setInMessage((msg) => [...msg, `${data.user} says: ${data.message}`]);
-    });
+    function getSocketMessage() {
+      socket.socket.on("message", (data) => {
+        data &&
+          setInMessage((msg) => [...msg, `${data.user} says: ${data.message}`]);
+      });
+    }
+    function closeSocket() {
+      socket.socket.disconnect();
+      socket.socket.off();
+    }
+
+    getSocketMessage();
+    return () => {
+      closeSocket();
+    };
+    // eslint-disable-next-line
   }, []);
+
   const handleSendMessage = () => {
-    socket.emit("message", { user: user.substring(0, 5), message: outMessage });
+    outMessage.length > 0 &&
+      socket.socket.emit("message", {
+        user: user,
+        message: outMessage,
+      });
     setOutMessage("");
   };
   const ShowInMessages = () => {

@@ -4,6 +4,7 @@ import http from "http";
 import cors from "cors";
 import helmet from "helmet";
 
+// Configuration.
 const App: express.Express = express();
 App.use(cors());
 App.use(helmet());
@@ -14,12 +15,13 @@ const io = new Server(httpServer, {
     methods: ["GET", "POST"],
   },
 });
+// Get messages API. 
 let messages: string[] = [""];
 App.get("/", (_, res) => {
   res.json({ messages: messages });
 });
+// Websockets.
 io.on("connect", (socket) => {
-  console.log(`connect ${socket.id}`);
   socket.on("message", (data) => {
     messages.push(`${data.user} says:  + ${data.message}`);
     socket.broadcast.emit("message", {
@@ -31,6 +33,7 @@ io.on("connect", (socket) => {
     console.log(`disconnect ${socket.id}`);
   });
 });
-httpServer.listen(3000, () => {
+// Listen.
+httpServer.listen(8080, () => {
   console.log("connected");
 });
