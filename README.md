@@ -1,5 +1,4 @@
 
-## Locker donde guardo mi camino de aprendizaje autodidáctico.
-# Diferentes archivos para proyectos en la Raspberry Pi, Arduino, IoT, múltiples lenguajes de programación, frameworks y tecnologías.
+## My programming Locker. All began with Linux, all continued with Raspberry. Keep learning everyday. 
 
 <div style="text-align:center"><img src="https://programandoconro.files.wordpress.com/2019/08/dsc8846.jpg" /></div>
