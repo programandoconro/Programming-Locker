@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">JapAnki</string>
+    <string name="text_label">Message</string>
+    <string name="next">+</string>
+    <string name="previous">-</string>
+    <string name="_0">0</string>
+</resources>
