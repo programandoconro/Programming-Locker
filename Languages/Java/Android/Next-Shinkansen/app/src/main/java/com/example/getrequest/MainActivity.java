@@ -3,6 +3,7 @@ package com.example.getrequest;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.widget.TextView;
 
@@ -41,10 +42,13 @@ public class MainActivity extends AppCompatActivity {
         RequestQueue queue = Volley.newRequestQueue(this);
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
                 new Response.Listener<String>() {
+                    TextView textBox = findViewById(R.id.text);
+
+
                     @Override
                     public void onResponse(String response) {
+                         textBox.setMovementMethod(new ScrollingMovementMethod());
 
-                        TextView textBox = findViewById(R.id.text);
                         String[] r = response.substring(1, response.length() - 2)
                                 .replace("\"", "").split(",");
 
@@ -52,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
 
                         textBox.append(System.getProperty("line.separator"));
                         if (r.length > 0) {
-                            for (int i = 1; i < r.length; i++) {
+                            for (int i = 0; i < r.length; i++) {
                                 textBox.append(r[i]);
                                 textBox.append(System.getProperty("line.separator"));
                             }
@@ -64,6 +68,7 @@ public class MainActivity extends AppCompatActivity {
                     TextView te = findViewById(R.id.text);
                     te.setText("That didn't work!");
                 });
+
         queue.add(stringRequest);
     }
 
