@@ -1,13 +1,30 @@
-### https://www.instamobile.io/android-development/generate-react-native-release-build-android/
+## Create apk file for Android in React-Native
 
+Based on: https://www.instamobile.io/android-development/generate-react-native-release-build-android/
+
+Go to android/app folder and create a ``keystore``.
 ```
 cd android/app
 keytool -genkey -v -keystore your_alias.keystore -alias your_alias -keyalg RSA -keysize 2048 -validity 10000
+```
+
+Make the bundle:
+```
+cd ../..
 react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res/
+
 ```
+Si hay error en el comando anterio ``ENOENT: no such file or directory, open 'android/app/src/main/assets/index.android.bundle'``, crear folder ``assets`` con 
+
 ```
-vim build.gradle
+mkdir android/app/src/main/assets   
 ```
+### Edit the build.gradle file.
+```
+vim android/app/build.gradle
+```
+Add your files for release version.
+
 ```
     android {
     ....
@@ -28,19 +45,17 @@ vim build.gradle
     }
 ```
 
-```
-cd ..
-cd ..
-```
-
 ## 次のステップは難しかったです。
-### https://github.com/mikehardy/jetifier#usage-for-source-files
 ```
 npx npm i --save-dev jetifier
 npx jetifiy
 ```
-### https://github.com/facebook/react-native/issues/26245
-### delete all drawable-hdpi,mdpi,xhdpi,xxhdpi,xxxhdpi and raw folders. from android/app/src/main/res
+Answer found in https://github.com/mikehardy/jetifier#usage-for-source-files
+
+Now you should remove some folders for the build to work.
+Issue found in: https://github.com/facebook/react-native/issues/26245
+
+Delete all drawable-hdpi,mdpi,xhdpi,xxhdpi,xxxhdpi and raw folders. from android/app/src/main/res
 ```
 rm -r android/app/src/main/res/drawable-raw/
 rm -r android/app/src/main/res/drawable-hdpi/
@@ -49,9 +64,17 @@ rm -r android/app/src/main/res/drawable-xhdpi/
 rm -r android/app/src/main/res/drawable-xxhdpi/
 rm -r android/app/src/main/res/drawable-xxxhdpi/
 ```
+Also, it may be necessary to delete ``app.json`` in /android/app/src/main/raw/. 
 
-### Create the apk
 ```
+rm android/app/src/main/res/raw/app.json   
+```
+
+### Create the apk file.
+```
+cd android
 ./gradlew assembleRelease
 ```
-### apk file should be in: app/build/outputs/apk/release/app-release.apk
+### That is it, 
+The apk file should be in: app/build/outputs/apk/release/app-release.apk
+
