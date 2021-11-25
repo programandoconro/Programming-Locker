@@ -48,7 +48,7 @@ Add your files for release version.
 ## 次のステップは難しかったです。
 ```
 npx npm i --save-dev jetifier
-npx jetifiy
+npx jetify
 ```
 Answer found in https://github.com/mikehardy/jetifier#usage-for-source-files
 
@@ -64,10 +64,10 @@ rm -r android/app/src/main/res/drawable-xhdpi/
 rm -r android/app/src/main/res/drawable-xxhdpi/
 rm -r android/app/src/main/res/drawable-xxxhdpi/
 ```
-Also, it may be necessary to delete ``app.json`` in /android/app/src/main/raw/. 
+Also, delete ``raw`` folder in /android/app/src/main/. 
 
 ```
-rm android/app/src/main/res/raw/app.json   
+rm -r android/app/src/main/res/raw/  
 ```
 
 ### Create the apk file.
