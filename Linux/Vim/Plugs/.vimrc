@@ -1,15 +1,13 @@
 call plug#begin('~/.vim/plugged')
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+
+Plug 'maxmellon/vim-jsx-pretty'
+Plug 'sbdchd/neoformat'
 Plug 'cakebaker/scss-syntax.vim', { 'for': 'scss' }
 Plug 'epilande/vim-es2015-snippets'
 Plug 'epilande/vim-react-snippets'
-Plug 'SirVer/ultisnips'
 Plug 'vim-airline/vim-airline'
-Plug 'prettier/vim-prettier', { 'do': 'yarn install', 'for': ['javascript', 'css', 'json', 'graphql'] }
-Plug 'mxw/vim-jsx'
-Plug 'leafgarland/typescript-vim'
+Plug 'prettier/vim-prettier', { 'do': 'yarn install', 'for': ['html','javascript', 'css', 'json', 'graphql'] }
 Plug 'kien/ctrlp.vim'
-Plug 'voronkovich/ctrlp-nerdtree.vim'
 Plug 'tmux-plugins/vim-tmux'
 Plug 'flowtype/vim-flow'
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
@@ -17,7 +15,6 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'ryanoasis/vim-devicons'
 Plug 'pangloss/vim-javascript'
 Plug 'crusoexia/vim-javascript-lib'
-Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-surround'
 Plug 'jiangmiao/auto-pairs'
@@ -32,23 +29,22 @@ Plug 'junegunn/goyo.vim'
 Plug 'rakr/vim-one'
 Plug 'mhinz/vim-startify'
 Plug 'morhetz/gruvbox'
-Plug 'pangloss/vim-javascript'
+Plug 'stevearc/vim-arduino'
 
-Plug 'maxmellon/vim-jsx-pretty'
+
 Plug 'pangloss/vim-javascript'
-Plug 'mxw/vim-jsx'
 Plug 'alvan/vim-closetag'
 Plug 'prettier/vim-prettier', {
   \ 'do': 'npm install',
   \ 'for': ['javascript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'react', 'yaml', 'html'] }
-Plug 'SirVer/ultisnips'
 Plug 'mlaursen/vim-react-snippets'
-Plug 'maxmellon/vim-jsx-pretty'
-Plug 'ternjs/tern_for_vim', { 'do' : 'npm install' }
 Plug 'neoclide/coc.nvim', {'branch':'release'}
 Plug 'junegunn/fzf', {'do': { ->fzf#install() } }
 Plug 'junegunn/fzf.vim'
-
+Plug 'leafgarland/typescript-vim'
+Plug 'peitalin/vim-jsx-typescript'
+Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
+Plug 'jparise/vim-graphql'
 
 call plug#end()
 
@@ -61,9 +57,7 @@ set t_Co=256
 " set background=light
 " let g:airline_theme='one'
 " let g:one_allow_italics = 1
-
 " FOR DARK
-colorscheme vim-monokai-tasty
 let g:airline_theme='monokai_tasty'
 let g:vim_monokai_tasty_italic = 1
 
@@ -71,15 +65,13 @@ highlight Comment cterm=italic
 if (has("termguicolors"))
   set termguicolors
 endif
-
+set relativenumber
 set guifont=Ubuntu\ Mono\ 11
 set noswapfile
 set tabstop=4 
 set shiftwidth=4
 set expandtab
 set smartindent
-set nu
-set nowrap
 set noswapfile
 set nobackup
 set undodir=~/.vim/undodir
@@ -96,63 +88,23 @@ set background=dark
 " LINTER SETTINGS
 " ------------------------------------------------
 
-" let g:ale_fixers = {
-" \ 'javascript': ['eslint']
-" \ }
+let g:ale_fixers = {
+\ 'javascript': ['eslint']
+\ }
 
 
-" let g:ale_sign_error = '@'
-" let g:ale_sign_warning = '!!'
+let g:ale_sign_error = '@'
+let g:ale_sign_warning = '!!'
 
-" let g:ale_fix_on_save = 0
-" let g:ale_lint_on_enter = 0
-" let g:ale_lint_on_insert_leave = 0
-" let g:ale_lint_on_text_change = 'never'
+let g:ale_fix_on_save = 0
+let g:ale_lint_on_enter = 0
+let g:ale_lint_on_insert_leave = 0
+let g:ale_lint_on_text_change = 'never'
 
 
 " NERDTree
 " -----------------------------------------------
 
-let g:NERDTreeIndicatorMapCustom = {
-    \ "Modified"  : "✹ ",
-    \ "Staged"    : "✚ ",
-    \ "Untracked" : "✭ ",
-    \ "Renamed"   : "➜ ",
-    \ "Unmerged"  : "═ ",
-    \ "Deleted"   : "✖ ",
-    \ "Dirty"     : "✗ ",
-    \ "Clean"     : "✔︎ ",
-    \ 'Ignored'   : '☒ ',
-    \ "Unknown"   : "? "
-    \ }
-
-let g:WebDevIconsNerdTreeAfterGlyphPadding = ' '
-
-
-let NERDTreeShowHidden=0
- function! StartUp()
-  if 0 == argc()
-    Startify
-    NERDTree /var/www
-  end
-endfunction
-autocmd VimEnter * call StartUp()
-
-" Check if NERDTree is open or active
-function! IsNERDTreeOpen()        
-  return exists("t:NERDTreeBufName") && (bufwinnr(t:NERDTreeBufName) != -1)
-endfunction
-
-" Call NERDTreeFind iff NERDTree is active, current window contains a modifiable
-" file, and we're not in vimdiff
-function! SyncTree()
-  if &modifiable && IsNERDTreeOpen() && strlen(expand('%')) > 0 && !&diff
-    NERDTreeFind
-    wincmd p
-  endif
-endfunction
-
-" CTRL-P
 " --------------------------------------------------
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
@@ -160,7 +112,6 @@ let g:ctrlp_working_path_mode = 'r'
 let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 
 " --------------------------------------------------
-set number               
 set encoding=UTF-8
 set expandtab
 set shiftwidth=2
@@ -187,11 +138,9 @@ nnoremap <Leader>0 :10b<CR>
 nnoremap ı i
 map <F8> ggVG
 map <C-S-l> :Prettier<CR>
-map <F3> :NERDTreeToggle<CR>
 map <F12> :ALEGoToDefinition<CR>
+nnoremap ,<space> :nohlsearch<CR>
 
-autocmd GuiEnter * silent NERDTree
-autocmd VimEnter * silent NERDTree
 
 "-- AUTOCOMPLETION --"
 filetype plugin on
@@ -199,10 +148,46 @@ set omnifunc=syntaxcomplete#Complete
 
 
 " Highlight currently open buffer in NERDTree
-autocmd BufEnter * call SyncTree()
 
 " comment out: 
 " - gcc to commentout single line
 " - gc to commentout the target of a motion
 
 hi Normal guibg=NONE ctermbg=NONE
+let g:neoformat_try_formatprg = 1
+augroup NeoformatAutoFormat
+    autocmd!
+    autocmd FileType javascript,javascript.jsx setlocal formatprg=prettier\
+                                                            \--stdin\
+                                                            \--print-width\ 80\
+                                                            \--single-quote\
+                                                            \--trailing-comma\ es5
+    autocmd BufWritePre *.js,*.jsx Neoformat
+augroup END
+let g:vim_jsx_pretty_colorful_config = 1
+nnoremap = ==
+map <F2> iimport React from 'react'; <CR><CR>export default function myFunction(props){ <CR><CR>  return( <CR><CR> ); }
+map <F3> iimport React,{useState} from 'react'; <CR><CR>export default function myFunction(props){ <CR>const [state, setState] = useState(); <CR><CR>  return( <CR><CR> ); }
+map <F4> iimport React, {useState,useEffect} from 'react'; <ESC> o <CR>
+map <F5> iexport default function myFunction(props){ return(  ); } <ESC>
+map <F6> iconst [state, handleState] = useState(); <ESC> 0
+map <leader>s :w <CR>i
+" filenames like *.xml, *.html, *.xhtml, ...
+" These are the file extensions where this plugin is enabled.
+"
+let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.js,*.jsx,*.tsx'
+
+" filenames like *.xml, *.xhtml, ...
+" This will make the list of non-closing tags self-closing in the specified files.
+"
+let g:closetag_xhtml_filenames = '*.xhtml,*.jsx,*.tsx'
+
+" filetypes like xml, html, xhtml, ...
+" These are the file types where this plugin is enabled.
+"
+let g:closetag_filetypes = 'html,xhtml,phtml'
+
+" filetypes like xml, xhtml, ...
+" This will make the list of non-closing tags self-closing in the specified files.
+"
+autocmd FileType typescript setlocal formatprg=prettier\ --parser\ typescript
