@@ -46,7 +46,6 @@ Plug 'peitalin/vim-jsx-typescript'
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 Plug 'jparise/vim-graphql'
 
-
 call plug#end()
 
 syntax on
@@ -58,7 +57,6 @@ set t_Co=256
 " set background=light
 " let g:airline_theme='one'
 " let g:one_allow_italics = 1
-
 " FOR DARK
 let g:airline_theme='monokai_tasty'
 let g:vim_monokai_tasty_italic = 1
@@ -192,26 +190,5 @@ let g:closetag_filetypes = 'html,xhtml,phtml'
 " filetypes like xml, xhtml, ...
 " This will make the list of non-closing tags self-closing in the specified files.
 "
-let g:closetag_xhtml_filetypes = 'xhtml,jsx,tsx'
-
-" integer value [0|1]
-" This will make the list of non-closing tags case-sensitive (e.g. `<Link>` will be closed while `<link>` won't.)
-"
-let g:closetag_emptyTags_caseSensitive = 1
-
-" dict
-" Disables auto-close if not in a "valid" region (based on filetype)
-"
-let g:closetag_regions = {
-    \ 'typescript.tsx': 'jsxRegion,tsxRegion',
-    \ 'javascript.jsx': 'jsxRegion',
-    \ }
-
-" Shortcut for closing tags, default is '>'
-"
-let g:closetag_shortcut = '>'
-
-" Add > at current position without closing the current tag, default is ''
-"
-let g:closetag_close_shortcut = '<leader>>'
 autocmd FileType typescript setlocal formatprg=prettier\ --parser\ typescript
+
