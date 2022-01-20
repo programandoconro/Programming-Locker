@@ -30,7 +30,7 @@
         android:layout_height="96dp"
         android:layout_marginBottom="16dp"
         android:onClick="onGoHome"
-        android:text="博多南に行く"
+        android:text="博多南駅に行く"
         android:textSize="32dp"
         app:backgroundTint="@color/purple_700"
         app:layout_constraintBottom_toBottomOf="parent"
