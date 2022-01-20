@@ -1,16 +1,14 @@
 package com.example.getrequest;
 
-import androidx.appcompat.app.AppCompatActivity;
 
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.widget.TextView;
-
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
-import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
@@ -21,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         showProgressBar(false);
+
 
     }
 
@@ -44,10 +43,9 @@ public class MainActivity extends AppCompatActivity {
                 new Response.Listener<String>() {
                     TextView textBox = findViewById(R.id.text);
 
-
                     @Override
                     public void onResponse(String response) {
-                         textBox.setMovementMethod(new ScrollingMovementMethod());
+                        textBox.setMovementMethod(new ScrollingMovementMethod());
 
                         String[] r = response.substring(1, response.length() - 2)
                                 .replace("\"", "").split(",");
@@ -65,9 +63,9 @@ public class MainActivity extends AppCompatActivity {
                         showProgressBar(false);
                     }
                 }, error -> {
-                    TextView te = findViewById(R.id.text);
-                    te.setText("That didn't work!");
-                });
+            TextView te = findViewById(R.id.text);
+            te.setText("That didn't work!");
+        });
 
         queue.add(stringRequest);
     }
@@ -89,5 +87,6 @@ public class MainActivity extends AppCompatActivity {
         showProgressBar(true);
 
     }
+
 
 }

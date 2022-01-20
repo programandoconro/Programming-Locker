@@ -16,7 +16,7 @@
 
         android:gravity="center_horizontal"
         android:scrollbars="vertical"
-        android:text="クリックしてください"
+        android:text="行き先を選んで下さい"
         android:textAlignment="center"
         android:textSize="30dp"
 
@@ -30,7 +30,7 @@
         android:layout_height="96dp"
         android:layout_marginBottom="16dp"
         android:onClick="onGoHome"
-        android:text="自宅に行く"
+        android:text="博多南に行く"
         android:textSize="32dp"
         app:backgroundTint="@color/purple_700"
         app:layout_constraintBottom_toBottomOf="parent"
