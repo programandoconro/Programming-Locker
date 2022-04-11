@@ -1,13 +1,34 @@
 package com.example.gsensor;
-import android.graphics.Color;
+
 import android.os.Bundle;
 import android.widget.TextView;
 
-import androidx.appcompat.app.AppCompatActivity;
+import android.annotation.SuppressLint;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.location.Location;
+import android.provider.Settings;
+import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+import androidx.annotation.NonNull;
 
-    // create variables of the two class
+import com.google.android.gms.location.FusedLocationProviderClient;
+import com.google.android.gms.location.LocationCallback;
+import com.google.android.gms.location.LocationResult;
+import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+
+public class MainActivity extends Gps {
+
+    FusedLocationProviderClient mFusedLocationClient;
+
+    TextView latitudeTextView;
+    TextView longitudeTextView;
+    TextView altitudeTextView;
+    TextView speedTextView;
+    int PERMISSION_ID = 44;
+
     private Accelerometer accelerometer;
     private Gyroscope gyroscope;
 
@@ -16,59 +37,110 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // instantiate them with this as context
+
         accelerometer = new Accelerometer(this);
         gyroscope = new Gyroscope(this);
+        setContentView(R.layout.activity_main);
 
-        // create a listener for accelerometer
+        latitudeTextView = findViewById(R.id.latitude);
+        longitudeTextView = findViewById(R.id.longitude);
+        altitudeTextView = findViewById(R.id.altitude);
+        speedTextView = findViewById(R.id.speed);
+
+        mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
+
+        getLastLocation();
+
+
         accelerometer.setListener(new Accelerometer.Listener() {
-            //on translation method of accelerometer
             @Override
             public void onTranslation(float tx, float ty, float ts) {
                 TextView accData = findViewById(R.id.accelerometerData);
-                // set the color red if the device moves in positive x axis
                 if (tx > 1.0f) {
-                    getWindow().getDecorView().setBackgroundColor(Color.RED);
-                    accData.setText("Accelerometer: " +  String.valueOf(tx));
+                    accData.setText("Acc.: " +  String.valueOf(tx));
                 }
-                // set the color blue if the device moves in negative x axis
                 else if (tx < -1.0f) {
-                    getWindow().getDecorView().setBackgroundColor(Color.BLUE);
-                    accData.setText("Accelerometer: " +  String.valueOf(tx));
+                    accData.setText("Acc.: " +  String.valueOf(tx));
                 }
             }
         });
 
-        // create a listener for gyroscope
         gyroscope.setListener(new Gyroscope.Listener() {
-            // on rotation method of gyroscope
             @Override
             public void onRotation(float rx, float ry, float rz) {
-                // set the color green if the device rotates on positive z axis
                 TextView giroData = findViewById(R.id.gyroscopeData);
                 if (ry > 1.0f) {
-                    getWindow().getDecorView().setBackgroundColor(Color.GREEN);
-                    giroData.setText("Gyroscope: " +  String.valueOf(ry));
+                    giroData.setText("Gyro.: " +  String.valueOf(ry));
                 }
-                // set the color yellow if the device rotates on positive z axis
                 else if (ry < -1.0f) {
-                    getWindow().getDecorView().setBackgroundColor(Color.YELLOW);
-                    giroData.setText("Gyroscope: " +  String.valueOf(ry));
+                    giroData.setText("Gyro.: " +  String.valueOf(ry));
                 }
             }
         });
     }
 
-    // create on resume method
-    @Override
-    protected void onResume() {
-        super.onResume();
+    @SuppressLint("MissingPermission")
+    public void getLastLocation() {
+        if (checkPermissions()) {
 
-        // this will send notification to
-        // both the sensors to register
+            if (isLocationEnabled()) {
+
+                mFusedLocationClient.getLastLocation().addOnCompleteListener(new OnCompleteListener<Location>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Location> task) {
+                        Location location = task.getResult();
+                        if (location == null) {
+                            requestNewLocationData();
+                        } else {
+                            latitudeTextView.setText("Lat.: " + location.getLatitude());
+                            longitudeTextView.setText("Lng.: " + location.getLongitude());
+                            altitudeTextView.setText("Alt.: " + location.getAltitude());
+                            speedTextView.setText("Speed: " + location.getSpeed());
+                        }
+                    }
+                });
+            } else {
+                Toast.makeText(this, "Please turn on" + " your location...", Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
+                startActivity(intent);
+                System.out.println("False location");
+            }
+        } else {
+            requestPermissions();
+        }
+    }
+
+    private LocationCallback mLocationCallback = new LocationCallback() {
+
+        @Override
+        public void onLocationResult(LocationResult locationResult) {
+            Location mLastLocation = locationResult.getLastLocation();
+            latitudeTextView.setText("Latitude: " + mLastLocation.getLatitude() + "");
+        }
+    };
+    @Override
+    public void
+    onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+
+        if (requestCode == PERMISSION_ID) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                getLastLocation();
+            }
+        }
+    }
+
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        if (checkPermissions()) {
+            getLastLocation();
+        }
         accelerometer.register();
         gyroscope.register();
     }
+
 
     // create on pause method
     @Override
