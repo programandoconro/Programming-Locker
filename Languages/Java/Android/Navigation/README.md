@@ -105,3 +105,22 @@ public class NextPage extends AppCompatActivity {
         app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
 ```
+
+# Navigate to a page with kotlin:
+
+Add a click listener and create an intent inside of it. Pretty simple.
+
+```
+class DataActivity : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_data)
+        val navToMain:Button = findViewById(R.id.nav_to_main)
+        navToMain.setOnClickListener {
+            val intent = Intent(this@DataActivity, MainActivity::class.java)
+            startActivity(intent)
+        }
+    }
+
+}
+```
