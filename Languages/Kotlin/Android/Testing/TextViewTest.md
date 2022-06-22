@@ -47,11 +47,15 @@ class MainActivity : AppCompatActivity() {
 ```
 package com.roro.testtest
 
+package com.roro.testtest
+
 import androidx.test.espresso.Espresso.onView
-import androidx.test.espresso.matcher.ViewMatchers.withText
+import androidx.test.espresso.assertion.ViewAssertions.matches
+import androidx.test.espresso.matcher.ViewMatchers.*
 import androidx.test.ext.junit.rules.ActivityScenarioRule
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.LargeTest
+import org.hamcrest.core.StringContains.containsString
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -59,12 +63,14 @@ import org.junit.runner.RunWith
 @RunWith(AndroidJUnit4::class)
 @LargeTest
 class TextViewInstrumentedTest {
+
     @get:Rule
     val activityRule = ActivityScenarioRule(MainActivity::class.java)
 
     @Test
     fun checkTextViewWithHelloWorld(){
-        onView(withText("EUREKA"))
+        val myTextView = onView(withId(R.id.eureka))
+        myTextView.check(matches(withText(containsString("EUREKA"))))
     }
 }
 ```
