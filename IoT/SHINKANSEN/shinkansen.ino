@@ -6,8 +6,8 @@
 #include <WiFi.h>
 #include <HTTPClient.h>
 
-const char* ssid = "Mi-Ro-Sa-Network";
-const char* password = "*********************";
+const char* ssid = "";
+const char* password = "";
 
 void WifiText() {
   Heltec.display->setFont(ArialMT_Plain_16);
@@ -41,8 +41,7 @@ void loop() {
   if ((WiFi.status() == WL_CONNECTED)) { 
     HTTPClient http;
    
-    //heroku: https://next-shinkansen.herokuapp.com/hakataminami-hakata
-    http.begin("http://nextshinkansen.com/hakataminami-hakata"); 
+    http.begin("https://nextshinkansen.vercel.app/api/hakataminami-hakata"); 
     delay(10000);
     int httpCode = http.GET(); 
     delay(10000);
@@ -63,8 +62,8 @@ void loop() {
         Heltec.display->setFont(ArialMT_Plain_24);
 
         Heltec.display->drawString(50, 0,  payload.substring(2,6));
-        Heltec.display->drawString(50, 20, payload.substring(12,16));
-        Heltec.display->drawString(50, 40, payload.substring(22,26));
+        Heltec.display->drawString(50, 20, payload.substring(9,13));
+        Heltec.display->drawString(50, 40, payload.substring(16,20));
         
         Heltec.display->display();
         
