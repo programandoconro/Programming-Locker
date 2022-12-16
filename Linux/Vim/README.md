@@ -69,6 +69,9 @@
 
 ``f + {`` -> Va directamente al siguiente ``{``. Funciona para otros caracteres, por ejemplo: ``[ , ( , [a-z], [0-9] ,``, etc.
 
+En la vista actual, `H` arriba, `M` al medio y `L` al final. 
+`b` va al principio de la palabra mientras `e` va al final (before, end).
+
 ## Selección:
 
 ``v`` -> seleccionar (usar cursor o letras para mover, sirve combiando con Shift).
