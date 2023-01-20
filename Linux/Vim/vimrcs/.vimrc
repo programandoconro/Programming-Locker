@@ -28,7 +28,6 @@ Plug 'mhinz/vim-grepper'
 Plug 'junegunn/goyo.vim'
 Plug 'rakr/vim-one'
 Plug 'mhinz/vim-startify'
-Plug 'morhetz/gruvbox'
 Plug 'stevearc/vim-arduino'
 
 
@@ -50,7 +49,7 @@ call plug#end()
 
 syntax on
 
-" COLORSCHEME 
+" COLORSCHEME
 set t_Co=256
 " FOR LIGHT
 " colorscheme one
@@ -68,7 +67,7 @@ endif
 set relativenumber
 set guifont=Ubuntu\ Mono\ 11
 set noswapfile
-set tabstop=4 
+set tabstop=4
 set shiftwidth=4
 set expandtab
 set smartindent
@@ -77,7 +76,6 @@ set nobackup
 set undodir=~/.vim/undodir
 set undofile
 set incsearch
-colorscheme gruvbox
 nmap <leader>gd <Plug>(coc-definition)
 nmap <leader>gr <Plug>(cor-references)
 nnoremap <C-p> :GFiles<CR>
@@ -149,7 +147,7 @@ set omnifunc=syntaxcomplete#Complete
 
 " Highlight currently open buffer in NERDTree
 
-" comment out: 
+" comment out:
 " - gcc to commentout single line
 " - gc to commentout the target of a motion
 
@@ -192,3 +190,6 @@ let g:closetag_filetypes = 'html,xhtml,phtml'
 "
 autocmd FileType typescript setlocal formatprg=prettier\ --parser\ typescript
 
+inoremap zz <Esc>:update<cr>
+inoremap zq <Esc>:quit<cr>
+inoremap jh <Esc><cr>
