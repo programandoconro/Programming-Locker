@@ -1,0 +1,22 @@
+<html>
+  <body>
+    <h1 id="wasm-text"></h1>
+    <script>
+      WebAssembly.instantiateStreaming(fetch("chatgpt_bg.wasm"))
+        .then(({ instance, module }) => {
+          let messagePointer = instance.exports.greet();
+          let message = new TextDecoder().decode(
+            new Uint8Array(
+              instance.exports.memory.buffer,
+              messagePointer,
+
+              messagePointer.length
+            )
+          );
+          console.log("Result: ", message);
+          document.getElementById("wasm-text").innerHTML = message;
+        })
+        .catch(console.error);
+    </script>
+  </body>
+</html>
