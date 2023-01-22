@@ -13,10 +13,7 @@ pub fn is_leap_year(year: i32) -> bool {
     }
 }
 #[wasm_bindgen]
-pub fn get_month_days() -> i32 {
-    let year: i32 = 2023;
-
-    let month: u32 = 2;
+pub fn get_month_days(year: i32, month: u32) -> i32 {
     let day: u32 = 1;
 
     let date = NaiveDate::from_ymd_opt(year, month, day);
