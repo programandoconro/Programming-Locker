@@ -1,0 +1,17 @@
+<html>
+  <body>
+    <h1>Calendar:</h1>
+    <p>
+      Number of days in February 2023 is
+      <b id="wasm-value"></b>.
+    </p>
+    <script type="module">
+      import init from "./calendar.js";
+      init().then((wasm) => {
+        let result = wasm.get_month_days();
+        console.log(result);
+        document.getElementById("wasm-value").innerHTML = result;
+      });
+    </script>
+  </body>
+</html>
