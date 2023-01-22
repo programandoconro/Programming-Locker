@@ -8,8 +8,8 @@
 const long interval = 30000;
 unsigned long previousMillis = 0;
 
-const char* ssid = "your ssid";
-const char* password = "your password";
+const char* ssid = "";
+const char* password = "";
 
 String jsonBuffer;
 
@@ -36,7 +36,7 @@ void setup() {
 }
 
 
-// From: https://embedgyan.wordpress.com/2020/05/21/esp32-http-get-with-arduino-ide-openweathermap-org-and-thingspeak/
+
 String httpGETRequest(const char* serverName) {
   HTTPClient http;
 
@@ -69,12 +69,12 @@ void getCurrentWeather() {
   if (currentMillis - previousMillis >= interval) {
 
     previousMillis = currentMillis;
-    M5.Lcd.setTextSize(16);
+    M5.Lcd.setTextSize(10);
     M5.Lcd.fillScreen(BLACK);
     M5.Lcd.setTextColor(WHITE);
 
     if (WiFi.status() == WL_CONNECTED) {
-      String serverPath = "http://api.openweathermap.org/data/2.5/weather?q=Fukuoka,japan&APPID=ffdd7da7dc76d29fce72bba0ae6ac89a&units=metric";
+      String serverPath = "http://api.openweathermap.org/data/2.5/weather?q=Tokyo,japan&APPID=apikey&units=metric";
       jsonBuffer = httpGETRequest(serverPath.c_str());
       Serial.println(jsonBuffer);
       JSONVar myObject = JSON.parse(jsonBuffer);
@@ -85,7 +85,26 @@ void getCurrentWeather() {
       }
       else {
         M5.Lcd.setCursor(10, 40);
+      
+
         M5.Lcd.println(myObject["main"]["temp"]);
+        sleep(3);
+        M5.Lcd.fillScreen(BLACK);
+        M5.Lcd.setCursor(0,0);
+        M5.Lcd.setTextSize(6);
+
+
+        M5.Lcd.println(myObject["weather"][0]["main"]);
+        sleep(3);
+        M5.Lcd.fillScreen(BLACK);
+        M5.Lcd.setTextSize(6);
+    
+
+        M5.Lcd.setCursor(0,0);
+        M5.Lcd.println(myObject["weather"][0]["description"]);
+        sleep(3);
+        M5.Lcd.fillScreen(BLACK);
+    
 
       }
 
@@ -100,6 +119,8 @@ void getCurrentWeather() {
       Serial.println(myObject["main"]["humidity"]);
       Serial.print("Wind Speed: ");
       Serial.println(myObject["wind"]["speed"]);
+      Serial.println(myObject["weather"]);
+      Serial.println(myObject["weather"][0]["description"]);
     }
     else {
       Serial.println("WiFi Disconnected");
@@ -108,12 +129,6 @@ void getCurrentWeather() {
 
 }
 
-// TODO:
-void getTomorrowWeather() {
-// curl "api.openweathermap.org/data/2.5/forecast?q=Fukuoka,japan&APPID=yourapi&units=metric&cnt=8"
-
-
-}
 
 
 
