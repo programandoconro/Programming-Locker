@@ -168,3 +168,7 @@ Adicionalmente, podemos usar ``Ctrl z`` para suspender Vim y luego ``fg`` en la 
 *Requiere el plugin ``surround``.
 
 Selecciona el tag a encapsular con ``v``, luego utiliza ``S`` y escribe el tag que va a encapsular al anterior, por ejemplo ``View`` o ``div``.  
+
+## Seleccionar todo un tag y su contenido <- `vat`.
+
+## Borrar una palabra sin importar en que parte de ella se esté el cursor <- `dat`.
