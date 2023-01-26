@@ -1,0 +1,39 @@
+{
+
+    "vim.insertModeKeyBindings": [
+      // save in insert mode
+        {
+          "before": ["z", "z"],
+          "after": ["<Esc>"],
+          "commands": [
+            "workbench.action.files.save"
+        ]
+        },
+        {
+          "before": ["j", "h"],
+          "after": ["<Esc>"],
+        },
+      ],
+      "vim.normalModeKeyBindingsNonRecursive": [
+        // save in normal mode
+        {
+          "before": ["z","z"],
+          "after": ["z", "z"],
+          "commands": [
+            "workbench.action.files.save"
+        ]
+        , 
+          // find 
+        {
+          "before": ["f","f"],
+          "after": ["ESC", "/"],
+        },
+          // replace with yanke
+        {
+          "before": ["'","'"],
+          "after": ["c", "w", "<Ctrl>","r", 0],
+        },
+      ],
+     
+
+}
