@@ -5,6 +5,7 @@ alias run-shop-top='DEFAULT_FEATURES=ichiba npm run app:watch-dev -- --env.pages
 alias test-unit-all='npm run test:unit -- --all'
 alias build-shop-top='DEFAULT_FEATURES=ichiba npm run app:build -- --env.pages=shop-top'
 alias amend='git commit --amend'
+alias yabai='brew services restart yabai'
 
 pushini () {
     branchName=`git branch --contains | grep '*' | awk '{print $2}'`
@@ -13,6 +14,17 @@ pushini () {
     echo "continue?"
     read
     git push --set-upstream origin $branchName
+}
+
+commit () {
+  branchName=`git branch --contains | grep '*' | awk '{print $2}'`
+  echo "branchName: $branchName"    jiraName=`echo $branchName | awk -F'-' '{print $1}'`
+  jiraNumber=`echo $branchName | awk -F'-' '{print $2}'`
+  echo "jiraName: $jiraName"
+  echo "jiraNumber: $jiraNumber"
+  echo "git commit -m '$jiraName-$jiraNumber $1'"
+  echo "continue?"
+  read    git commit -m "$jiraName-$jiraNumber $1"
 }
 
 function peco-history-selection() {
