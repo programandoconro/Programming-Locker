@@ -1,7 +1,5 @@
-{
-
-    "vim.insertModeKeyBindings": [
-      // save in insert mode
+ "vim.insertModeKeyBindings": [
+      //save in insert mode
         {
           "before": ["z", "z"],
           "after": ["<Esc>"],
@@ -15,35 +13,32 @@
         },
       ],
       "vim.normalModeKeyBindingsNonRecursive": [
-        // save in normal mode
+      // save in normal mode
         {
           "before": ["z","z"],
           "after": ["z", "z"],
           "commands": [
             "workbench.action.files.save"
         ]
-        , 
-          // find 
+        },
+          // Undo & Redo
+          { "before": ["u"], "commands": ["undo"] },
+          { "before": ["c-r"], "commands": ["redo"] },
         {
           "before": ["f","f"],
-          "after": ["ESC", "/"],
+          "after": ["ESC", "/", "l", "2",  "ENTER"],
         },
-          // replace with yanke
+        // replace with yanked
         {
           "before": ["'","'"],
           "after": ["c", "w", "<Ctrl>","r", 0],
         },
-         // comment all file
         {
           "before": ["/","/"],
           "after": ["g", "g", "<Ctrl>", "v", "G", "I", "/", "/","<SPACE>", "<ESC>"],
         },
-         // uncomment all file
         {
           "before": ["q","q"],
           "after": ["g", "g", "<Ctrl>", "v", "G", "I", "<DELETE>", "<DELETE>", "<ESC>"],
         },
       ],
-     
-
-}
