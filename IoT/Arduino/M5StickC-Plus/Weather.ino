@@ -8,8 +8,8 @@
 const long interval = 30000;
 unsigned long previousMillis = 0;
 
-const char* ssid = "*******";
-const char* password = "***********";
+const char* ssid = "******";
+const char* password = "**********";
 
 String jsonBuffer;
 
@@ -24,14 +24,14 @@ void setup() {
   M5.Lcd.setCursor(0, 0);
   M5.Lcd.setTextColor(WHITE);
   M5.Lcd.println("Connecting");
-  
+
   Serial.begin(9600);
   WiFi.begin(ssid, password);
 
   while (WiFi.status() != WL_CONNECTED) {
     delay(500);
     Serial.println("Connecting to WiFi..");
-    
+
   }
   M5.Lcd.println("Connected");
   delay(500);
@@ -68,15 +68,33 @@ String httpGETRequest(const char* serverName) {
   return payload;
 }
 
+void setTextForTemp(JSONVar json) {
+  String jsonString = JSON.stringify(json);
+  const int len = jsonString.length();
+  if (len <= 4) {
+    M5.Lcd.setTextFont(7);
+    M5.Lcd.setTextSize(2);
+    M5.Lcd.setCursor(15, 20);
+
+  }
+
+  else {
+    M5.Lcd.setTextFont(1);
+    M5.Lcd.setTextSize(7);
+    M5.Lcd.setCursor(10, 40);
+
+  }
+}
+
 void getCurrentWeather() {
   unsigned long currentMillis = millis();
 
   if (currentMillis - previousMillis >= interval) {
 
     previousMillis = currentMillis;
-    
+
     if (WiFi.status() == WL_CONNECTED) {
-      String serverPath = "http://api.openweathermap.org/data/2.5/weather?q=Tokyo,japan&APPID=apikey&units=metric";
+      String serverPath = "http://api.openweathermap.org/data/2.5/weather?lat=35.615333&lon=139.579435&APPID=apikey&units=metric";
       jsonBuffer = httpGETRequest(serverPath.c_str());
       Serial.println(jsonBuffer);
       JSONVar myObject = JSON.parse(jsonBuffer);
@@ -92,16 +110,19 @@ void getCurrentWeather() {
         M5.Lcd.setTextSize(6);
         M5.Lcd.println((const char*)myObject["weather"][0]["main"]);
         sleep(3);
-        
+
         M5.Lcd.fillScreen(BLACK);
         M5.Lcd.setCursor(0, 0);
+        M5.Lcd.setTextSize(5);
         M5.Lcd.println((const char*)myObject["weather"][0]["description"]);
         sleep(3);
-        
-        M5.Lcd.setTextFont(7);
-        M5.Lcd.setTextSize(2);
+
+
+
+        setTextForTemp(myObject["main"]["temp"]);
+
         M5.Lcd.fillScreen(BLACK);
-        M5.Lcd.setCursor(15, 20);
+
         M5.Lcd.println(myObject["main"]["temp"]);
 
       }
@@ -124,13 +145,6 @@ void getCurrentWeather() {
       Serial.println("WiFi Disconnected");
     }
   }
-
-}
-
-// TODO:
-void getTomorrowWeather() {
-  // curl "api.openweathermap.org/data/2.5/forecast?q=Fukuoka,japan&APPID=apikey&units=metric&cnt=8"
-
 
 }
 
