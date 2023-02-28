@@ -5,7 +5,9 @@ alias run-shop-top='DEFAULT_FEATURES=ichiba npm run app:watch-dev -- --env.pages
 alias test-unit-all='npm run test:unit -- --all'
 alias build-shop-top='DEFAULT_FEATURES=ichiba npm run app:build -- --env.pages=shop-top'
 alias amend='git commit --amend'
-alias yabai='brew services restart yabai'
+alias yabai-restart='brew services restart yabai'
+alias yabai-stop='brew services stop yabai'
+alias unsafe-chrome='open -n -a /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --args --user-data-dir="/Users/ts-rodrigo.diaz/InsecChrome" --disable-web-security --ignore-certificate -errors'
 
 pushini () {
     branchName=`git branch --contains | grep '*' | awk '{print $2}'`
@@ -16,15 +18,17 @@ pushini () {
     git push --set-upstream origin $branchName
 }
 
-commit () {
+function commit () {
   branchName=`git branch --contains | grep '*' | awk '{print $2}'`
-  echo "branchName: $branchName"    jiraName=`echo $branchName | awk -F'-' '{print $1}'`
+  echo "branchName: $branchName"
+  jiraName=`echo $branchName | awk -F'-' '{print $1}'`
   jiraNumber=`echo $branchName | awk -F'-' '{print $2}'`
   echo "jiraName: $jiraName"
   echo "jiraNumber: $jiraNumber"
   echo "git commit -m '$jiraName-$jiraNumber $1'"
-  echo "continue?"
-  read    git commit -m "$jiraName-$jiraNumber $1"
+  [[ "$(echo -n 'Continue? [y/N]> ' >&2; read; echo $REPLY)" == [Yy]* ]] \
+  && git commit -m "$jiraName-$jiraNumber $1"  \
+  || echo Stopping
 }
 
 function peco-history-selection() {
@@ -39,4 +43,8 @@ function peco-git-checkout() {
     CURSOR=$#BUFFER zle reset-prompt
 }
 zle -N peco-git-checkout
-bindkey '^L' peco-git-checkout
+bindkey '^G' peco-git-checkout
+
+function search-and-open() {
+    rg -l "$1" | peco | xargs -o vim
+}
