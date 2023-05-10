@@ -1,0 +1,197 @@
+# Path to your oh-my-zsh installation.
+export ZSH="$HOME/.oh-my-zsh"
+export PATH="$PATH:/usr/bin/ctags"
+export PATH="$PATH:~/.vim/plugged/fzf/bin"
+export CPLUS_INCLUDE_PATH=/opt/homebrew/include
+export PKG_CONFIG_PATH="/opt/homebrew/opt/jpeg/lib/pkgconfig"
+
+
+# Set name of the theme to load --- if set to "random", it will
+# load a random theme each time oh-my-zsh is loaded, in which case,
+# to know which specific one was loaded, run: echo $RANDOM_THEME
+# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+ZSH_THEME="robbyrussell"
+#ZSH_THEME="cypher"
+#ZSH_THEME="duellj"
+
+
+# Set list of themes to pick from when loading at random
+# Setting this variable when ZSH_THEME=random will cause zsh to load
+# a theme from this variable instead of looking in $ZSH/themes/
+# If set to an empty array, this variable will have no effect.
+# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
+
+# Which plugins would you like to load?
+# Standard plugins can be found in $ZSH/plugins/
+# Custom plugins may be added to $ZSH_CUSTOM/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+# Add wisely, as too many plugins slow down shell startup.
+
+zstyle ':omz:plugins:nvm' lazy yes
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting nvm)
+
+source $ZSH/oh-my-zsh.sh
+
+# User configuration
+
+# export MANPATH="/usr/local/man:$MANPATH"
+
+# You may need to manually set your language environment
+# export LANG=en_US.UTF-8
+
+# Preferred editor for local and remote sessions
+# if [[ -n $SSH_CONNECTION ]]; then
+#   export EDITOR='vim'
+# else
+#   export EDITOR='mvim'
+# fi
+
+# Compilation flags
+# export ARCHFLAGS="-arch x86_64"
+
+# Set personal aliases, overriding those provided by oh-my-zsh libs,
+# plugins, and themes. Aliases can be placed here, though oh-my-zsh
+# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+# For a full list of active aliases, run `alias`.
+#
+# Example aliases
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
+
+# export NVM_DIR=~/.nvm
+#source $(brew --prefix nvm)/nvm.sh
+
+# alias
+alias dui='cd /Users/ts-rodrigo.diaz/Documents/PROJECTS/dynamic-ui'
+alias develop='git checkout develop'
+alias run-shop-top='DEFAULT_FEATURES=ichiba npm run app:watch-dev -- --env.pages=shop-top'
+alias run-item='DEFAULT_FEATURES=ichiba npm run app:watch-dev -- --env.pages=item'
+alias test-unit-all='npm run test:unit -- --all'
+alias build-shop-top='DEFAULT_FEATURES=ichiba npm run app:build -- --env.pages=shop-top'
+alias amend='git commit --amend'
+alias yabai-restart='brew services restart yabai'
+alias yabai-stop='brew services stop yabai'
+alias unsafe-chrome='open -n -a /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --args --user-data-dir="/Users/ts-rodrigo.diaz/InsecChrome" --disable-web-security --ignore-certificate -errors'
+alias python3='python3.10'
+
+pushini () {
+    branchName=`git branch --contains | grep '*' | awk '{print $2}'`
+    echo "branchName: $branchName"
+    echo "git push --set-upstream origin $branchName"
+    echo "continue?"
+    read
+    git push --set-upstream origin $branchName
+}
+
+function commit () {
+  branchName=`git branch --contains | grep '*' | awk '{print $2}'`
+  echo "branchName: $branchName"
+  jiraName=`echo $branchName | awk -F'-' '{print $1}'`
+  jiraNumber=`echo $branchName | awk -F'-' '{print $2}'`
+  echo "jiraName: $jiraName"
+  echo "jiraNumber: $jiraNumber"
+  echo "git commit -m '$jiraName-$jiraNumber $1'"
+  [[ "$(echo -n 'Continue? [y/N]> ' >&2; read; echo $REPLY)" == [Yy]* ]] \
+  && git commit -m "$jiraName-$jiraNumber $1"  \
+  || echo Stopping
+}
+
+function peco-history-selection() {
+    BUFFER=`history 1 | tac | sed s/\^\ \*\[0-9\]\*//g | sed s/\^\*//g | sed s/\^\ \*//g | peco `
+    CURSOR=$#BUFFER zle reset-prompt
+}
+zle -N peco-history-selection
+bindkey '^R' peco-history-selection
+
+function peco-git-checkout() {
+    BUFFER=`git branch -a | cat | sed s/\^\ \*\[0-9\]\*//g | sed s/\^\*//g | sed s/\^\ \*//g | awk '{print "git checkout " $0}' | sed 's/remotes\/origin\///' |  peco`
+    CURSOR=$#BUFFER zle reset-prompt
+}
+zle -N peco-git-checkout
+bindkey '^G' peco-git-checkout
+
+# using Rust grep
+function search-term() {
+    rg -l "$1" | peco | xargs -o nvim
+}
+# using Rust fd
+function find-file() {
+    fd "$1" | peco | xargs -o nvim
+}
+
+function run-rakuten() {
+    DEFAULT_FEATURES=ichiba npm run app:watch-dev -- --env.pages="$1" & open -a "Google Chrome" http://localhost:3000/"$1"/\?_mock\="$2"
+}
+
+function browser-rakuten() {
+    open -a "Google Chrome" http://localhost:3000/"$1"/\?_mock\="$2"
+
+}
+
+function test-unit() {
+    npm run test:unit -- --"$1"
+
+}
+function watch() {
+    npm run test:unit "--" "$1" --watch
+
+}
+
+function create-branch() {
+  #check if a git repository
+  if ! git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
+     echo "Not a git repository";
+     return 1;
+  fi
+
+  # main program
+  echo "Enter the name of the branch. Spaces or line breaks do not matter. Press Ctrl+D to finish."
+  local branch="";
+  while read line; do
+     # loop each word in line
+     for word in $(awk -F ',' '{for(i=1;i<=NF;i++){print $i}}' <<< "$line"); do
+        # Prevent to add "-" if first word
+        if [ -z "$branch" ]; then
+          branch="$word";
+          echo
+          echo "Press Enter to continue and then Ctrl-D to use this input"
+
+        else
+          # Concatenate using "-" as delimitator
+          branch="$branch-$word";
+        fi
+      done;
+  done
+  echo "You entered:"
+
+  # check if valid branch name
+  git check-ref-format --branch "$branch"
+  if [ $? -ne 0 ]; then
+    # Git only handles branch names smaller than 255 chars
+    branch="${branch:0:253}"
+    echo "$branch"
+    # Clean the name if invalid characters found
+    branch="$(echo "$branch" |  sed 's/^-.//; s/[^[:alnum:]_\-]/-/g; s/-\{2,\}/-/g; s/[^[:alnum:]]*$//')"
+    echo
+    echo "After cleaning, new name is $branch"
+  [[ "$(echo -n 'Continue? [y/N]> ' >&2; read; echo $REPLY)" == [Yy]* ]] \
+  && echo ok || return 1;
+
+
+  # check again, just in case
+  git check-ref-format --branch "$branch"
+  if [ $? -ne 0 ]; then return 1; fi
+
+  else
+    echo "Branch name accepted: $branch"
+  fi
+
+  # Finish
+  git checkout -b "$branch"
+}
+
+
+# find wifi password
+# security find-generic-password -ga "ROUTERNAME" | grep "password:"
+
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
