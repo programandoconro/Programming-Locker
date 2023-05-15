@@ -149,10 +149,11 @@ nnoremap <Leader>0 :10b<CR>
 nnoremap ı i
 map <F8> ggVG
 map <C-S-l> :Prettier<CR>
-map <C-S-r> :Cargo fmt<CR>
+nnoremap <C-S-r> :Cargo fmt<CR>
 map <F12> :ALEGoToDefinition<CR>
 nnoremap ,<space> :nohlsearch<CR>
-:inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+
 
 
 
@@ -347,10 +348,6 @@ if has('nvim-0.4.0') || has('patch-8.2.0750')
   vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
 endif
 
-" Use CTRL-S for selections ranges
-" Requires 'textDocument/selectionRange' support of language server
-nmap <silent> <C-s> <Plug>(coc-range-select)
-xmap <silent> <C-s> <Plug>(coc-range-select)
 
 " Add `:Format` command to format current buffer
 command! -nargs=0 Format :call CocActionAsync('format')
@@ -383,3 +380,12 @@ nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
+
+" Remember position of last edit and return on reopen
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+endif
+
+
+" Map <C-s> to swap between current and last edited files
+nnoremap <C-s> <C-^>
