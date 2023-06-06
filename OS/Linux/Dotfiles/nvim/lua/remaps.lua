@@ -7,11 +7,20 @@ function map(mode, lhs, rhs, opts)
     vim.api.nvim_set_keymap(mode, lhs, rhs, options)
 end
 
-map("n", "nn", ":NERDTreeToggle<cr>")
+
+map("n", ",,", ":NERDTreeToggle<cr>")
+map("n", "mm", ":Files<cr>")
 map("n", "zz", "<ESC>:update<cr>")
 map("n", "<C-s>","<C-^>")
 map("n", "ff", ":Prettier<cr> | :update | !cargo fmt<cr>")
+map("n", "<leader>fc", ":Rg<cr>")
+map("n", "<C-j>", "<C-W>j")
+map("n", "<C-k>", "<C-W>k")
+map("n", "<C-h>", "<C-W>h")
+map("n", "<C-l>", "<C-W>l")
 
-map("i", "nn", "<ESC>:NERDTreeToggle<cr>")
 map("i", "zz", "<ESC>:update<cr>")
 map("i", "jj", "<ESC>")
+
+
+
