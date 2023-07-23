@@ -1,24 +1,32 @@
-// Program to filter lines of a file that include a word and paint the match. Like basic grep command.
-// TODO add cli input
+/**
+  Program to search a word in a file, like basic grep.
+  For example, `node basic-grep.js history.txt docker`,
+  will search the word `docker` inside the history.txt file. 
+**/
 
 import { readFile } from "node:fs/promises";
 import chalk from "chalk";
 
 const main = async () => {
   let text;
+  const [file, word] = getArgs();
+  if (!file || !word) {
+    throw new Error("need to supply file and search word");
+    process.exit(1);
+  }
   try {
-    text = await readFile("history.txt", "utf-8");
+    text = await readFile(file, "utf-8");
   } catch (error) {
     if (error.code === "ENOENT") {
       console.log("Not such file in path");
-      return
+      process.exit(1);
     } else {
       throw error;
     }
   }
   const history = text.split("\n");
 
-  searchWord(history, "node");
+  searchWord(history, word);
 };
 
 const searchWord = (arr, word) => {
@@ -45,16 +53,22 @@ const paintWord = (text, searchWord) => {
   console.log(word);
 };
 
-const getWordIndexes = (indices, len) => {
+const getWordIndexes = (indexes, len) => {
   const result = [];
 
-  indices.forEach((index) => {
+  indexes.forEach((index) => {
     for (let i = 0; i < len; i++) {
       result.push(index + i);
     }
   });
 
   return result;
+};
+
+const getArgs = () => {
+  const args = process.argv.splice(2);
+
+  return args;
 };
 
 main();
