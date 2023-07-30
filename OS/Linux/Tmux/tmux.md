@@ -46,5 +46,27 @@ Big clock: ``Ctrl b`` + ``t``
 
 Shortcuts: ``Ctrl b`` + ``?``
 
+You can also create a `.tmux.config` file to create custom keybinds
+
+```
+set -g mouse on
+
+new
+neww
+splitw -h
+splitw -v
+
+bind h split-window -v
+bind v split-window -h
+
+unbind r
+bind r source-file ~/.tmux.conf 
+
+bind i resize-pane -L 5
+bind b resize-pane -D 5
+bind s resize-pane -U 5
+bind d resize-pane -R 5
+```
+
 
 
