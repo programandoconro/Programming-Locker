@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href=
+"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.css">
+</link>
+
+    <title>Password Generator</title>
+  </head>
+  <body>
+    <div class="card">
+      <h2>Password Generator</h2>
+      <div id="clipboard">
+        <i class="fa-solid fa-clipboard"></i>
+      </div>
+      <div id="password"></div>
+      <div class="option-container">
+        <p>Password length</p>
+        <input  id="length" value="20" type="number">
+        <p>Include uppercase letters</p>
+        <input checked id="uppercase" type="checkbox">
+        <p>Include lowercase letters</p>
+        <input checked id="lowercase" type="checkbox">
+        <p>Include numbers</p>
+        <input checked id="numbers" type="checkbox">
+        <p>Include symbols</p>
+        <input checked id="symbols" type="checkbox">
+      </div>
+      <button id="generate" type="button">Generate Password</button>
+   </div>
+  </body>
+  <script src="script.js"></script>
+</html>

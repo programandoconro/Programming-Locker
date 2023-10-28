@@ -1,0 +1,79 @@
+@import url("https://fonts.googleapis.com/css?family=Muli&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #3b3b98;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: "Muli", sans-serif;
+}
+
+.card {
+  background-color: #23235b;
+  padding: 10px;
+  color: #fff;
+  position: relative;
+  box-shadow: 0px 2px 10px rgba(255, 255, 255, 0.2);
+}
+
+.card h2 {
+  text-align: center;
+}
+
+.option-container {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+}
+.option-container p {
+  padding: 0;
+  margin: 10px;
+}
+
+.option-container input {
+  justify-self: right;
+  max-width: 40px;
+  border: none;
+}
+#password {
+  background-color: black;
+  width: 100%;
+  border: none;
+  height: 38px;
+  margin-bottom: 10px;
+  color: white;
+}
+#clipboard {
+  position: absolute;
+  background-color: darkblue;
+  right: 15px;
+  font-size: 20px;
+  width: 30px;
+  display: flex;
+  justify-content: center;
+  height: 26px;
+  transform: translateY(5px);
+  align-items: center;
+  cursor: pointer;
+}
+
+#generate {
+  border: none;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  background-color: darkblue;
+  color: white;
+  height: 40px;
+  width: 90%;
+  margin: 10px;
+  font-family: "Muli", sans-serif;
+  cursor: pointer;
+}
