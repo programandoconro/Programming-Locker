@@ -1,0 +1,57 @@
+:root {
+  --bg-color: #fff;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #2c3e50;
+}
+
+.triangule-1,
+.triangule-2 {
+  height: 0px;
+  width: 0px;
+  border: 50px solid;
+  border-color: transparent transparent var(--bg-color) transparent;
+  position: absolute;
+}
+
+.triangule-1 {
+  animation: spin-1 2s linear infinite;
+  transform: rotate(180deg);
+}
+
+.triangule-2 {
+  animation: spin-2 2s linear infinite 0.5s;
+}
+
+@keyframes spin-2 {
+  0%,
+  25% {
+    transform: rotate(0deg);
+  }
+  50%,
+  75% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spin-1 {
+  0%,
+  25% {
+    transform: rotate(90deg);
+  }
+  50%,
+  75% {
+    transform: rotate(270deg);
+  }
+  100% {
+    transform: rotate(450deg);
+  }
+}

@@ -1,0 +1,51 @@
+.container {
+  display: flex;
+}
+body {
+  margin: 0;
+}
+
+.left,
+.right {
+  width: 50%;
+  position: relative;
+  transition: width 0.3s ease;
+}
+.left {
+  background-color: black;
+}
+
+.right {
+  background-color: purple;
+}
+a {
+  font-size: 24px;
+  opacity: 1;
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  left: 50%;
+  color: #fff;
+  border: solid #fff;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.ps,
+.xbox {
+  background-size: cover;
+  height: 100vh;
+  opacity: 0.4;
+}
+
+.ps {
+  background-image: url("https://50projects50days.com/projects/split-landing-page/ps.jpg");
+}
+
+.xbox {
+  background-image: url("https://50projects50days.com/projects/split-landing-page/xbox.jpg");
+}
+
+.mouse-in {
+  width: 75%;
+}

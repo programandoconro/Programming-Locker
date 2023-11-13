@@ -1,0 +1,37 @@
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: purple;
+  height: 100vh;
+}
+.container {
+  height: 30px;
+  display: flex;
+  background-color: whitesmoke;
+}
+
+.search {
+  height: 100%;
+  padding: 0;
+  border: none;
+  all: unset;
+  padding-left: 10px;
+  transition: width 0.4s ease;
+  width: 0px;
+}
+.search.invisible {
+  width: 0px;
+}
+.search.visible {
+  width: 200px;
+}
+
+i {
+  background-color: whitesmoke;
+  cursor: pointer;
+}
+i.invisible {
+  background-color: whitesmoke;
+  cursor: pointer;
+}

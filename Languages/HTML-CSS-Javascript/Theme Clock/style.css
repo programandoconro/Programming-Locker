@@ -1,0 +1,99 @@
+.container {
+  width: 200px;
+  height: 200px;
+  background-color: lightgray;
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  transform: translateY(-50%) translateX(-50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
+
+.center {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: red;
+  position: absolute;
+  z-index: -1;
+}
+
+.needle {
+  height: 60px;
+  width: 3px;
+  background-color: black;
+  transform: translate(-50%, -100%) rotate(0deg);
+  position: absolute;
+  transform-origin: bottom center;
+  top: 50%;
+  left: 50%;
+  border-radius: 5px;
+}
+
+.needle.minute {
+  height: 75px;
+  width: 2px;
+  transform: translate(-50%, -100%) rotate(0deg);
+}
+.needle.second {
+  height: 90px;
+  width: 1px;
+  transform: translate(-50%, -100%) rotate(0deg);
+}
+
+.time {
+  position: absolute;
+}
+
+.time.twelve {
+  top: 0px;
+}
+.time.one {
+  top: 12px;
+  transform: translateX(45px) rotate(25deg);
+}
+
+.time.two {
+  top: 45px;
+  transform: translateX(75px) rotate(45deg);
+}
+.time.eleven {
+  top: 12px;
+  transform: translateX(-45px) rotate(-35deg);
+}
+
+.time.ten {
+  top: 45px;
+  transform: translateX(-75px) rotate(-55deg);
+}
+.time.three {
+  transform: translateX(90px) rotate(0deg);
+}
+.time.nine {
+  transform: translateX(-90px) rotate(0deg);
+}
+
+.time.six {
+  bottom: 0px;
+}
+
+.time.four {
+  bottom: 45px;
+  transform: translateX(75px) rotate(-35deg);
+}
+.time.five {
+  bottom: 12px;
+  transform: translateX(45px) rotate(-35deg);
+}
+
+.time.seven {
+  bottom: 45px;
+  transform: translateX(-75px) rotate(45deg);
+}
+.time.eight {
+  bottom: 12px;
+  transform: translateX(-45px) rotate(35deg);
+}

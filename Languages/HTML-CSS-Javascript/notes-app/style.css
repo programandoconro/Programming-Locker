@@ -1,0 +1,51 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  height: 100vh;
+  background-color: aqua;
+  padding-top: 100px;
+  flex-wrap: wrap;
+}
+
+.add-note {
+  background-color: green;
+  position: absolute;
+  right: 40px;
+  top: 40px;
+  color: white;
+  border: none;
+  width: 100px;
+  height: 40px;
+  cursor: pointer;
+}
+
+.header {
+  background-color: green;
+  position: relative;
+  height: 30px;
+  display: flex;
+  align-items: center;
+}
+
+.edit,
+.delete {
+  position: absolute;
+  background-color: transparent;
+  color: white;
+  border: none;
+}
+
+.edit {
+  right: 20px;
+}
+.delete {
+  right: 0px;
+}
+
+.textarea {
+  height: 400px;
+  width: 300px;
+}
