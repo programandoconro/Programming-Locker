@@ -1,0 +1,55 @@
+:root {
+  --purple: rgb(246, 155, 246);
+}
+body {
+  background-color: var(--purple);
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.screen {
+  overflow: hidden;
+  width: 300px;
+  border: 5px solid white;
+  border-radius: 20px;
+  height: 600px;
+  position: relative;
+}
+
+.image {
+  height: 550px;
+  width: 100%;
+  object-fit: cover;
+  position: absolute;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.image.active {
+  opacity: 1;
+}
+
+.tabs {
+  position: absolute;
+  bottom: 0;
+  height: 50px;
+  background-color: white;
+  width: 100%;
+  justify-content: space-around;
+  display: flex;
+  align-items: center;
+}
+
+.fa {
+  font-size: 24px !important;
+  color: gray;
+  transition: color 0.3s ease-in-out;
+}
+
+.fa:hover,
+.fa.active {
+  color: var(--purple);
+}
