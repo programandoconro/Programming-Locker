@@ -1,5 +1,4 @@
 -- This file can be loaded by calling `lua require('plugins')` from your init.vim
-print('init plugins')
 
 local builtin = require('telescope.builtin')
 vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
@@ -19,19 +18,21 @@ function search_word_all()
 end
 vim.keymap.set('n', '<leader>fa', search_word_all, {})
 
+vim.keymap.set("n", "<leader>rn", function()
+  return ":IncRename " .. vim.fn.expand("<cword>")
+end, { expr = true })
+
 
 return require('packer').startup(function(use)
   -- packers
   use 'wbthomason/packer.nvim'
-  use {
-    "williamboman/mason.nvim",
-    run = ":MasonUpdate" -- :MasonUpdate updates registry contents
-}
+
+  -- autocomple, go to reference/declaration
   use {'neoclide/coc.nvim', branch = 'release'}
 
   -- navigation
   use {
-  'nvim-telescope/telescope.nvim', tag = '0.1.1',
+  'nvim-telescope/telescope.nvim',
    requires = { {'nvim-lua/plenary.nvim'} }
   }
   use { 'junegunn/fzf', run = ":call fzf#install()" }
@@ -39,20 +40,26 @@ return require('packer').startup(function(use)
   use "smartpde/telescope-recent-files"
   use "preservim/nerdtree"
 
-
-  -- ts
-  use "leafgarland/typescript-vim"
-  use "tpope/vim-surround"
+  -- git
   use "tpope/vim-fugitive"
-  use {
-    "prettier/vim-prettier",
-    run='npx yarn install --frozen-lockfile --production'
-  }
-  use "neovim/nvim-lspconfig"
-  use "marilari88/twoslash-queries.nvim"
-  use "jiangmiao/auto-pairs"
 
-  -- other languages
-  use "wuelnerdotexe/vim-astro"
+  -- Rename var globally
+  use {
+  "smjonas/inc-rename.nvim",
+  config = function()
+    require("inc_rename").setup()
+  end,
+}
+
+
+  --Style
+  use 'Mofiqul/dracula.nvim'
+
+  --Terminal
+  use {"akinsho/toggleterm.nvim", tag = '*', config = function()
+  require("toggleterm").setup()
+end}
+
+
 
 end)
