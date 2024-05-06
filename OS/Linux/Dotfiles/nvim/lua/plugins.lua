@@ -1,28 +1,5 @@
 -- This file can be loaded by calling `lua require('plugins')` from your init.vim
 
-local builtin = require('telescope.builtin')
-vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
-
-vim.api.nvim_set_keymap("n", "<Leader><Leader>",
-  [[<cmd>lua require('telescope').extensions.recent_files.pick()<CR>]],
-  {noremap = true, silent = true})
-
-function search_word_all()
-    local input_string = vim.fn.input("Search For > ")
-        if (input_string == '') then
-          return
-        end
-        builtin.grep_string({
-          search = input_string,
-    })
-end
-vim.keymap.set('n', '<leader>fa', search_word_all, {})
-
-vim.keymap.set("n", "<leader>rn", function()
-  return ":IncRename " .. vim.fn.expand("<cword>")
-end, { expr = true })
-
-
 return require('packer').startup(function(use)
   -- packers
   use 'wbthomason/packer.nvim'
@@ -38,7 +15,14 @@ return require('packer').startup(function(use)
   use { 'junegunn/fzf', run = ":call fzf#install()" }
   use { 'junegunn/fzf.vim' }
   use "smartpde/telescope-recent-files"
-  use "preservim/nerdtree"
+
+  -- file explorer
+  use {
+  'nvim-tree/nvim-tree.lua',
+  requires = {
+    'nvim-tree/nvim-web-devicons', -- optional
+  },
+}
 
   -- git
   use "tpope/vim-fugitive"
@@ -52,14 +36,31 @@ return require('packer').startup(function(use)
 }
 
 
+  -- astro
+  use 'wuelnerdotexe/vim-astro'
+
   --Style
   use 'Mofiqul/dracula.nvim'
+
+  --Markdown
+  use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install", setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, })
 
   --Terminal
   use {"akinsho/toggleterm.nvim", tag = '*', config = function()
   require("toggleterm").setup()
 end}
 
-
+--- Update imports when renaming a file
+use {
+  "antosha417/nvim-lsp-file-operations",
+  requires = {
+    "nvim-lua/plenary.nvim",
+    "nvim-tree/nvim-tree.lua",
+  },
+  config = function()
+    require("lsp-file-operations").setup()
+  end,
+}
+  
 
 end)
