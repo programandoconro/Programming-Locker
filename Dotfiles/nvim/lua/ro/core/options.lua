@@ -37,3 +37,25 @@ opt.splitbelow = true -- split horizontal window to the bottom
 
 -- turn off swapfile
 opt.swapfile = false
+
+-- wrap lines
+opt.textwidth = 0
+opt.wrapmargin = 0
+opt.wrap = true
+opt.linebreak = true
+
+--spellcheck
+opt.spelllang = "en,es,cjk"
+opt.spell = true
+
+-- mdx support
+vim.filetype.add({
+  extension = {
+    mdx = "mdx",
+  },
+})
+
+-- remember last position
+vim.cmd([[if has("autocmd")
+  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+endif]])

@@ -6,6 +6,9 @@ keymap.set("i", "jk", "<ESC>", { desc = "Exit insert mode with jk" })
 
 keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "Clear search highlights" })
 
+-- Set the first option as default in autocomplete menu
+keymap.set("i", "<CR>", 'pumvisible() ? "\\<C-y><CR>" : "\\<CR>"', { expr = true })
+
 -- increment/decrement numbers
 keymap.set("n", "<leader>+", "<C-a>", { desc = "Increment number" }) -- increment
 keymap.set("n", "<leader>-", "<C-x>", { desc = "Decrement number" }) -- decrement
@@ -14,7 +17,7 @@ keymap.set("n", "<C-s>", "<C-^>") -- toggle last file
 keymap.set("n", "zz", "<Esc>:update<cr>")
 keymap.set("i", "zz", "<Esc>:update<cr>")
 keymap.set("n", ";", "<S-$>") -- Go to end of line
-keymap.set("n", ",,", "<cmd>NvimTreeToggle<cr>")
+keymap.set("n", ",,", "<cmd>NvimTreeFindFileToggle<cr>")
 
 -- window management
 keymap.set("n", "<leader>sv", "<C-w>v", { desc = "Split window vertically" }) -- split window vertically

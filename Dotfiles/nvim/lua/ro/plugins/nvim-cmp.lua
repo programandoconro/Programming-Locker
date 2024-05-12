@@ -27,7 +27,7 @@ return {
 
     cmp.setup({
       completion = {
-        completeopt = "menu,menuone,preview,noselect",
+        completeopt = "menu,menuone,preview,select",
       },
       snippet = { -- configure how nvim-cmp interacts with snippet engine
         expand = function(args)
@@ -45,7 +45,7 @@ return {
       }),
       -- sources for autocompletion
       sources = cmp.config.sources({
-        { name = "nvim_lsp"},
+        { name = "nvim_lsp" },
         { name = "luasnip" }, -- snippets
         { name = "buffer" }, -- text within current buffer
         { name = "path" }, -- file system paths
