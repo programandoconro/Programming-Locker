@@ -59,3 +59,14 @@ vim.filetype.add({
 vim.cmd([[if has("autocmd")
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif]])
+
+-- autoupdate file when changed on disk
+vim.o.autoread = true
+vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold", "CursorHoldI", "FocusGained" }, {
+  command = "if mode() != 'c' | checktime | endif",
+  pattern = { "*" },
+})
+vim.api.nvim_create_autocmd(
+  { "FileChangedShellPost" },
+  { command = 'echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None', pattern = { "*" } }
+)
