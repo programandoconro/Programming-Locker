@@ -13,7 +13,8 @@ keymap.set("i", "<CR>", 'pumvisible() ? "\\<C-y><CR>" : "\\<CR>"', { expr = true
 keymap.set("n", "<leader>+", "<C-a>", { desc = "Increment number" }) -- increment
 keymap.set("n", "<leader>-", "<C-x>", { desc = "Decrement number" }) -- decrement
 --personal ones
-keymap.set("n", "<C-s>", "<C-^>") -- toggle last file
+keymap.set("n", "<C-s>", "<C-^>jzz") -- toggle last file
+keymap.set("i", "<C-s>", "<ESC><C-^>jzz") -- toggle last file
 keymap.set("n", "zz", "<Esc>:update<cr>")
 --keymap.set("i", "zz", "<Esc>:update<cr>")
 keymap.set("n", ";", "<S-$>") -- Go to end of line
@@ -32,3 +33,5 @@ keymap.set("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer
 
 -- ZenMode
 keymap.set("n", "<leader>zm", "<cmd>ZenMode<CR>", { desc = "Toggle ZenMode" })
+keymap.set("n", "j", "jzz", { desc = "Center" })
+--keymap.set("n", "n", "kzz", { desc = "Center" })
