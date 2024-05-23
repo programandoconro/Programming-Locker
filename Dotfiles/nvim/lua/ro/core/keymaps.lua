@@ -35,3 +35,8 @@ keymap.set("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer
 keymap.set("n", "<leader>zm", "<cmd>ZenMode<CR>", { desc = "Toggle ZenMode" })
 keymap.set("n", "j", "jzz", { desc = "Center" })
 --keymap.set("n", "n", "kzz", { desc = "Center" })
+--
+
+keymap.set("n", "<leader>q", "<cmd>NvimTreeClose<cr>:qa!<cr>", { desc = "Quit all" })
+keymap.set("n", "<leader>w", "<cmd>NvimTreeClose<cr>:wqa<cr>", { desc = "Save and quit all" })
+keymap.set("n", "<leader>u", "<cmd>source %<cr>", { desc = "Source file" })

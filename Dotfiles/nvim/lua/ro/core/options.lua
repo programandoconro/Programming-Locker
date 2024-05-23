@@ -48,6 +48,12 @@ opt.linebreak = true
 opt.spelllang = "en,es,cjk"
 opt.spell = true
 
+-- remember undo
+--opt.undodir = "~./vim/undodir"
+--opt.undofile = true
+--opt.swapfile = false
+--opt.backup = false
+
 -- mdx support
 vim.filetype.add({
   extension = {
