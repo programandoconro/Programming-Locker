@@ -29,6 +29,7 @@ return {
 
     telescope.setup({
       defaults = {
+        path_display = { "truncate" },
         layout_strategy = "vertical",
         mappings = {
           i = {
@@ -36,6 +37,12 @@ return {
             ["<C-j>"] = actions.move_selection_next, -- move to next result
             ["<C-q>"] = actions.send_selected_to_qflist + custom_actions.open_trouble_qflist,
           },
+        },
+      },
+
+      pickers = {
+        lsp_references = {
+          show_line = false,
         },
       },
     })
@@ -52,6 +59,5 @@ return {
     keymap.set("n", "<leader>ft", "<cmd>TodoTelescope<cr>", { desc = "Find todos" })
     keymap.set("n", "<leader>fs", require("telescope").extensions.live_grep_args.live_grep_args, { noremap = true })
     keymap.set("n", "<leader>fw", "<cmd>Telescope live_grep<cr>", { desc = "Find string in cwd" })
-    keymap.set("n", "<leader>fg", "<cmd>Telescope git_status<cr>", { desc = "Fuzzy find git changed files" })
   end,
 }
