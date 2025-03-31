@@ -1,10 +1,18 @@
+# If you come from bash you might have to change your $PATH.
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
+
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 export PATH="$PATH:/usr/bin/ctags"
 export PATH="$PATH:~/.vim/plugged/fzf/bin"
-export CPLUS_INCLUDE_PATH=/opt/homebrew/include
+export CPLUS_INCLUDE_PATH=/opt/homebrew/include 
 export PKG_CONFIG_PATH="/opt/homebrew/opt/jpeg/lib/pkgconfig"
+export PATH="$HOME/bin:$PATH"
+export EDITOR='nvim'
 
+ export NVM_DIR="$HOME/.nvm"
+  [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+  [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -20,6 +28,55 @@ ZSH_THEME="robbyrussell"
 # a theme from this variable instead of looking in $ZSH/themes/
 # If set to an empty array, this variable will have no effect.
 # ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
+
+# Uncomment the following line to use case-sensitive completion.
+# CASE_SENSITIVE="true"
+
+# Uncomment the following line to use hyphen-insensitive completion.
+# Case-sensitive completion must be off. _ and - will be interchangeable.
+# HYPHEN_INSENSITIVE="true"
+
+# Uncomment one of the following lines to change the auto-update behavior
+# zstyle ':omz:update' mode disabled  # disable automatic updates
+# zstyle ':omz:update' mode auto      # update automatically without asking
+# zstyle ':omz:update' mode reminder  # just remind me to update when it's time
+
+# Uncomment the following line to change how often to auto-update (in days).
+# zstyle ':omz:update' frequency 13
+
+# Uncomment the following line if pasting URLs and other text is messed up.
+# DISABLE_MAGIC_FUNCTIONS="true"
+
+# Uncomment the following line to disable colors in ls.
+# DISABLE_LS_COLORS="true"
+
+# Uncomment the following line to disable auto-setting terminal title.
+# DISABLE_AUTO_TITLE="true"
+
+# Uncomment the following line to enable command auto-correction.
+# ENABLE_CORRECTION="true"
+
+# Uncomment the following line to display red dots whilst waiting for completion.
+# You can also set it to another string to have that shown instead of the default red dots.
+# e.g. COMPLETION_WAITING_DOTS="%F{yellow}waiting...%f"
+# Caution: this setting can cause issues with multiline prompts in zsh < 5.7.1 (see #5765)
+# COMPLETION_WAITING_DOTS="true"
+
+# Uncomment the following line if you want to disable marking untracked files
+# under VCS as dirty. This makes repository status check for large repositories
+# much, much faster.
+# DISABLE_UNTRACKED_FILES_DIRTY="true"
+
+# Uncomment the following line if you want to change the command execution time
+# stamp shown in the history command output.
+# You can set one of the optional three formats:
+# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# or set a custom format using the strftime function format specifications,
+# see 'man strftime' for details.
+# HIST_STAMPS="mm/dd/yyyy"
+
+# Would you like to use another custom folder than $ZSH/custom?
+# ZSH_CUSTOM=/path/to/new-custom-folder
 
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
@@ -60,19 +117,33 @@ source $ZSH/oh-my-zsh.sh
 
 # export NVM_DIR=~/.nvm
 #source $(brew --prefix nvm)/nvm.sh
+# zoxide
+eval "$(zoxide init zsh)"
+
 
 # alias
-alias dui='cd /Users/ts-rodrigo.diaz/Documents/PROJECTS/dynamic-ui'
+alias dui='cd /Users/ts-rodrigo.diaz/Documents/dynamic-ui'
 alias develop='git checkout develop'
 alias run-shop-top='DEFAULT_FEATURES=ichiba npm run app:watch-dev -- --env.pages=shop-top'
 alias run-item='DEFAULT_FEATURES=ichiba npm run app:watch-dev -- --env.pages=item'
+alias run-item-pc='DEFAULT_FEATURES=ichiba API_URL=http://rmsj-rpage-dapi-9508.rwasp-stg.hnd2.bdd.local npm run app:watch-dev -- --env.pages=item-pc'
+alias run-checkout0='DEFAULT_FEATURES=ichiba ENABLE_QA_ROLE=1 API_URL=http://rmsj-rpage-dapi-9508.rwasp-stg.hnd2.bdd.local npm run app:watch-dev -- --env.pages=checkout-step0'
+alias run-checkout2-5='DEFAULT_FEATURES=ichiba ENABLE_QA_ROLE=1 API_URL=http://rmsj-rpage-dapi-9508.rwasp-stg.hnd2.bdd.local npm run app:watch-dev -- --env.pages=checkout-step2-5'
 alias test-unit-all='npm run test:unit -- --all'
 alias build-shop-top='DEFAULT_FEATURES=ichiba npm run app:build -- --env.pages=shop-top'
 alias amend='git commit --amend'
+alias yabai-start='yabai --start-service'
 alias yabai-restart='brew services restart yabai'
 alias yabai-stop='brew services stop yabai'
-alias unsafe-chrome='open -n -a /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --args --user-data-dir="/Users/ts-rodrigo.diaz/InsecChrome" --disable-web-security --ignore-certificate -errors'
+alias unsafe-chrome='open -n -a /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --args --user-data-dir="/Users/ts-rodrigo.diaz/InsecChrome" --disable-web-security --ignore-certificate-errors'
 alias python3='python3.10'
+alias watch9502='DEFAULT_FEATURES=ichiba API_URL=http://rmsj-rpage-dapi-9502.rwasp-stg.hnd2.bdd.local npm run app:watch-dev -- --env.pages=item'
+alias search='bash ~/.scripts/search'
+alias cd='z'
+alias unit-test='npm run test:unit --coverage'
+alias e2e-run='TEST_DEVICE=DESKTOP_FULL,IPHONE_VERTICAL TEST_PROXY=http://stg.checkproxy.rakuten-it.com:9502 npm run start:dev'
+alias gitto-create-branch='~/bin/gitto --command create'
+alias reverse-proxy='mitmdump --ssl-insecure -p 9400 -s ~/reverse-proxy.py'
 
 pushini () {
     branchName=`git branch --contains | grep '*' | awk '{print $2}'`
@@ -97,11 +168,17 @@ function commit () {
 }
 
 function peco-history-selection() {
-    BUFFER=`history 1 | tac | sed s/\^\ \*\[0-9\]\*//g | sed s/\^\*//g | sed s/\^\ \*//g | peco `
+    BUFFER=`history | sk | awk '{$1=""}1'`
     CURSOR=$#BUFFER zle reset-prompt
 }
 zle -N peco-history-selection
-bindkey '^R' peco-history-selection
+bindkey '^H' peco-history-selection
+
+function latest-branches() {
+  `git branch --sort=-committerdate | head -n 100| awk '{print "git checkout " $0}' | sed 's/remotes\/origin\///' |  peco`
+
+}
+
 
 function peco-git-checkout() {
     BUFFER=`git branch -a | cat | sed s/\^\ \*\[0-9\]\*//g | sed s/\^\*//g | sed s/\^\ \*//g | awk '{print "git checkout " $0}' | sed 's/remotes\/origin\///' |  peco`
@@ -130,11 +207,11 @@ function browser-rakuten() {
 
 function test-unit() {
     npm run test:unit -- --"$1"
-
+    
 }
 function watch() {
     npm run test:unit "--" "$1" --watch
-
+    
 }
 
 function create-branch() {
@@ -167,16 +244,17 @@ function create-branch() {
   # check if valid branch name
   git check-ref-format --branch "$branch"
   if [ $? -ne 0 ]; then
-    # Git only handles branch names smaller than 255 chars
-    branch="${branch:0:253}"
+    # Git only handles branch names smaller than 128 chars
     echo "$branch"
     # Clean the name if invalid characters found
-    branch="$(echo "$branch" |  sed 's/^-.//; s/[^[:alnum:]_\-]/-/g; s/-\{2,\}/-/g; s/[^[:alnum:]]*$//')"
+    branch="$(echo "$branch" | sed 's/[^[:alnum:][:space:]]//g; s/ /-/g; s/-\{2,\}/-/g; s/^-//; s/-$//')"
     echo
     echo "After cleaning, new name is $branch"
   [[ "$(echo -n 'Continue? [y/N]> ' >&2; read; echo $REPLY)" == [Yy]* ]] \
   && echo ok || return 1;
 
+  # use only 100 chars
+  branch="${branch:0:100}"
 
   # check again, just in case
   git check-ref-format --branch "$branch"
@@ -187,11 +265,52 @@ function create-branch() {
   fi
 
   # Finish
-  git checkout -b "$branch"
+  git checkout -b "$branch"  
 }
+
+
+function repeat-e2e-test() {
+   echo STARTED;
+   for i in {1..$1};
+     do
+       for j in {1..3}; do
+       echo '##########################################' REPETITION $i '################################################'; done;
+       DEVICE=$2 npm run test:e2e -- --spec $3;
+   done
+   echo FINISHED;
+ }
 
 
 # find wifi password
 # security find-generic-password -ga "ROUTERNAME" | grep "password:"
 
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+
+# bun completions
+[ -s "/Users/ts-rodrigo.diaz/.bun/_bun" ] && source "/Users/ts-rodrigo.diaz/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+export LANG="en_US.UTF-8"
+export LC_ALL="en_US.UTF-8"
+
+# lfs migrate VR images
+migrateVRimages() {
+    local folder_path="$1"
+
+    # Check if folder_path is provided
+    if [ -z "$folder_path" ]; then
+        echo "Error: folder_path is not provided."
+        return 1
+    fi
+
+    # Loop through each file in the folder
+    find "$folder_path" -type f -print0 | while IFS= read -r -d $'\0' file; do
+        git lfs migrate import --no-rewrite "$file"
+    done
+}
+
+export PATH="/Users/ts-rodrigo.diaz/.deno/bin:$PATH"⬜
