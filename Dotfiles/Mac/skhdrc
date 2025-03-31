@@ -32,7 +32,7 @@ alt + ctrl - up    : yabai -m window --insert north
 alt + ctrl - right : yabai -m window --insert east
 
 # go back to previous workspace (kind of like back_and_forth in i3)
-alt - b : yabai -m space --focus recent
+#alt - b : yabai -m space --focus recent
 
 # move focused window to previous workspace
 alt + shift - b : yabai -m window --space recent; \
@@ -70,13 +70,15 @@ alt + shift - x : yabai -m space --mirror x-axis
 alt + shift - 0 : yabai -m space --balance
 
 # change layout of desktop
-#alt - e : yabai -m space --layout bsp
+alt - e : yabai -m space --layout bsp
 alt - l : yabai -m space --layout float
 alt - s : yabai -m space --layout stack
 
 # cycle through stack windows
-# alt - p : yabai -m window --focus stack.next || yabai -m window --focus south
-# alt - n : yabai -m window --focus stack.prev || yabai -m window --focus north
+#alt - p : yabai -m window --focus stack.next || yabai -m window --focus south
+#alt - n : yabai -m window --focus stack.prev || yabai -m window --focus north
+#
+#alt - tab : yabai -m window --focus stack.next || yabai -m window --focus south
 
 
 # enter fullscreen mode for the focused container
@@ -87,24 +89,26 @@ alt - f : yabai -m window --toggle zoom-fullscreen
 
 # open terminal
 alt - return : osascript /Users/ts-rodrigo.diaz/Library/Scripts/new-iterm-window.scpt
-#alt  - return : open -n /opt/homebrew/bin/alacritty
+#alt  - return : open -n /opt/homebrew/bin/alacritty 
 
 # open default terminal
-alt + shift - t : open -n /System/Applications/Utilities/Terminal.app
+alt + shift - t : open -n /System/Applications/Utilities/Terminal.app 
 
 # open browser
 alt - i : open -n  /Applications/Brave\ \Browser.app
-#
 # go to browser
-alt + shift - i : open /Applications/Google\ \Chrome.app
+alt - b : open  /Applications/Brave\ \Browser.app
 #
-# go to browser
+# open dev browser
+alt + shift - i : open -n -a /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --args --user-data-dir="/Users/ts-rodrigo.diaz/InsecChrome" --disable-web-security --ignore-certificate-errors
+#
+# open mozilla
 alt + shift - f : open /Applications/Firefox.app
 
 # open vscode
 alt - c : open  /Applications/Visual\ \Studio\ \Code.app
 
-# open finder
+# open finder 
 alt + shift - f : open  /System/Library/CoreServices/Finder.app
 
 
@@ -116,6 +120,9 @@ alt - m : open  /Applications/Microsoft\ \Teams.app
 
 # open outlook
 alt - o : open  /Applications/Microsoft\ \Outlook.app
+#
+# open obsidyan
+alt + shift - o : open  /Applications/Obsidian.app
 
 # open viber
 alt - v : open  /Applications/Viber.app
