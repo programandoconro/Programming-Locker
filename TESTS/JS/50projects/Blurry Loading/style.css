@@ -1,0 +1,32 @@
+body {
+  background-color: gray;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow-x: hidden;
+}
+
+.card-container {
+  background-color: steelblue;
+  height: 200px;
+  width: 400px;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+  border-radius: 10px;
+  box-shadow: 2px 4px 5px black;
+  align-self: center;
+  position: relative;
+  height: 200px;
+  width: 400px;
+  margin: 10px;
+  transform: translateX(-400%);
+  transition: transform 0.3s ease;
+}
+
+.card-container:nth-of-type(even) {
+  transform: translateX(400%);
+}

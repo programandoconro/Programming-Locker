@@ -1,0 +1,63 @@
+<div>
+  <h1>XSS example</h1>
+  <h2>Please add your comment:</h2>
+  <input id="input-comment" />
+  <button id="save-button">Save Comment</button>
+  <ol id="comments"></ol>
+  <button id="delete">Delete Storage</button>
+</div>
+
+<script nonce="123">
+  const inputEle = document.getElementById("input-comment");
+  const buttonEle = document.getElementById("save-button");
+  const deleteButtonEle = document.getElementById("delete");
+  let comments = getFromLocalStorage("comments") || [];
+  let currentComment = "";
+
+  inputEle.addEventListener("input", (event) => {
+    currentComment = event.target.value;
+  });
+
+  buttonEle.addEventListener("click", () => {
+    if (currentComment) {
+      comments.push(currentComment);
+      saveToLocalStorage("comments", comments);
+      showComments();
+    }
+  });
+
+  deleteButtonEle.addEventListener("click", deleteStorage);
+
+  function showComments() {
+    const commentsEle = document.getElementById("comments");
+    commentsEle.innerHTML = "";
+
+    comments.forEach((comment) => {
+      const listEle = document.createElement("li");
+      // We should use textContent instead to avoid XSS, but sh*t happens
+      listEle.innerHTML = comment;
+      commentsEle.appendChild(listEle);
+    });
+
+    currentComment = "";
+    inputEle.value = "";
+  }
+
+  function saveToLocalStorage(key, value) {
+    localStorage.setItem(key, JSON.stringify(value));
+  }
+
+  function getFromLocalStorage(key) {
+    const storage = localStorage.getItem(key);
+    return storage ? JSON.parse(storage) : [];
+  }
+
+  function deleteStorage() {
+    localStorage.removeItem("comments");
+    comments = [];
+    showComments();
+  }
+
+  // Initial display of comments
+  showComments();
+</script>

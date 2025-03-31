@@ -1,0 +1,28 @@
+mod commands;
+
+use clap::{Parser, ValueEnum};
+use commands::utils::check_path_is_repository;
+
+#[derive(ValueEnum, Clone, Debug)]
+enum Command {
+    Switch,
+    Create,
+}
+
+#[derive(Parser, Debug)]
+struct Args {
+    #[arg(short, long)]
+    command: Command,
+}
+
+fn main() {
+    check_path_is_repository();
+
+      let args = Args::parse();
+    match args.command {
+        Command::Create => commands::branch::create(),
+        Command::Switch => commands::branch::switch(),
+    }
+
+    println!("Finished");
+}

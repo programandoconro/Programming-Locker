@@ -1,0 +1,79 @@
+@import url("https://fonts.googleapis.com/css?family=Muli&display=swap");
+
+body {
+  font-family: "Muli" sans-serif;
+  background-color: #f0f0f0;
+}
+
+.faq-container {
+}
+
+.faq {
+  border: solid gray 1px;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+  position: relative;
+  overflow: hidden;
+  transition: 1s ease;
+}
+
+.faq.active::before,
+.faq.active::after {
+  content: "\f075";
+  font-family: "Font Awesome 5 Free";
+  color: #2ecc71;
+  font-size: 7rem;
+  position: absolute;
+  opacity: 0.2;
+  top: 20px;
+  left: 20px;
+  z-index: 0;
+}
+.faq.active::before {
+  color: #3498db;
+  top: -10px;
+  left: -30px;
+  transform: rotateY(180deg);
+}
+
+.faq button {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  border: 0;
+  background-color: transparent;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.faq .fa-xmark {
+  display: none;
+}
+.faq.active .fa-xmark {
+  display: block;
+}
+
+.faq.active .fa-chevron-down {
+  display: none;
+}
+
+.faq.active p {
+  display: block;
+}
+
+.faq p {
+  display: none;
+}
+
+.faq.active {
+  background-color: #fff;
+}
+
+.faq-container h2 {
+  text-align: center;
+}
+.faq-container h5 {
+  font-size: 16px;
+}

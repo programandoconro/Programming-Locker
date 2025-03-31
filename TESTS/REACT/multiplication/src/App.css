@@ -1,0 +1,24 @@
+#root {
+  margin: 0 auto;
+  text-align: center;
+  max-width: 1280px;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  grid-template-rows: repeat(1fr, 9);
+}
+
+.cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border: 1px solid;
+}
+
+.cell:hover ~ [class*="col-1"] {
+  background-color: orange;
+}

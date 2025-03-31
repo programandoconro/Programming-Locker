@@ -1,0 +1,9 @@
+[package]
+name = "history-search"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+skim = "*"
+ctrlc = "3.2.5"
+

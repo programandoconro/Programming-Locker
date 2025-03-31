@@ -1,0 +1,48 @@
+body {
+  background-color: gray;
+  padding: 100px 50px;
+}
+.container {
+  transition: all 0.75s 0.25s;
+}
+.rotated {
+  transform: rotate(-10deg);
+}
+
+.menu-button {
+  background-color: orange;
+  color: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  transform: translate(-100px, -100px);
+  cursor: pointer;
+  transition: all 0.75s 0.25s;
+}
+.rotated-menu {
+  transform: translate(-100px, -100px) rotate(-90deg);
+}
+.hamburguer {
+  z-index: 10;
+  display: grid;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+}
+
+.hamburguer > * {
+  background-color: white;
+  width: 20px;
+  height: 5px;
+  transform: translate(125px, 125px);
+  margin-bottom: 5px;
+  cursor: pointer;
+}
+
+.close-button {
+  font-size: 32px;
+  transform: translate(50px, 75px);
+}

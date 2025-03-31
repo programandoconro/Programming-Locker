@@ -1,0 +1,35 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-image: url("https://images.unsplash.com/photo-1556745757-8d76bdb6984b");
+  background-size: cover;
+  backdrop-filter: blur(16px);
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.card {
+  color: black;
+  background-color: white;
+  padding: 50px;
+  border-radius: 5px;
+}
+
+.info-container {
+  display: grid;
+  gap: 10px;
+}
+
+.info-container button {
+  background-color: purple;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
+}
