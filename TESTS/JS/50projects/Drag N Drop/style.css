@@ -1,0 +1,22 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  gap: 20px;
+}
+.box {
+  border: 1px solid black;
+  width: 200px;
+  height: 200px;
+}
+.fill {
+  background-image: url("https://source.unsplash.com/random/200x200");
+  height: 200px;
+  width: 200px;
+  cursor: pointer;
+}
+
+.hovered {
+  border: 2px dashed gray;
+}

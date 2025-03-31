@@ -1,0 +1,25 @@
+.canvas {
+  border: solid 1px black;
+}
+
+.bar {
+  display: inline-flex;
+  background-color: steelblue;
+  padding: 22;
+  width: 90%;
+  align-items: center;
+  width: 100%;
+}
+
+.bar > * {
+  padding: 10px;
+  margin: 10px;
+}
+
+.bar .font-size {
+  color: #fff;
+}
+
+.bar > *:last-child {
+  margin-left: auto;
+}

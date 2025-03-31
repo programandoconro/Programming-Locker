@@ -1,0 +1,31 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: gray;
+}
+
+.card,
+.score {
+  display: none;
+}
+
+.card.active,
+.score.active {
+  display: flex;
+  flex-direction: column;
+}
+
+.card button {
+  background-color: rebeccapurple;
+  color: white;
+  border: none;
+  margin: 40px 0;
+  padding: 20px;
+  width: 400px;
+}

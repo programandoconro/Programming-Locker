@@ -1,0 +1,52 @@
+body {
+  margin: 0px;
+}
+
+.bg {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url("https://images.pexels.com/photos/450035/pexels-photo-450035.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+  background-size: cover;
+  height: 100vh;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  color: #fff;
+}
+
+.header {
+  position: sticky;
+  width: 100vw;
+  top: -0px;
+  color: #fff;
+}
+
+.header ul {
+  display: grid;
+  grid-template-columns: 6fr 1fr 1fr 1fr 1fr;
+  background-color: #000;
+  margin: 0;
+  padding: 0px;
+  height: 50px;
+  gap: 10px;
+  align-items: center;
+}
+
+.header li {
+  list-style-type: none;
+}
+
+.header ul :not(:first-child) {
+  cursor: pointer;
+}
+.header ul li p {
+  display: inline;
+  cursor: pointer;
+}
+
+.header ul :last-child {
+  margin-right: 10px;
+}
+.header ul :first-child {
+  margin-left: 10px;
+}

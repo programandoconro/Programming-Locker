@@ -1,0 +1,38 @@
+body {
+  background-color: #8e44ad;
+  color: white;
+  font-family: "Roboto Mono" sans-serif;
+  font-size: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  gap: 20px;
+}
+
+.twitter-logo::after {
+  content: "\f099";
+  font-family: "Font Awesome 6 brands";
+}
+.facebook-logo::after {
+  content: "\f39e";
+  font-family: "Font Awesome 6 brands";
+}
+.youtube-logo::after {
+  content: "\f167";
+  font-family: "Font Awesome 6 brands";
+}
+
+label {
+  font-size: 22px;
+}
+
+.container {
+  text-align: center;
+}
+
+@media (max-width: 480px) {
+  body {
+    display: grid;
+  }
+}

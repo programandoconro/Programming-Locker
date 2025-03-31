@@ -1,0 +1,39 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.card {
+  background-color: #4455bb;
+  padding: 50px;
+  border-radius: 10px;
+}
+
+.message {
+  color: white;
+  line-height: 2;
+  padding: 20px;
+  text-align: justify;
+}
+
+.loading {
+  background-color: white;
+  height: 3px;
+  width: 100%;
+  animation: loading 5s infinite;
+}
+
+@keyframes loading {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}

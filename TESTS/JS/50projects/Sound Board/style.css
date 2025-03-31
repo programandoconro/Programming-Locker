@@ -1,0 +1,21 @@
+body {
+  margin: 0;
+  height: 100vh;
+  background-color: rgb(161, 100, 223);
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.container {
+  flex-wrap: wrap;
+}
+
+button {
+  background-color: rebeccapurple;
+  color: white;
+  padding: 20px;
+  border: none;
+  border-radius: 5px;
+  margin: 1rem;
+}

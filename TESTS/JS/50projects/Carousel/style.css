@@ -1,0 +1,43 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.carousel {
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+  height: 530px;
+  width: 500px;
+  overflow: hidden;
+}
+
+.container {
+  transform: translateX(0);
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.container .image {
+  width: 500px;
+  height: 500px;
+  object-fit: cover;
+}
+
+.buttons-bar {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.buttons-bar button {
+  width: 245px;
+  border: none;
+  background-color: purple;
+  color: white;
+  height: 30px;
+}

@@ -1,0 +1,1 @@
+type IsNever<T> = any

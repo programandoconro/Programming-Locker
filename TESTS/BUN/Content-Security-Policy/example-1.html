@@ -1,0 +1,22 @@
+<div>
+  <h1>XSS example 1</h1>
+  <p id="text">
+    If Content security policy is working this text should be blue and not red
+  </p>
+  <style>
+    p {
+      color: red;
+    }
+  </style>
+</div>
+
+<script nonce="123">
+  const ele = document.getElementById("text");
+  ele.style.color = "blue";
+</script>
+
+<script>
+  window.alert("Hacked");
+  const ele = document.getElementById("text");
+  ele.style.color = "red";
+</script>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Rusty Chess</title>
+    <link data-trunk rel="copy-dir" href="img" />
+  </head>
+  <style>
+    html {
+      color: white;
+      user-select: none;
+      background-color: black;
+      position: relative;
+    }
+    table {
+      aspect-ratio: 1 /1;
+      width: 100vw;
+      max-width: 100vh;
+      background-color: gray;
+      color: black;
+      font-size: calc(0.25rem + 1.25vmin);
+      position: absolute;
+    }
+
+    tr:nth-child(odd) td:nth-child(even),
+    tr:nth-child(even) td:nth-child(odd) {
+      background: green;
+    }
+    .nomenclature {
+      position: absolute;
+    }
+    td {
+      text-align: center;
+      vertical-align: middle;
+    }
+
+    .piece {
+      position: absolute;
+      cursor: grab;
+      width: 10%;
+      height: 10%;
+      transform: translate(-50%, -50%);
+      z-index: 1;
+    }
+    .piece:active {
+      z-index: 2;
+    }
+  </style>
+</html>
